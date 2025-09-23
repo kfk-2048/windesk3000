@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>网上邻居</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body topmargin="0" leftmargin="0" scroll=no class=body>
+<div onclick="halt()" style="position: absolute; top: 10px; left: 10px; width: 80px; height: 50px;">
+    <p align="left"><img border="0" src="img/net.gif" vspace="4"><br>
+    <span nowrap style="font-family: Arial,宋体; font-size: 14px; font-weight: bold;color:#000000">网上邻居</span>
+</div>
+<div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td height="220" width="200" valign="top">
+      <div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="200" height="133">
+    <tr onclick="halt()">
+      <td width="204" height="114" valign="top" style="background-image: url('img/foldleft.gif'); background-repeat: no-repeat; background-attachment: fixed; background-position: left top">
+        <img src="img/line.gif" style="margin-left:2px;margin-top: 70px">
+      </td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2"><a href="mypc.htm">返回我的电脑</a></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg" style="color:red;width:80%;">收藏夹 友情链接</td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2" id="fname"></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg"></td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding: 2" id="Preview">说明：</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" id="txt" class="bg" style="padding: 2">选定项目查看说明！</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" style="padding: 2" class="bg" id="al"></td>
+    </tr>
+  </table>
+</div>
+      </td>
+      <td height="100%" valign="top">
+        <div id="pww" align="left" style="width:100%;height:100%;overflow:auto;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" height:"100%" style="padding:1" class="file-table" id="fileTable">
+            <thead>
+              <tr>
+                <td class="up1" width="38%" nowrap onclick="sortColumn(event, 0, 'CaseInsensitiveString')">名称</td>
+                <td class="up1" width="12%" nowrap onclick="sortColumn(event, 1, 'Number')">大小</td>
+                <td class="up1" width="18%" nowrap onclick="sortColumn(event, 2, 'CaseInsensitiveString')">类型</td>
+                <td class="up1" width="24%" nowrap onclick="sortColumn(event, 3, 'Date')">日期</td>
+                <td class="up1" width="8%" nowrap onclick="sortColumn(event, 4, 'Number')">点击</td>
+              </tr>
+            </thead>
+            <tbody> 
+<tr class="hang" ondblclick="window.open('https://www.aiva.ai/','_blank')">
+<td onclick="myfile(event)" data-path="https://www.aiva.ai/" data-ext="lnk" data-type="收藏夹" data-fname="aiva.ai" data-al="质量非常高的背景口水音乐" data-size="0KB">
+    <img src="img/url.gif" class="tu">ai音乐
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2025-9-6</td>
+  <td class="w8"></td>
+</tr>
+<tr class="hang" ondblclick="window.open('https://new.shuge.org/','_blank')">
+  <td onclick="myfile(event)" data-path="https://new.shuge.org/" data-ext="lnk" data-type="收藏夹" data-fname="shuge.org" data-al="书格是一个自由开放的在线古籍图书馆" data-size="0KB">
+    <img src="img/url.gif" class="tu">书格
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2021-08-10</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://shufajia.shufami.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://shufajia.shufami.com/" data-ext="lnk" data-type="收藏夹" data-fname="shufami.com" data-al="书法迷" data-size="0KB">
+    <img src="img/url.gif" class="tu">书法迷
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2021-03-04</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://izihun.com/art-edit/','_blank')">
+  <td onclick="myfile(event)" data-path="https://izihun.com/art-edit/" data-ext="lnk" data-type="收藏夹" data-fname="izihun.com" data-al="字体转换器" data-size="0KB">
+    <img src="img/url.gif" class="tu">字体转换器
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2020-09-23</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://tool.lu/','_blank')">
+  <td onclick="myfile(event)" data-path="https://tool.lu/" data-ext="lnk" data-type="收藏夹" data-fname="runoob.com" data-al="在线工具" data-size="0KB">
+    <img src="img/url.gif" class="tu">在线工具
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2020-09-16</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.ventusky.com','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.ventusky.com" data-ext="lnk" data-type="收藏夹" data-fname="ventusky.com" data-al="ventusky.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">短天气预报
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2020-06-18</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://0v0.ai/rmbg/','_blank')">
+  <td onclick="myfile(event)" data-path="https://0v0.ai/rmbg/" data-ext="lnk" data-type="收藏夹" data-fname="0v0.ai" data-al="图片放大" data-size="0KB">
+    <img src="img/url.gif" class="tu">图片放大
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2024-12-25</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.8qm.cn/','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.8qm.cn/" data-ext="lnk" data-type="收藏夹" data-fname="8qm.cn" data-al="英文字体转换器" data-size="0KB">
+    <img src="img/url.gif" class="tu">英文字体转换器
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2020-06-15</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://zh.wikihow.com/','_blank')">
+  <td onclick="myfile(event)" data-path="https://zh.wikihow.com/" data-ext="lnk" data-type="收藏夹" data-fname="wikihow.com" data-al="可以编辑的指导手册" data-size="0KB">
+    <img src="img/url.gif" class="tu">wikiHow
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2019-12-11</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.xiaomapan.com/','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.xiaomapan.com/" data-ext="lnk" data-type="收藏夹" data-fname="xitmi.com" data-al="小马盘搜索" data-size="0KB">
+    <img src="img/url.gif" class="tu">小马盘搜索
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2020-10-13</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.logoaa.com/','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.logoaa.com/" data-ext="lnk" data-type="收藏夹" data-fname="logoaa.com" data-al="logo在线设计" data-size="0KB">
+    <img src="img/url.gif" class="tu">logo在线设计
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2019-08-02</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.akuziti.com/mb/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.akuziti.com/mb/" data-ext="lnk" data-type="收藏夹" data-fname="毛笔字在线生成器" data-al="毛笔字在线生成器" data-size="0KB">
+    <img src="img/url.gif" class="tu">毛笔字在线生成器
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2019-07-19</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.remove.bg/','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.remove.bg/" data-ext="lnk" data-type="收藏夹" data-fname="在线抠图" data-al="在线抠图" data-size="0KB">
+    <img src="img/url.gif" class="tu">在线抠图
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2019-07-16</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.xuezhongcai.com/','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.xuezhongcai.com/" data-ext="lnk" data-type="收藏夹" data-fname="xuezhongcai.com" data-al="学种菜" data-size="0KB">
+    <img src="img/url.gif" class="tu">学种菜
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2024-12-25</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://zz123.com/','_blank')">
+  <td onclick="myfile(event)" data-path="https://zz123.com/" data-ext="lnk" data-type="收藏夹" data-fname="zz123.com" data-al="种子音乐" data-size="0KB">
+    <img src="img/url.gif" class="tu">种子音乐
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2024-12-25</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://lightpdf.com/zh/','_blank')">
+  <td onclick="myfile(event)" data-path="https://lightpdf.com/zh/" data-ext="lnk" data-type="收藏夹" data-fname="lightpdf.com" data-al="免费在线PDF编辑" data-size="0KB">
+    <img src="img/url.gif" class="tu">免费在线PDF编辑
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2018-05-09</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.msdmanuals.cn/','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.msdmanuals.cn/" data-ext="lnk" data-type="收藏夹" data-fname="msdmanuals.cn" data-al="默沙东诊疗手册" data-size="0KB">
+    <img src="img/url.gif" class="tu">默沙东诊疗手册
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2018-02-22</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://msdn.itellyou.cn/','_blank')">
+  <td onclick="myfile(event)" data-path="http://msdn.itellyou.cn/" data-ext="lnk" data-type="收藏夹" data-fname="itellyou.cn" data-al="纯净系统下载" data-size="0KB">
+    <img src="img/url.gif" class="tu">我告诉你
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2017-07-25</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.akuziti.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.akuziti.com/" data-ext="lnk" data-type="收藏夹" data-fname="youziku.com" data-al="艺体字在线生成" data-size="0KB">
+    <img src="img/url.gif" class="tu">艺体字在线生成
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2020-09-23</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://dribbble.com/','_blank')">
+  <td onclick="myfile(event)" data-path="https://dribbble.com/" data-ext="lnk" data-type="收藏夹" data-fname="dribbble.com" data-al="dribbble.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">dribbble.com
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2013-03-03</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://duomoyu.com/','_blank')">
+  <td onclick="myfile(event)" data-path="https://duomoyu.com/" data-ext="lnk" data-type="收藏夹" data-fname="techcn.com.cn" data-al="duomoyu.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">多摸鱼
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2020-11-18</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://1x.com/photo/43496','_blank')">
+  <td onclick="myfile(event)" data-path="http://1x.com/photo/43496" data-ext="lnk" data-type="收藏夹" data-fname="1x.com" data-al="1x.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">图片社交
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2012-09-21</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://wiwistudio.com/musictest/','_blank')">
+  <td onclick="myfile(event)" data-path="http://wiwistudio.com/musictest/" data-ext="lnk" data-type="收藏夹" data-fname="wiwistudio.com" data-al="wiwistudio.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">音乐天赋测试
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2012-08-26</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.sccnn.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.sccnn.com/" data-ext="lnk" data-type="收藏夹" data-fname="ourfolk.net" data-al="sccnn.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">免费素材
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2012-08-02</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://goldenrecord.org/','_blank')">
+  <td onclick="myfile(event)" data-path="http://goldenrecord.org/" data-ext="lnk" data-type="收藏夹" data-fname="goldenrecord.org" data-al="goldenrecord.org" data-size="0KB">
+    <img src="img/url.gif" class="tu">旅行者金唱片
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2012-06-13</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.similarsitesearch.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.similarsitesearch.com/" data-ext="lnk" data-type="收藏夹" data-fname="similarsitesearch.com" data-al="similarsitesearch.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">类似网站搜索
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2012-02-23</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.ixiqi.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.ixiqi.com/" data-ext="lnk" data-type="收藏夹" data-fname="ixiqi.com" data-al="ixiqi.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">爱稀奇
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2011-07-28</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.uupoop.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.uupoop.com/" data-ext="lnk" data-type="收藏夹" data-fname="uupoop.com" data-al="uupoop.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">在线ps
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2010-07-29</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://alcoo.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://alcoo.com/" data-ext="lnk" data-type="收藏夹" data-fname="ALCOO数码娱乐" data-al="alcoo.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">ALCOO数码娱乐
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2009-06-24</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.text-image.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.text-image.com/" data-ext="lnk" data-type="收藏夹" data-fname="text-image" data-al="text-image" data-size="0KB">
+    <img src="img/url.gif" class="tu">text-image
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2009-04-10</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.dreye.com.cn/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.dreye.com.cn/" data-ext="lnk" data-type="收藏夹" data-fname="译典通" data-al="dreye.com.cn" data-size="0KB">
+    <img src="img/url.gif" class="tu">译典通
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2009-03-28</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.meet99.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.meet99.com/" data-ext="lnk" data-type="收藏夹" data-fname="相约久久地标检索" data-al="meet99.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">相约久久地标检索
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2009-01-15</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.xmd5.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.xmd5.com/" data-ext="lnk" data-type="收藏夹" data-fname="md5转换" data-al="xmd5.com" data-size="0KB">
+    <img src="img/url.gif" class="tu">md5转换
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2008-07-18</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.cgart.cn/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.cgart.cn/" data-ext="lnk" data-type="收藏夹" data-fname="cgart" data-al="cgart" data-size="0KB">
+    <img src="img/url.gif" class="tu">cgart插画
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2008-01-31</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.68design.net/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.68design.net/" data-ext="lnk" data-type="收藏夹" data-fname="网页设计师联盟" data-al="网页设计师联盟" data-size="0KB">
+    <img src="img/url.gif" class="tu">网页设计师联盟
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2008-01-16</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://neostream.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://neostream.com/" data-ext="lnk" data-type="收藏夹" data-fname="flash站-电人" data-al="flash站-电人" data-size="0KB">
+    <img src="img/url.gif" class="tu">flash站-电人
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2007-10-21</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.zcool.com.cn/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.zcool.com.cn/" data-ext="lnk" data-type="收藏夹" data-fname="酷站与素材" data-al="酷站与素材" data-size="0KB">
+    <img src="img/url.gif" class="tu">酷站与素材
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2007-07-26</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.ninjai.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.ninjai.com/" data-ext="lnk" data-type="收藏夹" data-fname="ninjai动画" data-al="ninjai动画" data-size="0KB">
+    <img src="img/url.gif" class="tu">ninjai动画
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2007-05-10</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.gangqinpu.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.gangqinpu.com/" data-ext="lnk" data-type="收藏夹" data-fname="虫虫钢琴" data-al="钢琴曲谱" data-size="0KB">
+    <img src="img/url.gif" class="tu">虫虫钢琴
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2007-01-09</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.123cha.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.123cha.com/" data-ext="lnk" data-type="收藏夹" data-fname="综合查询" data-al="综合查询" data-size="0KB">
+    <img src="img/url.gif" class="tu">综合查询
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2006-12-26</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.ip138.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.ip138.com/" data-ext="lnk" data-type="收藏夹" data-fname="IP、手机、邮编查询" data-al="ip查询" data-size="0KB">
+    <img src="img/url.gif" class="tu">IP、手机、邮编查询
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2006-10-09</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.thefwa.com/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.thefwa.com/" data-ext="lnk" data-type="收藏夹" data-fname="FWA" data-al="国外优秀flash站集合" data-size="0KB">
+    <img src="img/url.gif" class="tu">FWA
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2003-08-07</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.yini.org/','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.yini.org/" data-ext="lnk" data-type="友情链接" data-fname="lili.cc" data-al="lili.cc" data-size="0KB">
+    <img src="img/lnk.gif" class="tu">秘密花园
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2012-12-25</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('http://www.51windows.net','_blank')">
+  <td onclick="myfile(event)" data-path="http://www.51windows.net" data-ext="lnk" data-type="友情链接" data-fname="无忧视窗" data-al="www.51windows.net" data-size="0KB">
+    <img src="img/lnk.gif" class="tu">无忧视窗
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2006-09-21</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('https://www.weibo.com/p/1005051246147933/','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.weibo.com/p/1005051246147933/" data-ext="lnk" data-type="友情链接" data-fname="王卯卯的BLOG" data-al="王卯卯的BLOG" data-size="0KB">
+    <img src="img/lnk.gif" class="tu">王卯卯的BLOG
+  </td>
+  <td class="w12"></td>
+  <td class="w18">快捷方式</td>
+  <td class="w24">2007-04-28</td>
+  <td class="w8"></td>
+</tr>
+
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<script src="folder.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<html>
+<script language=javascript>
+
+var Mouse_Obj="none";
+
+var pX
+
+var pY
+
+document.onmousemove=D_NewMouseMove;
+
+document.onmouseup=D_NewMouseUp;
+
+function m(c_Obj)
+
+{ Mouse_Obj=c_Obj;
+
+pX=parseInt(document.all(Mouse_Obj).style.left)-event.x;
+
+pY=parseInt(document.all(Mouse_Obj).style.top)-event.y; }
+
+function D_NewMouseMove()
+
+{if(Mouse_Obj!="none")
+
+{document.all(Mouse_Obj).style.left=pX+event.x;
+
+document.all(Mouse_Obj).style.top=pY+event.y;
+
+event.returnValue=false;}}
+
+function D_NewMouseUp()
+
+{Mouse_Obj="none";}
+
+</script>
+
+<script>
+
+ function alt(t1,t2,t3)
+
+{file.innerText=t1;
+
+size.innerText=t2;
+
+txt.innerText=t3;}
+
+function halt()
+
+{file.innerText='';
+
+size.innerText='';
+
+txt.innerText='移动鼠标查看说明，双击打开！';}
+
+</script>
+
+<script>
+
+function ico(id,top,left,target,name,size,alt){
+
+document.write("<div id="+id+" style='position:absolute; top:"+top+"; left:"+left+"; width:56; height:56;display:block;z-index:1;cursor: default'  onDblClick='"+target+"' OnMouseOver=alt('"+name+"','"+size+"','"+alt+"')  OnMouseOut=halt()><p align='center'><img border=0 onmousedown=m('"+id+"') vspace=5 src=img/"+id+".gif><br>"+name+"</div>")}
+
+function pop(win)
+
+{window.open(win,'','resizable,status,menubar,width=640,height=360,left=10,top=10')}
+
+
+</script>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>我的电脑</title>
+<style>
+
+<!--
+
+body         { background-color: #FFFFFF; color: #000080; font-family: Verdana; font-size:  9pt;}
+
+td,div{font-family: Verdana; font-size:  9pt }
+
+.bg          { background-color: infobackground; color: black; border: 1 solid #d0d0d0; 
+
+               padding: 2 }
+
+-->
+
+</style>
+
+</head>
+
+<body topmargin="0" leftmargin="0" scroll=no onselectstart="return false" oncontextmenu="self.event.returnValue=false">
+
+<div align="left">
+
+  <table border="0" cellpadding="0" cellspacing="0" width="206" height="133">
+
+    <tr>
+
+      <td width="204" height="114" valign="top"><img border="0" src="img/icon.gif" width="203" height="136"></td>
+
+    </tr>
+
+    <tr>
+
+      <td width="206"  height="19"style="padding:2">
+
+        文件名：
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td width="206" valign="top" id="file" class="bg">
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td width="206"  height="19"  style="padding:2">
+
+        大小：
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td width="206" valign="top" id="size"  class="bg">
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td width="206"  height="19"  style="padding: 2">
+
+        说明：
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td width="206" valign="top" id="txt"  class="bg">移动鼠标查看说明，双击打开！
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</div>
+
+<script>
+
+ico('soft','15','220','pop("http://free5.ys168.com/?ch3")','3.5英寸软盘(A:)','1.44MB','DOS年代的小游戏和工具');
+
+ico('hard','15','300','pop("https://ch3.lanzouo.com")','(C:)','4GB','实用软件下载');
+
+ico('dvd','15','380','window.location.href="download.htm"','DVD-RW(D:)','650MB','驱动、补丁下载');
+
+ico('config','15','460','window.location.href="set.htm"','控制面板','0字节','实用代码、资料、工具');
+
+ico('recycle','15','540','window.location.href="recycle.htm"','回收站','0字节','包含定期更新下来的文件');
+
+ico('doc','95','220','window.location.href="document.htm"','我的文档','0字节','收集整理的多媒体文件、电子书等……');
+
+ico('net','95','300','window.location.href="favorite.htm"','网上邻居','0字节','友情连接和收藏夹');
+
+ico('note','95','380','pop("img/getqrcode.jpg")','公告留言','0字节','微信公众号');
+
+ico('ch3','95','460','pop("img/ch3.gif")','主页图标','944字节','做链接的朋友请引用这个图标');
+
+ico('wzq','95','540','pop("smallgame/wzq/game.htm")','3D五子棋','0字节','请先安装java虚拟机');
+
+ico('dl','175','220','pop("smallgame/winmine.htm")','挖地雷','0字节','微软经典游戏');
+
+ico('box','175','300','pop("http://www.freememory.net")','聊天室','0字节','聊天室');
+
+</script>
+</body>
+</html>

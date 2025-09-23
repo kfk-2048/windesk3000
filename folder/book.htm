@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>电子图书</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body topmargin="0" leftmargin="0" scroll=no class=body>
+<div onclick="halt()" style="position: absolute; top: 10px; left: 10px; width: 80px; height: 50px;">
+    <p align="left"><img border="0" src="img/folder.gif" vspace="4"><br>
+    <span nowrap style="font-family: Arial,宋体; font-size: 14px; font-weight: bold;color:#000000">电子图书</span>
+</div>
+<div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td height="220" width="200" valign="top">
+      <div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="200" height="133">
+    <tr onclick="halt()">
+      <td width="204" height="114" valign="top" style="background-image: url('img/foldleft.gif'); background-repeat: no-repeat; background-attachment: fixed; background-position: left top">
+        <img src="img/line.gif" style="margin-left:2px;margin-top: 70px">
+      </td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2"><a href="document.htm">返回上级目录</a></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg" style="color:red;width:80%;">book</td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2" id="fname"></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg"></td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding: 2" id="Preview">说明：</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" id="txt" class="bg" style="padding: 2">选定项目查看说明！</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" style="padding: 2" class="bg" id="al"></td>
+    </tr>
+  </table>
+</div>
+      </td>
+      <td height="100%" valign="top">
+        <div id="pww" align="left" style="width:100%;height:100%;overflow:auto;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" height:"100%" style="padding:1" class="file-table" id="fileTable">
+            <thead>
+              <tr>
+                <td class="up1" width="38%" nowrap onclick="sortColumn(event, 0, 'CaseInsensitiveString')">名称</td>
+                <td class="up1" width="12%" nowrap onclick="sortColumn(event, 1, 'Number')">大小</td>
+                <td class="up1" width="18%" nowrap onclick="sortColumn(event, 2, 'CaseInsensitiveString')">类型</td>
+                <td class="up1" width="24%" nowrap onclick="sortColumn(event, 3, 'Date')">日期</td>
+                <td class="up1" width="8%" nowrap onclick="sortColumn(event, 4, 'Number')">点击</td>
+              </tr>
+            </thead>
+            <tbody>
+
+<tr class="hang" ondblclick="window.open('file/zg-m.txt','_blank')">
+  <td onclick="myfile(event)" data-path="file/zg-m.txt" data-ext="txt" data-type="文本文档" data-fname="梦至残缺" data-al="我无端的被某种力量支配着——周刚" data-size="20KB">
+    <img src="img/txt.gif" class="tu">梦至残缺
+  </td>
+  <td class="w12">20KB</td>
+  <td class="w18">文本文档</td>
+  <td class="w24">2005-12-4</td>
+  <td class="w8"></td>
+</tr>
+<tr class="hang" ondblclick="window.open('file/bt-911.txt','_blank')">
+  <td onclick="myfile(event)" data-path="file/bt-911.txt" data-ext="txt" data-type="文本文档" data-fname="宝塔酷诗-911事件速写" data-al="QQ：462419活动扳手2001.9.16" data-size="2KB">
+    <img src="img/txt.gif" class="tu">宝塔酷诗
+  </td>
+  <td class="w12">2KB</td>
+  <td class="w18">文本文档</td>
+  <td class="w24">2006-9-24</td>
+  <td class="w8"></td>
+</tr> 
+
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<script src="folder.js"></script>
+</body>
+</html>

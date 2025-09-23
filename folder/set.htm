@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>控制面板</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body topmargin="0" leftmargin="0" scroll=no class=body>
+<div onclick="halt()" style="position: absolute; top: 10px; left: 10px; width: 80px; height: 50px;">
+    <p align="left"><img border="0" src="img/config.gif" vspace="4"><br>
+    <span nowrap style="font-family: Arial,宋体; font-size: 14px; font-weight: bold;color:#000000">控制面板</span>
+</div>
+<div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td height="220" width="200" valign="top">
+      <div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="200" height="133">
+    <tr onclick="halt()">
+      <td width="204" height="114" valign="top" style="background-image: url('img/foldleft.gif'); background-repeat: no-repeat; background-attachment: fixed; background-position: left top">
+        <img src="img/line.gif" style="margin-left:2px;margin-top: 70px">
+      </td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2"><a href="mypc.htm">返回我的电脑</a></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg" style="color:red;width:80%;">config</td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2" id="fname"></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg"></td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding: 2" id="Preview">说明：</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" id="txt" class="bg" style="padding: 2">双击查看"控制面板"中的内容</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" style="padding: 2" class="bg" id="al"></td>
+    </tr>
+  </table>
+</div>
+      </td>
+      <td height="100%" valign="top">
+        <div id="pww" align="left" style="width:100%;height:100%;overflow:auto;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" height:"100%" style="padding:1" class="file-table" id="fileTable">
+            <thead>
+              <tr>
+                <td class="up1" width="38%" nowrap onclick="sortColumn(event, 0, 'CaseInsensitiveString')">名称</td>
+                <td class="up1" width="12%" nowrap onclick="sortColumn(event, 1, 'Number')">大小</td>
+                <td class="up1" width="18%" nowrap onclick="sortColumn(event, 2, 'CaseInsensitiveString')">类型</td>
+                <td class="up1" width="24%" nowrap onclick="sortColumn(event, 3, 'Date')">日期</td>
+                <td class="up1" width="8%" nowrap onclick="sortColumn(event, 4, 'Number')">点击</td>
+              </tr>
+            </thead>
+            <tbody> 
+<tr class="hang" ondblclick="window.open('htmltool/symbol.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/symbol.htm" data-ext="htm" data-type="网页文件" data-fname="emoji大全" data-al="emoji大全" data-size="0KB">
+    <img src="img/htm.gif" class="tu">emoji大全
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2024-12-01</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/stock/stockcalc.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/stock/stockcalc.htm" data-ext="htm" data-type="网页文件" data-fname="股票计算器" data-al="加仓减仓计算器" data-size="0KB">
+    <img src="img/htm.gif" class="tu">股票计算器
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2024-12-01</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/ocr/index.html','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/ocr/index.html" data-ext="htm" data-type="网页文件" data-fname="反OCR" data-al="反OCR" data-size="0KB">
+    <img src="img/htm.gif" class="tu">反OCR
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2024-12-01</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/ubb.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/ubb.htm" data-ext="htm" data-type="网页文件" data-fname="干扰码清除" data-al="干扰码清除" data-size="0KB">
+    <img src="img/htm.gif" class="tu">干扰码清除
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/htmleditonline.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/htmleditonline.htm" data-ext="htm" data-type="网页文件" data-fname="HTML编辑器" data-al="HTML在线编辑" data-size="0KB">
+    <img src="img/htm.gif" class="tu">HTML编辑器
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/color/index.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/color/index.htm" data-ext="htm" data-type="网页文件" data-fname="网页配色方案" data-al="也适用于其他平面设计" data-size="0KB">
+    <img src="img/htm.gif" class="tu">网页配色方案
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/colorblender.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/colorblender.htm" data-ext="htm" data-type="网页文件" data-fname="颜色渐变配色" data-al="颜色渐变配色" data-size="0KB">
+    <img src="img/htm.gif" class="tu">颜色渐变配色
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2007-08-02</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/bgys.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/bgys.htm" data-ext="htm" data-type="网页文件" data-fname="背景色选择" data-al="常用颜色的中英文" data-size="0KB">
+    <img src="img/htm.gif" class="tu">常用色名称
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/pj/ch3.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/pj/ch3.htm" data-ext="htm" data-type="网页文件" data-fname="在线破解" data-al="针对网吧屏蔽软件的破解控件" data-size="0KB">
+    <img src="img/htm.gif" class="tu">在线破解
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+
+
+<tr class="hang" ondblclick="window.open('htmltool/jfhh.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/jfhh.htm" data-ext="htm" data-type="网页文件" data-fname="汉字繁简互换工具" data-al="如果繁体字无法显示，请确认你的浏览器使用宋体作为默认字体" data-size="0KB">
+    <img src="img/htm.gif" class="tu">汉字繁简互换工具
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/py.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/py.htm" data-ext="htm" data-type="网页文件" data-fname="汉字拼音互换工具" data-al="仅ie浏览器可用" data-size="0KB">
+    <img src="img/htm.gif" class="tu">汉字拼音互换工具
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/dwzh.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/dwzh.htm" data-ext="htm" data-type="网页文件" data-fname="度量衡转换工具" data-al="单位换算" data-size="0KB">
+    <img src="img/htm.gif" class="tu">度量衡转换工具
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/jdtool.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/jdtool.htm" data-ext="htm" data-type="网页文件" data-fname="经典小工具" data-al="经典小工具" data-size="0KB">
+    <img src="img/htm.gif" class="tu">经典小工具
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/fpcs.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/fpcs.htm" data-ext="htm" data-type="网页文件" data-fname="肥胖检测" data-al="体重身高比" data-size="0KB">
+    <img src="img/htm.gif" class="tu">肥胖检测
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/woman.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/woman.htm" data-ext="htm" data-type="网页文件" data-fname="妇女安全期测试" data-al="安全期计算小工具" data-size="0KB">
+    <img src="img/htm.gif" class="tu">妇女安全期查询
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+
+<tr class="hang" ondblclick="window.open('htmltool/xzsp.htm','_blank')">
+  <td onclick="myfile(event)" data-path="htmltool/xzsp.htm" data-ext="htm" data-type="网页文件" data-fname="星座速配" data-al="星座速配" data-size="0KB">
+    <img src="img/htm.gif" class="tu">星座速配
+  </td>
+  <td class="w12"></td>
+  <td class="w18">网页文件</td>
+  <td class="w24">2006-09-27</td>
+  <td class="w8"></td>
+</tr>
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<script src="folder.js"></script>
+</body>
+</html>

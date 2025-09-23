@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图像</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body topmargin="0" leftmargin="0" scroll=no class=body>
+<div onclick="halt()" style="position: absolute; top: 10px; left: 10px; width: 80px; height: 50px;">
+    <p align="left"><img border="0" src="img/folder.gif" vspace="4"><br>
+    <span nowrap style="font-family: Arial,宋体; font-size: 14px; font-weight: bold;color:#000000">图片文件夹</span>
+</div>
+<div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td height="220" width="200" valign="top">
+      <div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="200" height="133">
+    <tr onclick="halt()">
+      <td width="204" height="114" valign="top" style="background-image: url('img/foldleft.gif'); background-repeat: no-repeat; background-attachment: fixed; background-position: left top">
+        <img src="img/line.gif" style="margin-left:2px;margin-top: 70px">
+      </td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2"><a href="document.htm">返回上级目录</a></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg" style="color:red;width:80%;">image</td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2" id="fname"></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg"></td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding: 2" id="Preview">说明：</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" id="txt" class="bg" style="padding: 2">选定项目查看说明！</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" style="padding: 2" class="bg" id="al"></td>
+    </tr>
+  </table>
+</div>
+      </td>
+      <td height="100%" valign="top">
+        <div id="pww" align="left" style="width:100%;height:100%;overflow:auto;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" height:"100%" style="padding:1" class="file-table" id="fileTable">
+            <thead>
+              <tr>
+                <td class="up1" width="38%" nowrap onclick="sortColumn(event, 0, 'CaseInsensitiveString')">名称</td>
+                <td class="up1" width="12%" nowrap onclick="sortColumn(event, 1, 'Number')">大小</td>
+                <td class="up1" width="18%" nowrap onclick="sortColumn(event, 2, 'CaseInsensitiveString')">类型</td>
+                <td class="up1" width="24%" nowrap onclick="sortColumn(event, 3, 'Date')">日期</td>
+                <td class="up1" width="8%" nowrap onclick="sortColumn(event, 4, 'Number')">点击</td>
+              </tr>
+            </thead>
+            <tbody>
+<tr class="hang" ondblclick="window.open('file/bz.bmp','_blank')">
+  <td onclick="myfile(event)" data-path="file/bz.bmp" data-ext="bmp" data-type="BMP 图像" data-fname="标志" data-al="标志" data-size="77KB">
+    <img src="img/bmp.gif" class="tu">摄像头回放
+  </td>
+  <td class="w12">77KB</td>
+  <td class="w18">BMP 图像</td>
+  <td class="w24">2006-10-25</td>
+  <td class="w8"></td>
+</tr>
+<tr class="hang" ondblclick="window.open('file/nhxhw.gif','_blank')">
+  <td onclick="myfile(event)" data-path="file/nhxhw.gif" data-ext="gif" data-type="GIF 图像" data-fname="qq表情" data-al="qq表情" data-size="11KB">
+    <img src="img/gif.gif" class="tu">qq表情
+  </td>
+  <td class="w12">11KB</td>
+  <td class="w18">GIF 图像</td>
+  <td class="w24">2006-10-25</td>
+  <td class="w8"></td>
+</tr>
+<tr class="hang" ondblclick="window.open('file/cxf.jpg','_blank')">
+  <td onclick="myfile(event)" data-path="file/cxf.jpg" data-ext="jpeg" data-type="Jpeg 图像" data-fname="涂鸦" data-al="陈小菲" data-size="87KB">
+    <img src="img/jpeg.gif" class="tu">涂鸦
+  </td>
+  <td class="w12">87KB</td>
+  <td class="w18">Jpeg 图像</td>
+  <td class="w24">2006-10-25</td>
+  <td class="w8"></td>
+</tr> 
+              
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<script src="folder.js"></script>
+</body>
+</html>

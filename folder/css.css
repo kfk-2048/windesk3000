@@ -1,0 +1,190 @@
+body {
+    font-family: 'MS Shell Dlg', 'Microsoft YaHei', Tahoma, sans-serif;
+    font-size: 12px;
+    background-color: #336699;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+td, div, input, textarea {
+    font-family: 'MS Shell Dlg', 'Microsoft YaHei', Tahoma, sans-serif;
+    font-size: 12px;
+    cursor: default;
+}
+.title {
+    background-color: #000080;
+    color: #fdf7d3;
+    padding: 1px;
+    font-family: 'Microsoft YaHei', SimSun;
+    font-size: 12px;
+}
+a {
+    color: #000000;
+    text-decoration: none;
+    cursor: default;
+}
+a:hover {
+    text-decoration: underline;
+}
+.shuru {
+    background-color: #FF9966;
+}
+#ie5menu {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    width: 110px;
+    z-index: 10000;
+}
+SELECT {
+    font-size: 12px;
+    font-family: "MS Shell Dlg", 'Microsoft YaHei', sans-serif;
+}
+.article {
+    border: 1px solid black;
+    visibility: hidden;
+    background-color: infobackground;
+    padding: 4px;
+    text-align: left;
+}
+HR {
+    width: 95%;
+    border: 1px inset #ffffff;
+}
+.up {
+    background-color: #cccccc;
+    color: #000000;
+    border: 2px outset #ffffff;
+}
+.down {
+    background-color: #cccccc;
+    border: 2px inset #ffffff;
+}
+.up1 {
+    background-color: #cccccc;
+    color: #000000;
+    border: 1px outset #ffffff;
+}
+.down1 {
+    background-color: #cccccc;
+    border: 1px inset #ffffff;
+}
+tr.over, .menuover {
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #000080;
+    cursor: default;
+}
+tr.out, .menuout {
+    font-size: 12px;
+    color: #000000;
+    background-color: #cccccc;
+}
+div.rm_div {
+    position: absolute;
+    opacity: 1;
+    display: none;
+    background-color: #cccccc;
+    border: 2px outset #ffffff;
+    width: 0;
+    height: 0;
+    padding: 1px;
+    z-index: 100000;
+}
+.w2kfont {
+    font-family: Tahoma;
+    font-size: 8pt;
+}
+.time {
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: #000000;
+}
+.shortcut {
+    position: absolute;
+    left: 14px;
+    top: 24px;
+    width: 11px;
+    height: 11px;
+}
+.ico {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 60px;
+    height: 45px;
+    font-size: 12px;
+    font-family: 'Microsoft YaHei', SimSun;
+    color: #ffffff;
+    cursor: default;
+}
+.onblur {
+    color: #ffffff;
+    cursor: default;
+}
+.onfocus {
+    background-color: #000080;
+    color: #FFFFFF;
+}
+
+
+.bg {padding: 2px; table-layout: fixed; word-break: break-all;}
+.arrow1 { color: white; font-family: webdings; font-size: 12px; }
+.cap {text-transform: capitalize;}
+.body {background-color: white; user-select:none; -webkit-user-select:none;}
+
+.hang:hover{background:#eee}
+td{white-space:nowrap}
+.w12{width:12%}.w18{width:18%}.w24{width:24%}.w8{width:8%}
+img.tu{width:16px; height:16px; margin:0 2px; vertical-align:middle;}
+
+.up1 {
+    padding-left: 3px;
+    padding-top: 1px;
+    white-space: nowrap;
+    background-color: #D6D3CE;
+    border-right: 1px solid buttonshadow;
+    border-top: 1px solid buttonhighlight;
+    border-left: 1px solid buttonhighlight;
+    border-bottom: 1px solid buttonshadow;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    user-select: none;
+}
+.up1:hover {
+    background-color: #b0adab;
+}
+.arrow {
+    margin-left: 5px;
+    font-weight: bold;
+}
+#pww {
+    width: calc(100% - 202px);
+    height: 100%;
+    overflow: auto;
+}
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.file-table thead tr {
+    background-color: #D6D3CE;
+}
+.file-table tbody tr:hover {
+    background-color: #EEE;
+}
+
+/* 新增样式用于现代化布局 */
+#pww {
+    width: calc(100% - 202px);
+    height: 100%;
+    overflow: auto;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    #pww {
+        width: 100%;
+    }
+}

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>音频文件夹</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body topmargin="0" leftmargin="0" scroll=no class=body>
+<div onclick="halt()" style="position: absolute; top: 10px; left: 10px; width: 80px; height: 50px;">
+    <p align="left"><img border="0" src="img/folder.gif" vspace="4"><br>
+    <span nowrap style="font-family: Arial,宋体; font-size: 14px; font-weight: bold;color:#000000">音频文件夹</span>
+</div>
+<div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td height="220" width="200" valign="top">
+      <div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="200" height="133">
+    <tr onclick="halt()">
+      <td width="204" height="114" valign="top" style="background-image: url('img/foldleft.gif'); background-repeat: no-repeat; background-attachment: fixed; background-position: left top">
+        <img src="img/line.gif" style="margin-left:2px;margin-top: 70px">
+      </td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2"><a href="document.htm">返回上级目录</a></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg" style="color:red;width:80%;">audio</td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding:2" id="fname"></td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" class="bg"></td>
+    </tr>
+    <tr>
+      <td width="206" height="19" style="padding: 2" id="Preview">说明：</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" id="txt" class="bg" style="padding: 2">选定项目查看说明！</td>
+    </tr>
+    <tr>
+      <td width="206" valign="top" style="padding: 2" class="bg" id="al"></td>
+    </tr>
+  </table>
+</div>
+      </td>
+      <td height="100%" valign="top">
+        <div id="pww" align="left" style="width:100%;height:100%;overflow:auto;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" height:"100%" style="padding:1" class="file-table" id="fileTable">
+            <thead>
+              <tr>
+                <td class="up1" width="38%" nowrap onclick="sortColumn(event, 0, 'CaseInsensitiveString')">名称</td>
+                <td class="up1" width="12%" nowrap onclick="sortColumn(event, 1, 'Number')">大小</td>
+                <td class="up1" width="18%" nowrap onclick="sortColumn(event, 2, 'CaseInsensitiveString')">类型</td>
+                <td class="up1" width="24%" nowrap onclick="sortColumn(event, 3, 'Date')">日期</td>
+                <td class="up1" width="8%" nowrap onclick="sortColumn(event, 4, 'Number')">点击</td>
+              </tr>
+            </thead>
+            <tbody>
+
+
+<tr class="hang" ondblclick="window.open('file/半拿铁.wma','_blank')">
+  <td onclick="myfile(event)" data-path="https://www.xiaoyuzhoufm.com/podcast/62382c1103bea1ebfffa1c00" data-ext="wma" data-type="Windows Media" data-fname="半拿铁播客" data-al="刘飞Lufy、潇磊" data-size="0KB">
+    <img src="img/stream.gif" class="tu">半拿铁 | 商业沉浮录
+  </td>
+  <td class="w12">0KB</td>
+  <td class="w18">Windows Media</td>
+  <td class="w24">2024-10-21</td>
+  <td class="w8"></td>
+</tr>  
+<tr class="hang" ondblclick="window.open('file/kungfu.mp3','_blank')">
+  <td onclick="myfile(event)" data-path="file/kungfu.mp3" data-ext="mp3" data-type="Winamp 文件" data-fname="功夫剪辑版" data-al="你们这些败类" data-size="2,120KB">
+    <img src="img/mp3.gif" class="tu">你们这些败类
+  </td>
+  <td class="w12">2,120KB</td>
+  <td class="w18">Winamp 文件</td>
+  <td class="w24">2007-10-21</td>
+  <td class="w8"></td>
+</tr> 
+<tr class="hang" ondblclick="window.open('file/flirting_scholar.mid','_blank')">
+  <td onclick="myfile(event)" data-path="file/flirting_scholar.mid" data-ext="mid" data-type="MID 序列" data-fname="唐伯虎点秋香" data-al="烧鸡翅，我中意吃" data-size="9KB">
+    <img src="img/mid.gif" class="tu">烧鸡翅，我中意吃
+  </td>
+  <td class="w12">9KB</td>
+  <td class="w18">MID 序列</td>
+  <td class="w24">2006-12-25</td>
+  <td class="w8"></td>
+</tr> 
+<tr class="hang" ondblclick="window.open('file/love.rm','_blank')">
+  <td onclick="myfile(event)" data-path="file/love.rm" data-ext="rm" data-type="Real Player 文件" data-fname="爱的奉献" data-al="翁倩玉" data-size="2,992KB">
+    <img src="img/ram.gif" class="tu">爱的奉献
+  </td>
+  <td class="w12">2,992KB</td>
+  <td class="w18">Real Player 文件</td>
+  <td class="w24">2006-12-25</td>
+  <td class="w8"></td>
+</tr>  
+
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<script src="folder.js"></script>
+</body>
+</html>
