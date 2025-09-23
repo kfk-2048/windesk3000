@@ -1,0 +1,143 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>股票补仓计算器,股票成本价计算器</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script type="text/javascript" src="../../../../js/jquery-1.7.2.min.js"></script>
+
+<link rel="stylesheet" href="css/calc.css">
+<script type="text/javascript" src="js/jump.js"></script>
+<script type="text/javascript" src="js/calc.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-50170531-1');
+</script>
+</head>
+<body class="vsc-initialized">
+<div class="box_980 clearfix mt10">
+  <div class="l">
+    <div class="art_cnmo_l">
+      <div class="art_nr">
+        <div class="posts">
+          <div class="loop">
+            <div class="content_body">
+              股票补仓成本计算器
+            </div>
+            <span class="title-l"></span>
+            <div class="clear"></div>
+          </div>
+          <div class="loop">
+            <div class="content_body">
+              <ul class="jtab">
+                <li class="">补仓</li>
+                <li class="active">减仓</li>
+                <li>清仓</li>
+              </ul>
+              <div id="cent">
+                <div class="elem">
+                  <div class="part1" id="T1">成本价</div>
+                  <input type="text" class="in" id="P1" value="">
+                  <span>元/股</span> </div>
+                <div class="elem">
+                  <div class="part1" id="T2">持股数</div>
+                  <input type="text" class="in" id="P2" value="">
+                  <span>股</span> </div>
+                <div class="elem">
+                  <div class="part1" id="T3">减仓价</div>
+                  <input type="text" class="in" id="P3" value="">
+                  <span>元/股</span> </div>
+                <div class="elem" id="H1">
+                  <div class="part1" id="T4">减仓数</div>
+                  <input type="text" class="in" id="P4" value="">
+                  <span>股</span> </div>
+                <div class="elem" id="H2">
+                  <div class="part1">最终成本</div>
+                  <input type="text" class="in" readonly id="D1">
+                  <span>元</span> </div>
+                <div class="elem" id="H3">
+                  <div class="part1">最终数量</div>
+                  <input type="text" class="in" readonly id="D2">
+                  <span>股</span> </div>
+                <div class="elem">
+                  <div class="part1">手续费</div>
+                  <input type="text" class="in" value="0.35" id="C1">
+                  <span>‰ (不足5元按5元收取)</span> </div>
+                <div class="elem">
+                  <div class="part1">过户费</div>
+                  <input type="text" class="in" value="1" id="C2">
+                  <span>元/千股 (最低收取1元)</span> </div>
+                <div class="elem">
+                  <div class="part1">通信费</div>
+                  <input type="text" class="in" value="0" id="C3">
+                  <span>元</span> </div>
+                <div class="jbutton"> <a href="javascript:void(0);" onClick="jsdetail.jsresult()">计 算</a> <a href="javascript:void(0);" onClick="jsdetail.detailShow()" id="xx">详 细</a> </div>
+                <div class="detailR">
+                  <div class="mrj"><span id="S1">买入成本价: </span><span class="nxt1"></span></div>
+                  <div class="t"><span id="S2">买入成交金额 :</span> <span class="nxt2"></span></div>
+                  <div class="cmain">
+                    <div class="c_3 h"> 手续费 : <span class="nxt3"></span> </div>
+                    <div class="c_3">
+                      <div style="">过户费 : <span class="nxt4"></span></div>
+                      <div style="">通信费 : <span class="nxt5"></span></div>
+                    </div>
+                    <div class="c_3 h"> 印花税 : <span class="nxt6"></span> </div>
+                  </div>
+                  <div class="t"> 总计费用 : <span class="nxt7"></span> </div>
+                  <div class="kg"></div>
+                  <div class="cbj"><span id="S3">减仓后成本价: </span><span class="nxt8"></span></div>
+                  <div class="t"><span id="S4">减仓卖出成交金额: </span><span class="nxt9"></span></div>
+                  <div class="cmain">
+                    <div class="c_3 h"> 手续费 : <span class="nxt10"></span> </div>
+                    <div class="c_3">
+                      <div>过户费 : <span class="nxt11"></span></div>
+                      <div>通信费 : <span class="nxt12"></span></div>
+                    </div>
+                    <div class="c_3 h"> 印花税 : <span class="nxt13"></span> </div>
+                  </div>
+                  <div class="t"> 总计费用 : <span class="nxt14"></span> </div>
+                </div>
+              </div>
+              <div class="d">
+                <div class="d1">
+                  <input type="button" value="清屏" class="d2 iq" onClick="calculator.clearAll();">
+                  <input type="button" value="退格" class="d2" onClick="calculator.remove();">
+                  <input type="button" value="÷" class="d2" onClick="calculator.input(this,3);">
+                </div>
+                <div class="d1">
+                  <input type="button" value="7" class="d2" onClick="calculator.input(this,-1);" id="in_7">
+                  <input type="button" value="8" class="d2" onClick="calculator.input(this,-1);" id="in_8">
+                  <input type="button" value="9" class="d2" onClick="calculator.input(this,-1);" id="in_9">
+                  <input type="button" value="×" class="d2" onClick="calculator.input(this,2);">
+                </div>
+                <div class="d1">
+                  <input type="button" value="4" class="d2" onClick="calculator.input(this,-1);" id="in_4">
+                  <input type="button" value="5" class="d2" onClick="calculator.input(this,-1);" id="in_5">
+                  <input type="button" value="6" class="d2" onClick="calculator.input(this,-1);" id="in_6">
+                  <input type="button" value="-" class="d2" onClick="calculator.input(this,1);">
+                </div>
+                <div class="d1">
+                  <input type="button" value="1" class="d2" onClick="calculator.input(this,-1);" id="in_1">
+                  <input type="button" value="2" class="d2" onClick="calculator.input(this,-1);" id="in_2">
+                  <input type="button" value="3" class="d2" onClick="calculator.input(this,-1);" id="in_3">
+                  <input type="button" value="+" class="d2" onClick="calculator.input(this,0);">
+                </div>
+                <div class="d1">
+                  <input type="button" value="0" class="d2 i0" onClick="calculator.input(this,-1);" id="in_0">
+                  <input type="button" value="." class="d2" onClick="calculator.input(this,-1);">
+                  <input type="button" value="=" class="d2" onClick="calculator.input(this,-2);">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,405 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0043)http://meyerweb.com/eric/tools/color-blend/ -->
+<HTML><HEAD><TITLE>Color Blender</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<STYLE type=text/css>BODY {
+	BACKGROUND: white; COLOR: black
+}
+FORM {
+	MARGIN: 0px
+}
+H1 {
+	MARGIN-BOTTOM: 0.33em; PADDING-BOTTOM: 0px; LINE-HEIGHT: 0.85em; BORDER-BOTTOM: 2px solid; FONT-FAMILY: Arial, sans-serif
+}
+#main {
+	PADDING-BOTTOM: 0.5em; BORDER-BOTTOM: 1px solid
+}
+#uicell {
+	WIDTH: 25em
+}
+#uicell TH {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 0.5em; BORDER-TOP: black 0px solid; BORDER-LEFT: black 0px solid; WIDTH: 6em; BORDER-BOTTOM: black 1px solid; TEXT-ALIGN: right
+}
+#uicell TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+#uicell TD.pal {
+	PADDING-RIGHT: 3em; PADDING-LEFT: 3em; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+#uicell #gobuttons TD {
+	HEIGHT: 1.5em
+}
+INPUT {
+	FONT: 0.85em "Andale Mono", Courier, monospace
+}
+#input A {
+	FONT: 0.85em "Andale Mono", Courier, monospace
+}
+#input {
+	MARGIN: 0px 0px 1em
+}
+#output {
+	MARGIN: 0px 0px 1em
+}
+#input TD {
+	WHITE-SPACE: nowrap
+}
+#input A {
+	BORDER-RIGHT: silver 2px outset; PADDING-RIGHT: 0.25em; BORDER-TOP: silver 2px outset; PADDING-LEFT: 0.25em; BACKGROUND: silver; PADDING-BOTTOM: 1px; BORDER-LEFT: silver 2px outset; CURSOR: pointer; PADDING-TOP: 1px; BORDER-BOTTOM: silver 2px outset
+}
+#input .coltype {
+	BACKGROUND: #eee; BORDER-TOP-STYLE: inset; BORDER-RIGHT-STYLE: inset; BORDER-LEFT-STYLE: inset; BORDER-BOTTOM-STYLE: inset
+}
+#output INPUT {
+	BORDER-RIGHT: white 2px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 2px solid; BORDER-BOTTOM: white 0px solid
+}
+#output TD.text {
+	BORDER-BOTTOM: silver 1px dotted
+}
+#watercell {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: silver; PADDING-BOTTOM: 0px; WIDTH: 75px; PADDING-TOP: 0px
+}
+#grid {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 0px solid; BACKGROUND: black; MARGIN: 5px 4px; BORDER-LEFT: black 0px solid; BORDER-BOTTOM: black 1px solid
+}
+#grid TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 11px; LINE-HEIGHT: 11px; PADDING-TOP: 0px; HEIGHT: 11px
+}
+#grid TD A {
+	BORDER-RIGHT: black 0px solid; BORDER-TOP: black 1px solid; DISPLAY: block; BORDER-LEFT: black 1px solid; WIDTH: 10px; LINE-HEIGHT: 10px; BORDER-BOTTOM: black 0px solid; HEIGHT: 10px
+}
+#textcell P {
+	PADDING-RIGHT: 1em; PADDING-LEFT: 1.5em; PADDING-BOTTOM: 1em; MARGIN: 0px; PADDING-TOP: 0px
+}
+#footer {
+	FONT: italic 75% sans-serif; COLOR: #999
+}
+#footer P {
+	MARGIN: 0px 0px 1em
+}
+#footer IMG {
+	FLOAT: right; MARGIN: 0px 0px 0.5em 2em
+}
+</STYLE>
+
+<SCRIPT type=text/javascript>
+// Thanks to Steve Champeon (hesketh.com) for explaining the math in such a way that I could 
+// understand it and create this tool
+// Thanks to Roberto Diez for the idea to create the "waterfall" display
+// Thanks to the Rhino book, I was able to (clumsily) set up the Color object
+
+var cursor = 0;
+var colType = 'hex';
+var base = 16;
+var ends = new Array(new Color,new Color);
+var step = new Array(3);
+var palette = new Array(new Color,new Color,new Color,new Color,new Color,new Color,new Color,new Color,new Color,new Color,new Color,new Color);
+
+function GetElementsWithClassName(elementName,className) {
+	var allElements = document.getElementsByTagName(elementName);
+	var elemColl = new Array();
+	for (i = 0; i< allElements.length; i++) {
+		if (allElements[i].className == className) {
+			elemColl[elemColl.length] = allElements[i];
+		}
+	}
+	return elemColl;
+}
+
+function Color(r,g,b) {
+	this.r = r;
+	this.g = g;
+	this.b = b;
+	this.coll = new Array(r,g,b);
+	this.valid = cVerify(this.coll);
+	this.text = cText(this.coll);
+	this.bg = cText(this.coll);
+}
+
+function cVerify(c) {
+	var valid = 'n';
+	if ((!isNaN(c[0])) && (!isNaN(c[1])) && (!isNaN(c[2]))) {valid = 'y'}
+	return valid;
+}
+
+function cText(c) {
+	var result = '';
+	var d = 1;
+	if (colType == 'rgbp') {d = 2.55}
+	for (k = 0; k < 3; k++) {
+		val = Math.round(c[k]/d);
+		piece = val.toString(base);
+		if (colType == 'hex' && piece.length < 2) {piece = '0' + piece;}
+		if (colType == 'rgbp') {piece = piece + '%'};
+		if (colType != 'hex' && k < 2) {piece = piece + ',';}
+		result = result + piece;
+	}
+	if (colType == 'hex') {result = '#' + result.toUpperCase();}
+		else {result = 'rgb(' + result + ')';}
+	return result;
+}
+
+function colorParse(c,t) {
+	var m = 1;
+	c = c.toUpperCase();
+	col = c.replace(/[\#rgb\(]*/,'');
+	if (t == 'hex') {
+		if (col.length == 3) {
+			a = col.substr(0,1);
+			b = col.substr(1,1);
+			c = col.substr(2,1);
+			col = a + a + b + b + c + c;
+		}
+		var num = new Array(col.substr(0,2),col.substr(2,2),col.substr(4,2));
+		var base = 16;
+	} else {
+		var num = col.split(',');
+		var base = 10;
+	}
+	if (t == 'rgbp') {m = 2.55}
+	var ret = new Array(parseInt(num[0],base)*m,parseInt(num[1],base)*m,parseInt(num[2],base)*m);
+	return(ret);
+}
+
+function colorPour(pt,n) {
+	var textObj = document.getElementById(pt + n.toString());
+	var colObj = document.getElementById(pt.substring(0,1) + n.toString());
+	if (pt == 'col') {temp = ends[n]} else {temp = palette[n]}
+	if (temp.valid == 'y') {
+		textObj.value = temp.text;
+		colObj.style.backgroundColor = temp.bg;
+	}
+}
+
+function colorStore(n) {
+	var inVal = 'col'+n.toString();
+	var inCol = document.getElementById(inVal).value;
+	var c = colorParse(inCol,colType);
+	ends[n] = new Color(c[0],c[1],c[2]);
+	if (ends[n].valid == 'y') {colorPour('col',n)}
+}
+
+function stepCalc() {
+	var steps = parseInt(document.getElementById('steps').value) + 1;
+	step[0] = (ends[1].r - ends[0].r) / steps;
+	step[1] = (ends[1].g - ends[0].g) / steps;
+	step[2] = (ends[1].b - ends[0].b) / steps;
+}
+
+function mixPalette() {
+	var steps = parseInt(document.getElementById('steps').value);
+	var count = steps + 1;
+	palette[0] = new Color(ends[0].r,ends[0].g,ends[0].b);
+	palette[count] = new Color(ends[1].r,ends[1].g,ends[1].b);
+	for (i = 1; i < count; i++) {
+		var r = (ends[0].r + (step[0] * i));
+		var g = (ends[0].g + (step[1] * i));
+		var b = (ends[0].b + (step[2] * i));
+			palette[i] = new Color(r,g,b);
+	}
+	for (j = count + 1; j < 12; j++) {
+		palette[j].text = '';
+		palette[j].bg = 'white';
+	}
+}
+
+function drawPalette() {
+	stepCalc();
+	mixPalette();
+	for (i = 0; i < 12; i++) {
+		colorPour('pal',i);
+	}		
+}
+
+function setCursor(n) {
+	cursor = n;
+	var obj1 = document.getElementById('col0');
+	var obj2 = document.getElementById('col1');
+	obj1.style.backgroundColor = '';
+	obj2.style.backgroundColor = '';
+	if (cursor >= 0 && cursor <= 1) {
+		document.getElementById('col'+cursor).style.backgroundColor = '#FF9';
+	}
+}
+
+function colorIns(c) {
+	var obj = document.getElementById('col'+cursor);
+	var result = colorParse(c,'hex');
+	ends[cursor] = new Color(result[0],result[1],result[2]);
+	obj.value = ends[cursor].text;
+	if (ends[cursor].valid == 'y') {colorPour('col',cursor)}
+}
+
+function setType(inp) {
+	colType = inp;
+	if (inp == 'hex') {base = 16;} else {base = 10;}
+	for (i = 0; i < 2; i++) {
+		var obj = document.getElementById('col' + i);
+		if (ends[i].valid == 'y') {
+			ends[i] = new Color(ends[i].r,ends[i].g,ends[i].b);
+			obj.value = ends[i].text;
+		}
+	}
+	drawPalette();
+	document.getElementById('hex').className = '';
+	document.getElementById('rgbd').className = '';
+	document.getElementById('rgbp').className = '';
+	document.getElementById(inp).className = 'coltype';	
+}
+
+function init(inp) {
+	if (!inp) {
+		obj = GetElementsWithClassName('a','coltype');
+		inp = obj[0].id;
+	}
+	document.getElementById(inp).className = 'coltype';
+	for (i = 0; i < 2; i++) {
+		ends[i] = new Color;
+		document.getElementById('col'+i).value = '';
+		document.getElementById('c'+i).style.background = 'white';
+	}
+	for (j = 0; j < 12; j++) {
+		palette[j] = new Color;
+		document.getElementById('pal'+j).value = '';
+		document.getElementById('p'+j).style.background = 'white';
+	}
+	document.getElementById('steps').value = '0';
+	document.getElementById('col0').focus();
+}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2963" name=GENERATOR></HEAD>
+<BODY onload="init('hex');">
+<FORM onsubmit="return false;">
+<H1>Color Blender</H1>
+<TABLE id=main>
+  <TBODY>
+  <TR vAlign=top>
+    <TD id=uicell>
+      <TABLE id=input>
+        <TBODY>
+        <TR>
+          <TH>Format</TH>
+          <TD colSpan=2><A id=hex onclick="setType('hex');">Hex</A> <A id=rgbd 
+            onclick="setType('rgbd');">RGB</A> <A id=rgbp 
+            onclick="setType('rgbp');">RGB%</A> </TD></TR>
+        <TR>
+          <TH id=l1>Color 1</TH>
+          <TD class=col><INPUT id=col0 onblur="colorStore('0');" 
+            onfocus=setCursor(0); size=19></TD>
+          <TD class=pal id=c0>&nbsp;</TD></TR>
+        <TR>
+          <TH id=l2>Color 2</TH>
+          <TD class=col><INPUT id=col1 onblur="colorStore('1');" 
+            onfocus=setCursor(1); size=19></TD>
+          <TD class=pal id=c1>&nbsp;</TD></TR>
+        <TR>
+          <TH>Midpoints</TH>
+          <TD><SELECT id=steps> <OPTION value=1 selected>1</OPTION> <OPTION 
+              value=2>2</OPTION> <OPTION value=3>3</OPTION> <OPTION 
+              value=4>4</OPTION> <OPTION value=5>5</OPTION> <OPTION 
+              value=6>6</OPTION> <OPTION value=7>7</OPTION> <OPTION 
+              value=8>8</OPTION> <OPTION value=9>9</OPTION> <OPTION 
+              value=10>10</OPTION></SELECT> </TD></TR>
+        <TR id=gobuttons>
+          <TD></TD>
+          <TD><A onclick=drawPalette();>blend</A></TD>
+          <TD><A onclick=init();>clear</A></TD></TR></TBODY></TABLE>
+      <TABLE id=output>
+        <TBODY>
+        <TR>
+          <TH>Palette</TH>
+          <TD class=text><INPUT id=pal0 size=19></TD>
+          <TD class=pal id=p0>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal1 size=19></TD>
+          <TD class=pal id=p1>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal2 size=19></TD>
+          <TD class=pal id=p2>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal3 size=19></TD>
+          <TD class=pal id=p3>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal4 size=19></TD>
+          <TD class=pal id=p4>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal5 size=19></TD>
+          <TD class=pal id=p5>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal6 size=19></TD>
+          <TD class=pal id=p6>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal7 size=19></TD>
+          <TD class=pal id=p7>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal8 size=19></TD>
+          <TD class=pal id=p8>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal9 size=19></TD>
+          <TD class=pal id=p9>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal10 size=19></TD>
+          <TD class=pal id=p10>&nbsp;</TD></TR>
+        <TR>
+          <TD></TD>
+          <TD class=text><INPUT id=pal11 size=19></TD>
+          <TD class=pal id=p11>&nbsp;</TD></TR></TBODY></TABLE></TD>
+    <TD id=watercell>
+      <SCRIPT type=text/javascript>
+var colors = new Array('00','33','66','99','CC','FF');
+document.write('<table cellspacing="0" id="grid">');
+for (i = 5; i >= 0; i--) {
+	for (j = 5; j >= 0; j--) {
+		document.write('<tr>');
+		for (k= 5; k >= 0; k--) {
+			var col = colors[i]+colors[j]+colors[k];
+			document.write('<td style="background: #'+col+';"><a href="javascript:colorIns(\'#'+col+'\');"><\/a><\/td>');
+		}
+		document.write('<\/tr>');
+	}
+}
+document.write('<\/table>');
+</SCRIPT>
+    </TD>
+    <TD id=textcell>
+      <UL>
+        <LI>Pick a color value format, input two <STRONG>valid</STRONG> CSS 
+        color values in the format you chose, and pick the number of midpoints 
+        you'd like to see. The palette will show the colors you input as well as 
+        the requested number of midpoint colors, and the values of those colors. 
+
+        <LI>All numbers are rounded to the nearest integer. 
+        <LI>Clicking on a square in the "waterfall" display will fill in the 
+        appropriate value for whichever input is highlighted. 
+        <LI>Switching between value formats will translate whatever values are 
+        in place. 
+        <LI>"Clear" removes all values and colors, but does not change the 
+        current value format. 
+        <LI>If you'd like to have the Color Blender for offline use, just view 
+        source and save to your hard drive. </LI></UL></TD></TR></TBODY></TABLE></FORM>
+<DIV id=footer><IMG alt="Creative Commons License" 
+src="Color Blender.files/somerights.gif" border=0> 
+<P><BR>The Color Blender is licensed under a Creative Commons <A 
+href="http://creativecommons.org/licenses/by-sa/1.0/" 
+rel=license>Attribution-ShareAlike 1.0</A> License. </P>
+<P>This tool is provided without warranty, guarantee, or much in the way of 
+explanation. Note that use of this tool may or may not crash your browser, lock 
+up your machine, erase your hard drive, or e-mail those naughty pictures you hid 
+in the Utilities folder to your mother. Don't blame me if anything bad happens 
+to you, because it's actually the aliens' fault. The code expressed herein is 
+solely that of the author, and he's none too swift with the JavaScript, if you 
+know what we mean, so it's likely to cause giggle fits in anyone who knows what 
+they're doing. Not a flying toy. Thank you for playing. Insert coin to continue. 
+</P></DIV></BODY></HTML>

@@ -1,0 +1,393 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0036)http://www.cha66.com/others/ubb.html -->
+<HTML><HEAD><TITLE>转帖工具--论坛干扰码清除工具</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<STYLE type=text/css>.STYLE1 {
+	COLOR: #ff0000
+}
+.STYLE2 {
+	FONT-SIZE: 12px
+}
+.STYLE4 {
+	FONT-SIZE: 14px
+}
+</STYLE>
+
+<STYLE type=text/css>.headtxt1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #003366; FONT-STYLE: normal; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+</STYLE>
+
+<STYLE type=text/css>A {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+BODY {
+	FONT-SIZE: 12px; SCROLLBAR-ARROW-COLOR: #5a7594; SCROLLBAR-BASE-COLOR: #e6e6e6; BACKGROUND-COLOR: #f8f8f8
+}
+TABLE {
+	FONT: 12px Tahoma, Verdana; COLOR: #000000
+}
+INPUT {
+	FONT: 11px Tahoma, Verdana; COLOR: #000000; BACKGROUND-COLOR: #e6e6e6
+}
+SELECT {
+	FONT: 11px Tahoma, Verdana; COLOR: #000000; BACKGROUND-COLOR: #e6e6e6
+}
+TEXTAREA {
+	FONT: 11px Tahoma, Verdana; COLOR: #000000; BACKGROUND-COLOR: #e6e6e6
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+SELECT {
+	FONT: 11px Arial, Tahoma; COLOR: #000000; BACKGROUND-COLOR: #e6e6e6
+}
+.nav {
+	FONT: bold 12px Tahoma, Verdana; COLOR: #000000
+}
+.nav A {
+	COLOR: #000000
+}
+.header {
+	FONT: bold 11px Tahoma, Verdana; COLOR: #ffffff; BACKGROUND-COLOR: #5a7594
+}
+.header A {
+	COLOR: #ffffff
+}
+.category {
+	FONT: 11px Arial, Tahoma; COLOR: #000000; BACKGROUND-COLOR: #f0f0f0
+}
+.tableborder {
+	BORDER-RIGHT: #5a7594 1px solid; BORDER-TOP: #5a7594 1px solid; BACKGROUND: #d6dbe7; BORDER-LEFT: #5a7594 1px solid; BORDER-BOTTOM: #5a7594 1px solid
+}
+.singleborder {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 0px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 1px; PADDING-TOP: 0px; BACKGROUND-COLOR: #e6e6e6
+}
+.smalltxt {
+	FONT: 11px Arial, Tahoma
+}
+.outertxt {
+	FONT: 12px Tahoma, Verdana; COLOR: #000000
+}
+.outertxt A {
+	COLOR: #000000
+}
+.bold {
+	FONT-WEIGHT: bold
+}
+.altbg1 {
+	BACKGROUND: #e6e6e6
+}
+.altbg2 {
+	BACKGROUND: #f2f2f2
+}
+.maintable {
+	WIDTH: 98%; BACKGROUND-COLOR: #f8f8f8
+}
+.topguid {
+	PADDING-LEFT: 5px; FONT: 11px Tahoma, Verdana; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.topguid A {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.foot A {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+.floor {
+	FLOAT: right; WIDTH: 50px; MARGIN-RIGHT: 0px
+}
+.floor A {
+	COLOR: #008000
+}
+</STYLE>
+
+<SCRIPT language=JavaScript src=""></SCRIPT>
+
+<META content="MSHTML 6.00.2900.2912" name=GENERATOR></HEAD>
+<BODY onkeydown="if(event.keyCode==27) return false;" leftMargin=0 topMargin=0 
+rightMargin=0>
+<CENTER>
+<DIV class=maintable>
+<SCRIPT language=JavaScript>
+<!--
+function SymError()
+{
+  return true;
+}
+window.onerror = SymError;
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.2> 
+function delnull()
+{
+var str=document.getElementById('text').value;
+str=str.replace(/([\s]*\r\n[\s]*){2,}/gm,"\r\n");
+document.getElementById('text').value=str;
+}
+function refix()
+{
+var str=document.getElementById('text').value;
+str=str.replace(/([\s]*\r\n[\s]*){2,}/gm,"\r\n\r\n");
+document.getElementById('text').value=str;
+}
+function url()
+{
+var str=document.getElementById('text').value;
+str=str.replace(/^[ ]*(http:\/\/|^mms:\/\/|rtsp:\/\/|pnm:\/\/|ftp:\/\/|mmst:\/\/|mmsu:\/\/)([^\r\n]*)$/igm,"[url]$1$2[/url]");
+document.getElementById('text').value=str;
+}
+
+function addbr()
+{
+var str=document.getElementById('text').value;
+str=str.replace(/\r\n/gm,"\r\n\r\n");
+document.getElementById('text').value=str;
+}
+
+function html_trans(str) {
+str = str.replace(/\r/g,"");
+str = str.replace(/on(load|click|dbclick|mouseover|mousedown|mouseup)="[^"]+"/ig,"");
+str = str.replace(/<script[^>]*?>([\w\W]*?)<\/script>/ig,"");
+if(set.fontbash.checked)
+{
+str = str.replace(/<span[^>]*?display\s*?:\s*?none[^>]*?>([\w\W]*?)<\/span>/ig,"");
+str = str.replace(/<span[^>]*?font\s*?-\s*?size\s*?:\s*(0px|0pt)[^>]*?>([\w\W]*?)<\/span>/ig,"");
+str = str.replace(/<font([^>]+)(0px|0pt)+([^>]*)>([\w\W]*?)<\/font>/ig,"");
+}
+
+if(set.filtrate.checked)
+{
+str = str.replace(/[^<]*<([^>]*?)>[^<]*/ig,"<$1>");
+tm=window.textfield.value;
+if(tm.length<1){
+var arr;
+arr=str.match(/<img[^>]+src=[" ]?([^"]+)[" ]?[^>]*>/ig);
+tm=arr[0].replace(/<img[^>]+src=[" ]?([^"]+)[" ]?[^>]*>/ig,"$1")+"\"";
+i=tm.search(/\/[^\/]+"/ig);
+tm=tm.substr(0,i);
+window.textfield.value=tm+"/";
+}
+if(tm.substr(tm.length-1,1)!="/") tm+="/";
+var strtm="<img[^>]+src=[\"]?("+tm+"[^\"]+)[\"]?[^>]*>";
+var re = new RegExp(strtm,"ig");
+str = str.replace(re,"\n[img]$1[/img]\n");
+}
+else
+{
+if(set.stext.checked) str = str.replace(/[^<]*<([^>]*?)>[^<]*/ig,"<$1>");
+
+if(!set.linka.checked) str = str.replace(/<a[^>]+href=[" ]?([^"]+)[" ]?[^>]*>(.*?)<\/a>/ig,"[url=$1]$2[/url]");
+if(!set.font_color.checked&&!set.stext.checked)
+str = str.replace(/<font([^>]+)color=([^ >]+)([^>]*)>(.*?)<\/font>/ig,"[color=$2]<font$1$3>$4</font>[/color]");
+if(!set.font_size.checked&&!set.stext.checked)
+str = str.replace(/<font([^>]+)size=([^ >]+)([^>]*)>(.*?)<\/font>/ig,"[size=$2]<font$1$3>$4</font>[/size]");
+if(!set.font_face.checked&&!set.stext.checked)
+str = str.replace(/<font[^>]+face=([^ >]+)[^>]*>(.*?)<\/font>/ig,"[font=$1]$2[/font]");
+if(!set.img.checked) str = str.replace(/<img[^>]+src=[" ]?([^"]+)[" ]?[^>]*>/ig,"\n[img]$1[/img]\n");
+
+if(!set.odj.checked){
+//return str;
+str = str.replace(/<object[^>]*?6BF52A52\-394A\-11d3\-B153\-00C04F79FAA6[^>]*?>.*<param[^>]+name\s*=\s*["](url|src)["][^>]+value=[" ]?([^"]+)[" ][^>]*>.*<\/object>/ig,"\n[wmv]$2[/wmv]\n"); 
+str = str.replace(/<object[^>]*?D27CDB6E\-AE6D\-11cf\-96B8\-444553540000[^>]*?>.*<param[^>]+name\s*=\s*["](url|src)["][^>]+value=[" ]?([^"]+)[" ][^>]*>.*<\/object>/ig,"\n[swf]$2[/swf]\n");
+str = str.replace(/<embed[^>]*type=["]?application\/x\-shockwave\-flash["]?[^>]*src=[" ]?([^"|^ ]+)[" ]?[^>]*>/ig,"\n[swf]$1[/swf]\n");
+str = str.replace(/<embed[^>]*src=["]?([^"|^ ]+)["]?[^>]*type=["]?application\/x\-shockwave\-flash["]?[^>]*>/ig,"\n[swf]$1[/swf]\n");
+str = str.replace(/<object[^>]*?CFCDAA03\-8BE4\-11cf\-B84B\-0020AFBBCCFA[^>]*?>.*<param[^>]+name\s*=\s*["](url|src)["][^>]+value=[" ]?([^"]+)[" ][^>]*>.*<\/object>/ig,"\n[rm]$2[/rm]\n"); 
+}
+if(!set.font_b.checked&&!set.stext.checked){
+str = str.replace(/<([\/]?)b>/ig,"[$1b]");
+str = str.replace(/<([\/]?)strong>/ig,"[$1b]");}
+if(!set.font_u.checked&&!set.stext.checked)
+str = str.replace(/<([\/]?)u>/ig,"[$1u]");
+if(!set.font_i.checked&&!set.stext.checked)
+str = str.replace(/<([\/]?)i>/ig,"[$1i]");
+
+str = str.replace(/&nbsp;/g," ");
+str = str.replace(/&amp;/g,"&");
+str = str.replace(/&quot;/g,"\"");
+str = str.replace(/&lt;/g,"<");
+str = str.replace(/&gt;/g,">");
+}
+str = str.replace(/<br>/ig,"\n");
+str = str.replace(/<p[^>]*?>/ig,"\n\n");
+str = str.replace(/<[^>]*?>/g,"");
+str = str.replace(/\[url=([^\]]+)\]\n(\[img\]\1\[\/img\])\n\[\/url\]/g,"$2");
+str = str.replace(/\n+/g,"\n");
+
+return str;
+}
+function copycode(obj){
+obj.select();
+objcopy=obj.createTextRange();
+objcopy.execCommand("Copy");
+}
+function trans(){
+var str = "";
+rtf.focus();
+rtf.document.body.innerHTML = "";
+rtf.document.execCommand("paste");
+str = rtf.document.body.innerHTML;
+if(str.length == 0) {
+alert("剪贴版不存在超文本数据！");
+return "";
+}
+return html_trans(str);
+}
+function preview(){
+var prewin=window.open("","","");
+prewin.document.write(rtf.document.body.innerHTML);
+}
+function zhen(str)
+{
+strfound=str.replace(/\\/ig,"\\\\");
+strfound=strfound.replace(/\[/ig,"\\[");
+strfound=strfound.replace(/\]/ig,"\\]");
+strfound=strfound.replace(/\{/ig,"\\{");
+strfound=strfound.replace(/\}/ig,"\\}");
+strfound=strfound.replace(/\|/ig,"\\|");
+strfound=strfound.replace(/\//ig,"\\/");
+strfound=strfound.replace(/\^/ig,"\\^");
+strfound=strfound.replace(/\./ig,"\\.");
+strfound=strfound.replace(/\*/ig,"\\*");
+strfound=strfound.replace(/\?/ig,"\\?");
+strfound=strfound.replace(/\+/ig,"\\+");
+return strfound;
+}
+function replace_star()
+{
+var str=document.getElementById('text').value;
+if(!reg.checked)
+strfound=zhen(find_text.value);
+else
+strfound=find_text.value;
+var re = new RegExp(strfound,"ig");
+str=str.replace(re,replace_text.value);
+document.getElementById('text').value=str;
+}
+</SCRIPT>
+</DIV>
+<DIV class=maintable>
+<TABLE class=tableborder cellSpacing=1 cellPadding=4 width="97%" align=center>
+  <TBODY>
+  <TR>
+    <TD align=middle><B><FONT size=3>转帖工具--论坛干扰码清除工具</FONT></B><BR><FONT 
+      color=#ff0000>用法：1、选中后可用快捷键 Ctrl + C 把所选内容复制入剪切板。
+<br>
+2、回到本页上方，按下“转换剪帖板超文本数据”按钮，刚选取的内容就被自动转换成为常内的贴图代码了。些按钮为追加按钮，不会清除原有的内容，而是在后面加入新的代码。这样就从多个页面中摘录不同的内容了。按些按钮时注意它左侧的选项，它们将直接影响转换后的代码。
+<br>
+3、转换完代码后就要开始发帖子了，把转换后的代码复制到剪切板中，使用“将代码复制到剪切板”按钮将为你省下不少时间！到论坛上把代码帖粘到内容框中！
+<br>
+本转换页面带有四种选项，分别为“屏蔽图片”、“屏蔽超链接”、“屏蔽字体”和“屏蔽对象”。
+<br>
+选中“屏蔽图片”选项后，转换的结果中将不含有图片信息；
+选中“屏蔽超链接”选项后，转换的结果中将不含有链接信息；
+选中“屏蔽字体”选项后，转换的结果中将不含有字体大小、颜色、字体名称、粗体及斜体信息；
+选中“屏蔽对象”选项后，转换的结果中将不含有 FLASH 及 REAL 对象。
+</FONT></TD></TR>
+  <TR>
+    <TD align=middle bgColor=#f8f8f8>
+      <DIV align=center><TEXTAREA class=textarea onbeforepaste="if(document.getElementById('x_paste').checked){window.clipboardData.setData('text',trans());this.focus();}" id=text style="WIDTH: 700px; HEIGHT: 300px" name=textarea rows=1 cols=100></TEXTAREA> 
+      <IFRAME id=rtf style="WIDTH: 0px; HEIGHT: 0px" marginWidth=0 
+      marginHeight=0 src="about:blank" scrolling=no></IFRAME><LABEL 
+      for=x_paste></LABEL></DIV>
+      <TABLE borderColor=#cccccc cellSpacing=1 width=700 align=center 
+      bgColor=#d6dbe7 border=0><!--DWLayoutTable-->
+        <TBODY>
+        <TR vAlign=center align=middle>
+          <TD width=140 height=44>
+            <DIV class=STYLE4 align=left><INPUT style="WIDTH: 130px; HEIGHT: 40px" onClick="document.getElementById('text').value += trans();" type=button value=转换(追加) name=button> 
+            </DIV></TD>
+          <TD width=130><INPUT style="WIDTH: 130px; HEIGHT: 40px" onClick="document.getElementById('text').value = trans()" type=button value=转换(覆盖) name=button></TD>
+          <TD width=141>
+            <P class=STYLE4 align=center><INPUT style="WIDTH: 130px; HEIGHT: 40px" onclick=copycode(window.text) type=button value=复制到剪贴板> 
+            </P></TD>
+          <TD width=104>
+            <TABLE cellSpacing=2 cellPadding=0 width=0 border=0>
+              <TBODY>
+              <TR>
+                <TD><INPUT style="WIDTH: 100px; HEIGHT: 20px" onclick=preview() type=button value=" 预 览 帖 子 " name=preview></TD></TR>
+              <TR>
+                <TD><INPUT style="WIDTH: 100px; HEIGHT: 20px" onClick="document.getElementById('text').value=''" type=button value="清 空 内 容"> 
+                </TD></TR></TBODY></TABLE></TD>
+          <TD width="23%">
+            <TABLE cellSpacing=2 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR align=middle>
+                <TD class=STYLE4>
+                  <DIV align=center><INPUT title="自动分析所有超链接，并转换成超链接格式&#13;&#10;注意：超链接必须单独在一行中！" style="WIDTH: 80px" onclick=url() type=button value=分析超链接 name=Submit> 
+                  </DIV></TD>
+                <TD>
+                  <DIV align=center><INPUT title=紧凑格式，删除所有空行 style="WIDTH: 80px" onclick=delnull() type=button value=清除空行 name=Submit> 
+                  </DIV></TD></TR>
+              <TR align=middle>
+                <TD>
+                  <DIV align=center><INPUT title=清除多余的空行，保持最一个空行 style="WIDTH: 80px" onclick=refix() type=button value=清除多余 name=Submit> 
+                  </DIV></TD>
+                <TD>
+                  <DIV align=center><INPUT title=为每一行（包括空行）增加一空行 style="WIDTH: 80px" onclick=addbr() type=button value=增加空行 name=Submit> 
+                  </DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <FORM name=set>
+      <TABLE height=50 cellSpacing=5 cellPadding=0 width=720 border=0>
+        <TBODY>
+        <TR>
+          <TD title=转换的结果中将不含有图片信息 width="13%" height=20><SPAN 
+            class=STYLE2><LABEL for=img><INPUT id=img type=checkbox> 
+            屏蔽图片</LABEL> </SPAN></TD>
+          <TD title=转换的结果中将不含有链接信息 width="14%"><SPAN class=STYLE2><LABEL 
+            for=linka><INPUT id=linka type=checkbox> 屏蔽超链接</LABEL> </SPAN></TD>
+          <TD title=转换的结果中将不含音频、视频、FLASH等信息 width="14%"><SPAN 
+            class=STYLE2><LABEL for=odj><INPUT id=odj type=checkbox> 
+            屏蔽对象</LABEL> </SPAN></TD>
+          <TD title=转换的结果中将不含文本信息，同时字体属性将被自动屏蔽 width="14%"><SPAN 
+            class=STYLE2><LABEL for=stext><INPUT id=stext type=checkbox> 
+            屏蔽文字</LABEL> </SPAN></TD>
+          <TD title=为了方便帖子的阅读，强制把图片用空行隔开 width="14%"><SPAN class=STYLE2><LABEL 
+            for=filtrate><INPUT id=filtrate 
+            onclick="if(this.checked)window.base_url.style.display='block';else window.base_url.style.display='none';" 
+            type=checkbox> 启用图片过滤</LABEL> </SPAN></TD>
+          <TD title=屏蔽所有定字体相关的属性 width="14%"><SPAN class=STYLE2><LABEL 
+            for=font><INPUT id=font 
+            onclick=font_color.checked=this.checked;font_size.checked=this.checked;font_face.checked=this.checked;font_b.checked=this.checked;font_i.checked=this.checked;font_u.checked=this.checked; 
+            type=checkbox> 屏蔽字体属性</LABEL> </SPAN></TD>
+          <TD title=屏蔽所有定字体相关的属性 width="14%"><SPAN class=STYLE2><LABEL><INPUT 
+            id=fontbash type=checkbox CHECKED value=checkbox> <SPAN 
+            class=STYLE1>屏蔽干扰码</SPAN></LABEL> </SPAN></TD></TR>
+        <TR>
+          <TD title=转换的结果中将不含有字体颜色信息><SPAN class=STYLE2><LABEL 
+            for=font_color><INPUT id=font_color type=checkbox> 屏蔽字颜色</LABEL> 
+            </SPAN></TD>
+          <TD title=转换的结果中将不含有字体尺寸信息><SPAN class=STYLE2><LABEL 
+            for=font_size><INPUT id=font_size type=checkbox> 屏蔽字体尺寸</LABEL> 
+            </SPAN></TD>
+          <TD title=转换的结果中将不含有字体类型信息><SPAN class=STYLE2><LABEL 
+            for=font_face><INPUT id=font_face type=checkbox> 屏蔽字体类型</LABEL> 
+            </SPAN></TD>
+          <TD title=转换的结果中将不含有粗体信息><SPAN class=STYLE2><LABEL for=font_b><INPUT 
+            id=font_b type=checkbox> 屏蔽粗体</LABEL> </SPAN></TD>
+          <TD title=转换的结果中将不含有斜体信息><SPAN class=STYLE2><LABEL for=font_i><INPUT 
+            id=font_i type=checkbox> 屏蔽斜体</LABEL> </SPAN></TD>
+          <TD title=转换的结果中将不含有下划线信息><SPAN class=STYLE2><LABEL 
+            for=font_u><INPUT id=font_u type=checkbox> 屏蔽下划线</LABEL> </SPAN></TD>
+          <TD title=转换的结果中将不含有下划线信息><SPAN 
+      class=STYLE2></SPAN></TD></TR></TBODY></TABLE></FORM>
+      <TABLE borderColor=#efefef cellSpacing=2 cellPadding=2 width=720 
+      bgColor=#d6dbe7 border=0>
+        <TBODY>
+        <TR>
+          <TD class=text11 align=middle width="82%"><SPAN 
+            class="text9 style5">查找文字</SPAN> <INPUT id=find_text size=50 
+            name=find_text> <INPUT onClick="set.reset();find_text.value='';replace_text.value='';window.textfield.value='';" type=button value=恢复默认 name=Submit> 
+          </TD>
+          <TD class=text11 align=middle width="18%" rowSpan=2><LABEL 
+            for=reg><INPUT id=reg type=checkbox CHECKED value=1 name=reg> <SPAN 
+            class="text9 style5">使用正则语法</SPAN></LABEL> </TD></TR>
+        <TR>
+          <TD class=text11 align=middle><SPAN class="text9 style5">&nbsp; 
+            替换文字</SPAN> <INPUT id=replace_text size=50 name=replace_text> <INPUT onclick=replace_star() type=button value=" 开始替换 " name=Submit></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<SCRIPT>
+rtf.document.designMode="On";
+</SCRIPT></DIV></CENTER></BODY></HTML>

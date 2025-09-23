@@ -1,0 +1,234 @@
+﻿<html>
+<?xml version="1.0" encoding="utf-8"?>
+    <head>        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="all" />
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+        <title>在线颜色配色方案创建工具</title>
+        <link rel="stylesheet" href="color_scheme.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="links.css" media="all" />
+        <script type="text/javascript" src="color_scheme1.js">
+        </script>
+        <script type="text/javascript" src="color_scheme2.js">
+        </script>
+    </head>
+
+    <body>
+    	
+    	
+        <div id="container">
+            <div id="maincolorsample">
+            </div>
+
+            <div id="image">
+                <!--
+                        <img src="wheel.gif" alt="" width="232" height="232" border="0" usemap="#map">
+                        <map name="map"><area id="wheelarea" shape="circle" coords="116,116,116"></map>
+                -->
+
+                <div id="wheelarea">
+                </div>
+
+                <div id="pointer0">
+                </div>
+
+                <div id="pointer1">
+                </div>
+
+                <div id="pointer2">
+                </div>
+
+                <div id="pointer3">
+                </div>
+            </div>
+
+            <div id="maincolorhue">
+            </div>
+
+            <div id="scheme-select">
+                <img id="previmg-mono" src="prev_mono.gif" alt="" width="41" height="52" onclick="selectScheme('mono')" /><img id="previmg-compl" src="prev_compl.gif" alt="" width="41" height="52" onclick="selectScheme('compl')" /><img id="previmg-triad" src="prev_triad.gif" alt="" width="41" height="52" onclick="selectScheme('triad')" /><img id="previmg-tetrad" src="prev_tetrad.gif" alt="" width="41" height="52" onclick="selectScheme('tetrad')" /><img id="previmg-analog" src="prev_analog.gif" alt="" width="41" height="52" onclick="selectScheme('analog')" />
+            </div>
+
+            <div id="scheme-slider">
+                <div id="pointer-slider">
+                </div>
+            </div>
+
+            <div id="scheme-addcompl">
+                <input type="checkbox" id="analogCompl" onchange="createScheme(false)" onclick="createScheme(false)" /><label for="analogCompl">添加互补色</label>
+            </div>
+
+            <div id="scheme-searchrgb">
+                <a href="#" onclick="searchRGB(false)">输入RGB</a> (粗略转换)
+            </div>
+            <!--/form-->
+
+            <div id="colsample">
+                <div id="color0" class="col">
+                    <div id="color0-0" class="col-0" onclick="drawVar(0,0)">
+                    </div>
+
+                    <div id="color0-1" class="col-1" onclick="drawVar(0,1)">
+                    </div>
+
+                    <div id="color0-2" class="col-2" onclick="drawVar(0,2)">
+                    </div>
+
+                    <div id="color0-3" class="col-3" onclick="drawVar(0,3)">
+                    </div>
+                </div>
+
+                <div id="color1" class="col">
+                    <div id="color1-0" class="col-0" onclick="drawVar(1,0)">
+                    </div>
+
+                    <div id="color1-1" class="col-1" onclick="drawVar(1,1)">
+                    </div>
+
+                    <div id="color1-2" class="col-2" onclick="drawVar(1,2)">
+                    </div>
+
+                    <div id="color1-3" class="col-3" onclick="drawVar(1,3)">
+                    </div>
+                </div>
+
+                <div id="color2" class="col">
+                    <div id="color2-0" class="col-0" onclick="drawVar(2,0)">
+                    </div>
+
+                    <div id="color2-1" class="col-1" onclick="drawVar(2,1)">
+                    </div>
+
+                    <div id="color2-2" class="col-2" onclick="drawVar(2,2)">
+                    </div>
+
+                    <div id="color2-3" class="col-3" onclick="drawVar(2,3)">
+                    </div>
+                </div>
+
+                <div id="color3" class="col">
+                    <div id="color3-0" class="col-0" onclick="drawVar(3,0)">
+                    </div>
+
+                    <div id="color3-1" class="col-1" onclick="drawVar(3,1)">
+                    </div>
+
+                    <div id="color3-2" class="col-2" onclick="drawVar(3,2)">
+                    </div>
+
+                    <div id="color3-3" class="col-3" onclick="drawVar(3,3)">
+                    </div>
+                </div>
+
+                <div id="textBlack">
+                    黑色文本
+                </div>
+
+                <div id="textWhite">
+                    <strong>白色文本</strong>
+                </div>
+            </div>
+
+            <div id="coltable">
+            </div>
+
+            <div id="websnapswitch">
+                <input type="checkbox" id="websnapper" onclick="switchWebSnap(this.checked)" onchange="switchWebSnap(this.checked)" /><label for="websnapper">改成为 "安全" 颜色 (WebColors)</label>
+            </div>
+
+            <div id="presetswitch">
+                变化: <a href="" id="preset-default" class="btn" onclick="switchPreset('default');return false">缺省</a> <a href="" id="preset-pastel" class="btn" onclick="switchPreset('pastel');return false">柔和色</a> <a href="" id="preset-soft" class="btn" onclick="switchPreset('soft');return false">暗色</a> <a href="" id="preset-light" class="btn" onclick="switchPreset('light');return false">亮色</a> <a href="" id="preset-hard" class="btn" onclick="switchPreset('hard');return false">对比色</a> <a href="" id="preset-pale" class="btn" onclick="switchPreset('pale');return false">淡白色</a>
+            </div>
+            <a id="url" href="index.html">该配色方案的网址</a> 
+
+            <form id="cbmodeswitch">
+                <select id="cbmodeswitcher" onchange="switchBlindlessMode()">
+                    <option value="">
+                        正常色觉 (约占总人口的85.5 %)
+                    </option>
+
+                    <option value="1">
+                        红色盲 (1 % 的男性)
+                    </option>
+
+                    <option value="2">
+                        绿色盲 (1 % 的男性)
+                    </option>
+
+                    <option value="3">
+                        蓝色盲 (约占总人口的 0.003 %)
+                    </option>
+
+                    <option value="4">
+                        红色弱(1 % 男性)
+                    </option>
+
+                    <option value="5">
+                        绿色弱(5 % 的男性, 0.4 % 的女性)
+                    </option>
+
+                    <option value="6">
+                        蓝色弱(几乎为 0 %)
+                    </option>
+
+                    <option value="7">
+                        全色盲(人口的0.005%)
+                    </option>
+
+                    <option value="8">
+                        非典型全色盲
+                    </option>
+                </select>
+            </form>
+
+            <div id="colsamplevarsswitch">
+                <div class="bottomaligner">
+                    <a href="" class="btn" id="cancelsamplevars" onclick="drawSample();return false">Back</a>
+                </div>
+            </div>
+
+            <div id="colsamplevars">
+            </div>
+        </div>   
+      
+
+        <div id="info">
+	    <a href="http://validator.w3.org/check/referer" title="本页符合最严格的W3C html标准，xhtml1.1"><span class="w3c_check">XHTML1.1<span class="check">√</span></span></a>
+	    &nbsp; 		  
+            <a href="http://jigsaw.w3.org/css-validator/check/referer" title="本页符合W3C的CSS标准"><span class="w3c_check">CSS<span class="check">√</span></span></a>
+            &nbsp;
+            <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" title="Creative Commons协议 保留部分权利"><span class="cc">CC</span></a>
+	    &nbsp;
+	    <a href="http://www.creativecommons.cn/licenses/by-nc-sa/1.0" title="CC协议中文版，保留部分权利"><span class="cc">CC中文</span></a>			 
+	    &nbsp;
+	    <a href="http://www.ee-studio.com/" title="???"><span class="ee">???</span></a>
+	    &nbsp;
+		     
+        </div>	
+        
+        
+          <div class="google_ad">
+    	<script type="text/javascript"><!--
+google_ad_client = "pub-7468494149378849";
+google_alternate_ad_url = "http://eead.net/ad/";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="";
+google_ad_type = "text_image";
+google_color_border = "CCCCCC";
+google_color_bg = "FFFFFF";
+google_color_link = "000000";
+google_color_url = "666666";
+google_color_text = "333333";
+//--></script>
+
+<script type="text/javascript">
+_uacct = "UA-148980-1";
+urchinTracker();
+</script>
+	</body>
+</html>
+

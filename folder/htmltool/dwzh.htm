@@ -1,0 +1,1711 @@
+﻿
+<html>
+<head>
+<title>普通单位换算</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="普通单位换算,可以实现下面各种普通单位间的相互转换">
+<meta name="keywords" content="普通单位换算" > 
+<META HTTP-EQUIV="expires" CONTENT="0">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta http-equiv=refresh content="200">
+<style type="text/css">
+<!--
+body{font-family:"宋体";font-size:9pt;line-height: 12pt}
+td{font-family:"宋体";font-size:9pt;line-height: 12pt}
+A{text-decoration:none ;color:black;text-decoration: underline; line-height: 16pt}
+A:hover{text-decoration:none;color:#ff0000;line-height: 16pt}
+.unnamed8 {  font-size: 14.9px; text-decoration: underline;line-height: 20pt}
+-->
+</style>
+<base onmouseover="window.status='抵制非公制国家';return true"> 
+<script language="JavaScript">
+<!--
+self.moveTo(0,0)
+self.resizeTo(screen.availWidth,screen.availHeight)
+//-->
+</script>
+
+<SCRIPT language=javascript>
+function check()
+{
+ if(fadd.T1.value=="")
+  { alert("请输入查询内容!");
+    fadd.T1.focus();
+    return (false);
+  }
+
+ return (true);
+}
+</SCRIPT>
+
+<SCRIPT language=javascript>
+function _otmw(_other,_p1,_this,_p2)
+	{
+	 if ((_p1==0)||(_p2==0))
+		{document.formw.textf.value=0;
+		 document.formw.textfm.value=0;}
+	 else
+		{document.formw.textfm.value=_other*_p1*_p2;}
+	}
+function _mtow(_other,_p1,_this,_p2)
+	{ 
+	 if ((_p1==0)||(_p2==0))
+		{document.formw.textf.value=0;
+		 document.formw.textfm.value=0;}
+	 else
+		{document.formw.textf.value=(_this/(_p1*_p2));}
+	}
+
+function _otml(_other,_p1,_this,_p2)
+	{
+	 if ((_p1==0)||(_p2==0))
+		{document.forml.textf.value=0;
+		 document.forml.textfm.value=0;}
+	 else
+		{document.forml.textfm.value=_other*_p1*_p2;}
+	}
+function _mtol(_other,_p1,_this,_p2)
+	{ 
+	 if ((_p1==0)||(_p2==0))
+		{document.forml.textf.value=0;
+		 document.forml.textfm.value=0;}
+	 else
+		{document.forml.textf.value=(_this/(_p1*_p2));}
+	}
+
+function _otms(_other,_p1,_this,_p2)
+	{
+	 if ((_p1==0)||(_p2==0))
+		{document.forms.textf.value=0;
+		 document.forms.textfm.value=0;}
+	 else
+		{document.forms.textfm.value=_other*_p1*_p2;}
+	}
+function _mtos(_other,_p1,_this,_p2)
+	{ 
+	 if ((_p1==0)||(_p2==0))
+		{document.forms.textf.value=0;
+		 document.forms.textfm.value=0;}
+	 else
+		{document.forms.textf.value=(_this/(_p1*_p2));}
+	}
+
+function _otmv(_other,_p1,_this,_p2)
+	{
+	 if ((_p1==0)||(_p2==0))
+		{document.formv.textf.value=0;
+		 document.formv.textfm.value=0;}
+	 else
+		{document.formv.textfm.value=_other*_p1*_p2;}
+	}
+function _mtov(_other,_p1,_this,_p2)
+	{ 
+	 if ((_p1==0)||(_p2==0))
+		{document.formv.textf.value=0;
+		 document.formv.textfm.value=0;}
+	 else
+		{document.formv.textf.value=(_this/(_p1*_p2));}
+	}
+
+
+</SCRIPT>
+
+<script language="javascript">
+// JavaScript Document
+var selesour=0;
+var seletar=0;
+var name= new Array();
+name[0]="mile";
+name[1]="km";
+name[2]="fur";
+name[3]="m";
+name[4]="yd";
+name[5]="ft";
+name[6]="in";
+name[7]="cm";
+name[8]="mm";
+var t; 
+
+function getvalue() {
+tt=document.lenform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0)
+{
+ selesour=document.lenform.source.selectedIndex;
+ seletar=document.lenform.targ.selectedIndex;
+ 
+ if (selesour != seletar)
+  calevalue(selesour,seletar,datasour);
+   
+  soult=t;
+  ult = Math.abs(soult) * 10;
+  if ((ult < 10) && (ult >= 1)) document.lenform.soult.value="0"+soult+"  "+name[seletar];
+  else
+   document.lenform.soult.value=soult+"  "+name[seletar]; 
+  //document.lenform.data.value=datasour+"  "+name[selesour];
+  
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+function calevalue(selesour,seletar,datasour) {
+//alert("is calevalue"); 
+if (seletar == 0) calemile();
+if (seletar == 1) calekem();  
+if (seletar == 2) calefur();
+if (seletar == 3) calem();
+if (seletar == 4) caleyd();
+if (seletar == 5) caleft();
+if (seletar == 6) calein();
+if (seletar == 7) calecm();
+if (seletar == 8) calemm();
+}
+
+ 
+
+function calemile() {
+if (selesour == 1) t=datasour * 0.621;
+if (selesour == 2) t=datasour * 0.201;
+if (selesour == 3) t=(datasour * 0.621)/1000;
+if (selesour == 4) t=(datasour * 0.914 * 0.621)/1000;
+if (selesour == 5) t=((datasour * 30.5 * 0.621)/1000)/100;
+if (selesour == 6) t=((datasour * 25.4 * 0.621)/1000)/1000;
+if (selesour == 7) t=((datasour * 0.621)/1000)/100;
+if (selesour == 8) t=((datasour * 0.621)/1000)/1000;
+}
+
+function calekem() {
+//alert("calekm is being");
+if (selesour == 0) t=datasour * 1.61;
+if (selesour == 2) t=datasour * 0.201;
+if (selesour == 3) t=datasour/1000;
+if (selesour == 4) t=(datasour * 0.914)/1000;
+if (selesour == 5) t=((datasour * 30.5)/100)/1000;
+if (selesour == 6) t=((datasour * 25.4)/1000)/1000;
+if (selesour == 7) t=(datasour/100)/1000;
+if (selesour == 8) t=(datasour/1000)/1000;
+}
+
+function calefur() {
+if (selesour == 0) t=datasour * 1.61 * 4.97;
+if (selesour == 1) t=datasour * 4.97;
+if (selesour == 3) t=(datasour * 4.97)/1000;
+if (selesour == 4) t=(datasour * 0.914)/201;
+if (selesour == 5) t=((datasour * 30.5)/100)/201;
+if (selesour == 6) t=((datasour * 25.4)/1000)/201;
+if (selesour == 7) t=(datasour/100)/201;
+if (selesour == 8) t=(datasour/1000)/201;
+}
+
+function calem() {
+if (selesour == 0) t=(datasour * 1.61)*1000;
+if (selesour == 1) t=datasour * 1000;
+if (selesour == 2) t=datasour * 201;
+if (selesour == 4) t=datasour * 0.914;
+if (selesour == 5) t=(datasour * 30.5)/100;
+if (selesour == 6) t=(datasour * 25.4)/1000;
+if (selesour == 7) t=datasour/100;
+if (selesour == 8) t=datasour/1000;
+}
+
+function caleyd() {
+if (selesour == 0) t=(datasour * 1.61 * 1.09)/1000;
+if (selesour == 1) t=datasour * 1.09 * 1000;
+if (selesour == 2) t=datasour * 201 * 1.09;
+if (selesour == 3) t=datasour * 1.09;
+if (selesour == 5) t=(datasour * 1.09 * 30.5)/100;
+if (selesour == 6) t=(datasour * 25.4 * 1.09)/1000;
+if (selesour == 7) t=(datasour * 1.09)/100;
+if (selesour == 8) t=(datasour * 1.09)/1000;
+
+}
+
+function caleft() {
+if (selesour == 0) t=datasour * 1.61 * 3.28 * 1000;
+if (selesour == 1) t=datasour * 3.28 * 1000;
+if (selesour == 2) t=datasour * 3.28 * 201;
+if (selesour == 3) t=datasour * 3.28;
+if (selesour == 4) t=datasour * 0.914 * 3.28;
+if (selesour == 6) t=(datasour * 25.4 * 3.28)/1000;
+if (selesour == 7) t=datasour/30.5;
+if (selesour == 8) t=datasour/3.05;
+}
+
+function calein() {
+if (selesour == 0) t=datasour * 161 * 394;
+if (selesour == 1) t=datasour * 394 * 100;
+if (selesour == 2) t=datasour * 201 * 39.4;
+if (selesour == 3) t=datasour * 39.4;
+if (selesour == 4) t=datasour * 91.4 * 0.394;
+if (selesour == 5) t=datasour * 30.5 * 0.394;
+if (selesour == 7) t=datasour * 0.394;
+if (selesour == 8) t=datasour/25.4;
+}
+
+function calecm() {
+if (selesour == 0) t=datasour * 161 * 1000;
+if (selesour == 1) t=datasour * 100000;
+if (selesour == 2) t=datasour * 201 * 100;
+if (selesour == 3) t=datasour * 100;
+if (selesour == 4) t=datasour * 91.4;
+if (selesour == 5) t=datasour * 30.5;
+if (selesour == 6) t=datasour * 2.54;
+if (selesour == 8) t=datasour/10;
+}
+
+function calemm() {
+if (selesour == 0) t=datasour * 1.61 * 1000 * 1000;
+if (selesour == 1) t=datasour * 1000 * 1000;
+if (selesour == 2) t=datasour * 201 * 1000;
+if (selesour == 3) t=datasour * 1000;
+if (selesour == 4) t=datasour * 914;
+if (selesour == 5) t=datasour * 305;
+if (selesour == 6) t=datasour * 25.4;
+if (selesour == 7) t=datasour * 10;
+}
+
+var nametemp= new Array();
+nametemp[0]="C";
+nametemp[1]="F";
+
+function gettempvalue() {
+tt=document.degreeform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0 | tt < 0)
+{
+tt=document.degreeform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+selesour=document.degreeform.sourtemp.selectedIndex;
+seletar=document.degreeform.tartemp.selectedIndex;
+if (selesour != seletar) 
+  caletemp(selesour,seletar,datasour);
+  soult=t;
+  ult = Math.abs(soult) * 10;
+  if ((ult < 10) && (ult >= 1)) document.degreeform.soult.value="0"+soult+"  "+nametemp[seletar];
+  else  
+ document.degreeform.soult.value=soult+"  "+nametemp[seletar]; 
+ //document.degreeform.data.value=datasour+"  "+nametemp[selesour];
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+function caletemp(selesour,seletar,datasour) {
+if (seletar == 0) t=((datasour - 32)*5)/9;
+if (seletar == 1) t=((9 * datasour)/5) +32;
+}
+
+var namepower=new Array();
+namepower[0]="kw";
+namepower[1]="hp";
+
+function getpowervalue() {
+
+tt=document.powerform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0)
+{
+ selesour=document.powerform.sourpower.selectedIndex;
+ seletar=document.powerform.tarpower.selectedIndex;
+ 
+ if (selesour != seletar) 
+  calepower(selesour,seletar,datasour);
+  soult=t;
+  ult = Math.abs(soult) * 10;
+  if ((ult < 10) && (ult >= 1)) document.powerform.soult.value="0"+soult+"  "+namepower[seletar];
+  else
+  document.powerform.soult.value=soult+"  "+namepower[seletar]; 
+  // document.powerform.data.value=datasour+"  "+namepower[selesour];
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+namevelcity = new Array();
+namevelcity[0]="kn";
+namevelcity[1]="mph";
+namevelcity[2]="km/h";
+
+function calepower(selesour,seletar,datasour) {
+if (seletar == 1) t=datasour * 1.34;
+if (seletar == 0) t=datasour * 0.746;
+}
+
+function getvelcity() {
+tt=document.velcityform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0)
+{
+ selesour=document.velcityform.sourvelcity.selectedIndex;
+ seletar=document.velcityform.tarvelcity.selectedIndex;
+ 
+ if (selesour != seletar) 
+  calevelcity(selesour,seletar,datasour);
+  soult=t;
+   ult = Math.abs(soult) * 10;
+  if ((ult < 10) && (ult >= 1)) document.velcityform.soult.value="0"+soult+"  "+namevelcity[seletar];
+  else
+  document.velcityform.soult.value=soult+"  "+namevelcity[seletar]; 
+  // document.velcityform.data.value=datasour+"  "+namevelcity[selesour];
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+function calevelcity(selesour,seletar,datasour) {
+if (seletar == 0) calekn();
+if (seletar == 1) calemph();
+if (seletar == 2) calekm();
+}
+
+function calekn() {
+if (selesour == 1) t=(datasour * 1.61)/1.85 ;
+if (selesour == 2) t=datasour / 1.85 ;
+}
+
+function calemph() {
+if (selesour == 0) t=datasour * 1.85 * 0.621;
+if (selesour == 2) t=datasour * 0.621;
+}
+
+function calekm() {
+if (selesour == 0) t=datasour * 1.85;
+if (selesour == 1) t=datasour * 1.61;
+}
+
+namemass = new Array();
+namemass[0]="ton";
+namemass[1]="t";
+namemass[2]="stone";
+namemass[3]="kg";
+namemass[4]="lb";
+namemass[5]="oz";
+namemass[6]="g";
+
+function getmass() {
+tt=document.massform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0)
+{
+ selesour=document.massform.sourmass.selectedIndex;
+ seletar=document.massform.tarmass.selectedIndex;
+ 
+ if (selesour != seletar) 
+  calemass(selesour,seletar,datasour);
+  soult=t;
+    ult = Math.abs(soult) * 10;
+  if ((ult < 10) && (ult >= 1)) document.massform.soult.value="0"+soult+"  "+namemass[seletar];
+  else
+  document.massform.soult.value=soult+"  "+namemass[seletar]; 
+  // document.massform.data.value=datasour+"  "+namemass[selesour];
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+function calemass(selesour,seletar,datasour) {
+if (seletar == 0) caleton();
+if (seletar == 1) calet();
+if (seletar == 2) calestone();
+if (seletar == 3) calekg();
+if (seletar == 4) calelb();
+if (seletar == 5) caleoz();
+if (seletar == 6) caleg();
+}
+
+function caleton() {
+if (selesour == 1) t=datasour * 0.984;
+if (selesour == 2) t=(datasour * 6.35 * 0.984)/1000;
+if (selesour == 3) t=(datasour * 2.20)/2400;
+if (selesour == 4) t=datasour/2400;
+if (selesour == 5) t=((datasour * 28.3 *2.20)/1000)/2400;
+if (selesour == 6) t=(datasour/454)/2400;
+}
+
+function calet() {
+if (selesour == 0) t=datsour * 1.02;
+if (selesour == 2) t=(datasour * 6.35)/1000;
+if (selesour == 3) t=datasour/1000;
+if (selesour == 4) t=((datasour * 454)/1000)/1000;
+if (selesour == 5) t=((datasour * 28.3)/1000)/1000;
+if (selesour == 6) t=(datasour/1000)/1000;
+}
+
+function calestone() {
+if (selesour == 0) t=datasour * 1.02 * 157;
+if (selesour == 1) t=datasour * 157;
+if (selesour == 3) t=datasour * 0.157;
+if (selesour == 4) t=(datasour * 454 * 0.157)/1000;
+if (selesour == 5) t=(datasour * 28.3 * 0.157)/1000;
+if (selesour == 6) t=(datasour * 0.157)/1000;
+}
+
+function calekg() {
+if (selesour == 0) t=datasour * 2240 * 0.454;
+if (selesour == 1) t=datasour * 1000;
+if (selesour == 2) t=datasour * 6.35;
+if (selesour == 4) t=datasour * 0.454;
+if (selesour == 5) t=(datasour * 28.3)/1000;
+if (selesour == 6) t=datasour/1000;
+}
+
+function calelb() {
+if (selesour == 0) t=datasour * 2400;
+if (selesour == 1) t=datasour * 2.20 * 1000;
+if (selesour == 2) t=datasour * 6.35 * 2.20;
+if (selesour == 3) t=datasour * 2.20;
+if (selesour == 5) t=(datasour * 28.3)/454;
+if (selesour == 6) t=datasour/454;
+}
+
+function caleoz() {
+if (selesour == 0) t=datasour * 2400 * 454 * 0.03527;
+if (selesour == 1) t=datasour * 35.27 * 1000;
+if (selesour == 2) t=datasour * 6.35 * 35.27;
+if (selesour == 3) t=datasour * 35.27;
+if (selesour == 4) t=datasour * 454 * 0.03527;
+if (selesour == 6) t=datasour * 0.03527;
+}
+
+function caleg() {
+if (selesour == 0) t=datasour * 2400 * 454;
+if (selesour == 1) t=datasour * 1000 * 1000;
+if (selesour == 2) t=datasour * 6.35 * 1000;
+if (selesour == 3) t=datasour * 1000;
+if (selesour == 4) t=datasour * 454;
+if (selesour == 5) t=datasour * 28.3;
+}
+
+namearea = new Array();
+namearea[0]="square mile";
+namearea[1]="km*km";
+namearea[2]="ha";
+namearea[3]="ac";
+namearea[4]="m*m";
+namearea[5]="yd*yd";
+namearea[6]="ft*ft";
+namearea[7]="in*in";
+namearea[8]="cm*cm";
+
+function getarea() {
+tt=document.areaform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0)
+{
+ selesour=document.areaform.sourarea.selectedIndex;
+ seletar=document.areaform.tararea.selectedIndex;
+ 
+ if (selesour != seletar) 
+  calearea(selesour,seletar,datasour);
+  soult=t;
+  ult=Math.abs(soult) * 10;
+   if ((ult < 10) && (ult >= 1)) document.areaform.soult.value="0"+soult+"  "+namearea[seletar];
+  else
+  document.areaform.soult.value=soult+"  "+namearea[seletar]; 
+   // document.areaform.data.value=datasour+"  "+namearea[selesour]; 
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+function calearea(selesour,seletar,datasour) {
+if (seletar == 0) calesqmile();
+if (seletar == 1) calesqkm();
+if (seletar == 2) caleha();
+if (seletar == 3) caleac();
+if (seletar == 4) calesqm();
+if (seletar == 5) calesqyd();
+if (seletar == 6) calesqft();
+if (seletar == 7) calesqin();
+if (seletar == 8) calesqcm();
+}
+
+function calesqmile() {
+if (selesour == 1) t=datasour * 0.386;
+if (selesour == 2) t=(datasour * 2.47) / 640;
+if (selesour == 3) t=datasour / 640;
+if (selesour == 4) t=(datasour * 0.386)/1000000;
+if (selesour == 5) t=(datasour * 0.836 * 0.386)/1000000;
+if (selesour == 6) t=datasour/27878400;
+if (selesour == 7) t=((datasour * 6.45 * 0.386)/10000)/1000000;
+if (selesour == 8) t=((datasour * 0.386)/10000)/1000000;
+}
+
+function calesqkm() {
+if (selesour == 0) t=datasour * 2.59;
+if (selesour == 2) t=(datasour * 2.47 * 2.59)/640;
+if (selesour == 3) t=(datasour * 2.59)/640;
+if (selesour == 4) t=datasour/1000000;
+
+if (selesour == 5) t=(datasour * 0.836)/1000000;
+if (selesour == 6) t=(datasour * 2.59)/27878400;
+if (selesour == 7) t=((datasour * 6.45)/10000)/1000000;
+if (selesour == 8) t=(datasour/10000)/1000000;
+}
+
+function caleha() {
+if (selesour == 0) t=datasour * 640 * 0.405;
+if (selesour == 1) t=datasour * 0.386 * 640;
+if (selesour == 3) t=datasour * 0.405;
+if (selesour == 4) t=(datasour * 0.386 * 640 * 0.405)/1000000;
+if (selesour == 5) t=(datasour * 640 * 0.405)/3097600;
+if (selesour == 6) t=(datasour * 640 * 0.405)/27878400;
+if (selesour == 7) t=((datasour * 6.45 * 0.386 * 640 * 0.405)/10000)/1000000;
+if (selesour == 8) t=((datasour * 0.386 * 640 * 0.405)/10000)/1000000;
+}
+
+function caleac() {
+if (selesour == 0) t=datasour * 640;
+if (selesour == 1) t=datasour * 0.386 * 640;
+if (selesour == 2) t=datasour * 2.47;
+if (selesour == 4) t=(datasour * 0.386 * 640)/1000000;
+if (selesour == 5) t=(datasour * 640)/3097600;
+if (selesour == 6) t=(datasour * 640)/27878400;
+if (selesour == 7) t=((datasour * 0.386 * 640 * 6.45)/10000)/1000000;
+if (selesour == 8) t=((datasour * 0.386 * 640)/10000)/1000000;
+}
+
+function calesqm() {
+if (selesour == 0) t=datasour * 2.59 * 1000000;
+if (selesour == 1) t=datasour * 1000000;
+if (selesour == 2) t=(datasour * 2.47 * 2.59 * 1000000)/640;
+if (selesour == 3) t=(datasour * 2.59 * 1000000)/640;
+if (selesour == 5) t=datasour * 0.836;
+if (selesour == 6) t=(datasour * 929)/10000;
+if (selesour == 7) t=(datasour * 6.45)/10000;
+if (selesour == 8) t=datasour/10000;
+}
+
+function calesqyd() {
+if (selesour == 0) t=datasour * 3097600;
+if (selesour == 1) t=datasour * 0.386 * 3097600;
+if (selesour == 2) t=(datasour * 2.47 * 3097600)/640;
+if (selesour == 3) t=datasour * 0.405;
+if (selesour == 4) t=datasour * 1.20;
+if (selesour == 6) t=(datasour * 278784)/30976;
+if (selesour == 7) t=(datasour * 6.45 * 1.20)/10000;
+if (selesour == 8) t=(datasour * 1.20)/10000;
+}
+
+function calesqft() {
+if (selesour == 0) t=datasour * 27878400;
+if (selesour == 1) t=datasour * 27878400 * 0.386;
+if (selesour == 2) t=(datasour * 2.47 * 27878400)/640;
+if (selesour == 3) t=(datasour * 27878400)/640;
+if (selesour == 4) t=datasour * 10.8;
+if (selesour == 5) t=datasour * 0.836 * 10.8;
+if (selesour == 7) t=(datasour * 6.45)/929;
+if (selesour == 8) t=datasour/929;
+}
+
+function calesqin()  {
+if (selesour == 0) t=datasour * 27878400 * 929 * 0.155;
+if (selesour == 1) t=datasour * 1000000 * 10000 * 0.155;
+if (selesour == 2) t=(datasour * 2.47 * 929 * 15.5 * 278784)/640;
+if (selesour == 3) t=(datasour * 929 * 278784 * 15.5)/640;
+if (selesour == 4) t=datasour * 10000 * 0.155;
+if (selesour == 5) t=datasour * 83.6 * 15.5;
+if (selesour == 6) t=datasour * 929 * 0.155;
+if (selesour == 8) t=datasour * 0.155;
+}
+
+function calesqcm() {
+if (selesour == 0) t=datasour * 2.59 * 1000000 * 10000 ;
+if (selesour == 1) t=datasour * 1000000 * 10000;
+if (selesour == 2) t=(datasour * 2.47 * 2.59 * 1000000 * 10000)/640;
+if (selesour == 3) t=(datasour * 2.59 * 1000000 * 10000)/640;
+if (selesour == 4) t=datasour * 10000;
+if (selesour == 5) t=datasour * 8360;
+if (selesour == 6) t=datasour * 929;
+if (selesour == 7) t=datasour * 6.45;
+}
+
+namevolume = new Array();
+namevolume[0]="m*m*m";
+namevolume[1]="yd*yd*yd";
+namevolume[2]="bus";
+namevolume[3]="ft*ft*ft";
+namevolume[4]="in*in*in";
+namevolume[5]="cm*cm*cm";
+
+function getvolume() {
+tt=document.volumeform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0)
+{
+ selesour=document.volumeform.sourvolume.selectedIndex;
+ seletar=document.volumeform.tarvolume.selectedIndex;
+ 
+ if (selesour != seletar) 
+  calevolume(selesour,seletar,datasour);
+  soult=t;
+   ult = Math.abs(soult) * 10;
+  if ((ult < 10) && (ult >= 1)) document.volumeform.soult.value="0"+soult+"  "+namevolume[seletar];
+  else 
+  document.volumeform.soult.value=soult+"  "+namevolume[seletar]; 
+  // document.volumeform.data.value=datasour+"  "+namevolume[selesour];
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+function calevolume(selesour,seletar,datasour) {
+if (seletar == 0) calecum();
+if (seletar == 1) calecuyd();
+if (seletar == 2) calecubus();
+if (seletar == 3) calecuft();
+if (seletar == 4) calecuin();
+if (seletar == 5) calecucm();
+}
+
+function calecum() {
+if (selesour == 1) t=datasour * 0.765;
+if (selesour == 2) t=datasour * 0.0346;
+if (selesour == 3) t=datasour * 0.0283;
+if (selesour == 4) t=(datasour * 16.4)/1000000;
+if (selesour == 5) t=datasour/1000000;
+}
+
+function calecuyd() {
+if (selesour == 0) t=datasour * 1.31;
+if (selesour == 2) t=datasour * 0.0346 * 1.31;
+if (selesour == 3) t=datasour * 0.0283 * 1.31;
+if (selesour == 4) t=(datasour * 16.4 * 1.31)/1000000;
+if (selesour == 5) t=(datasour * 1.31)/1000000;
+}
+
+function calecubus() {
+if (selesour == 0) t=datasour * 27.5;
+if (selesour == 1) t=datasour * 0.765 * 27.5;
+if (selesour == 3) t=datasour * 0.0283 * 27.5;
+if (selesour == 4) t=(datasour * 16.4 * 27.5)/1000000;
+if (selesour == 5) t=(datasour * 27.5)/1000000;
+}
+
+function calecuft() {
+if (selesour == 0) t=datasour * 35.3;
+if (selesour == 1) t=datasour * 0.765 * 35.3;
+if (selesour == 2) t=datasour * 0.0346 * 35.3;
+if (selesour == 4) t=(datasour * 16.4 * 35.3)/1000000;
+if (selesour == 5) t=(datasour * 35.3)/1000000;
+}
+
+function calecuin() {
+if (selesour == 0) t=datasour * 61 * 1000;
+if (selesour == 1) t=datasour * 76.5 * 61;
+if (selesour == 2) t=datasour * 34.6 * 61;
+if (selesour == 3) t=datasour * 28.3 * 61;
+if (selesour == 5) t=datasour * 0.0610;
+}
+
+function calecucm() {
+if (selesour == 0) t=datasour * 100 * 100 * 100;
+if (selesour == 1) t=datasour * 765 * 1000;
+if (selesour == 2) t=datasour * 346 * 100;
+if (selesour == 3) t=datasour * 283 * 100;
+if (selesour == 4) t=datasour * 16.4;
+}
+
+namefluids = new Array();
+namefluids[0]="gal";
+namefluids[1]="l";
+namefluids[2]="pt";
+namefluids[3]="fl oz";
+namefluids[4]="ml";
+
+function getfluids() {
+tt=document.fluidsform.data.value;
+datasour=parseFloat(tt);
+t=datasour;
+if (tt >= 0)
+{
+ selesour=document.fluidsform.sourfluids.selectedIndex;
+ seletar=document.fluidsform.tarfluids.selectedIndex;
+ 
+ if (selesour != seletar) 
+  calefluids(selesour,seletar,datasour);
+  soult=t;
+   ult = Math.abs(soult) * 10;
+  if ((ult < 10) && (ult >= 1)) document.fluidsform.soult.value="0"+soult+"  "+namefluids[seletar];
+  else 
+  document.fluidsform.soult.value=soult+"  "+namefluids[seletar]; 
+  // document.fluidsform.data.value=datasour+"  "+namefluids[selesour];
+}
+else M("输入值“" + tt + "”不正确，请输入数字！");
+}
+
+function calefluids(selesour,seletar,datasour) {
+if (seletar == 0) calegal();
+if (seletar == 1) calel();
+if (seletar == 2) calept();
+if (seletar == 3) calefloz();
+if (seletar == 4) caleml();
+}
+
+function calegal() {
+if (selesour == 1) t=datasour * 0.2200;
+if (selesour == 2) t=(datasour * 0.2200 * 568)/1000;
+if (selesour == 3) t=(datasour * 28.4 * 0.2200)/1000;
+if (selesour == 4) t=(datasour * 0.2200)/1000;
+}
+
+function calel() {
+if (selesour == 0) t=datasour * 4.55;
+if (selesour == 2) t=(datasour * 568)/1000;
+if (selesour == 3) t=(datasour * 28.4)/1000;
+if (selesour == 4) t=datasour/1000;
+}
+
+function calept() {
+if (selesour == 0) t=datasour * 4.55 * 1.76;
+if (selesour == 1) t=datasour * 1.76;
+if (selesour == 3) t=(datasour * 28.4 * 1.76)/1000;
+if (selesour == 4) t=(datasour * 1.76)/1000;
+}
+
+function calefloz() {
+if (selesour == 0) t=datasour * 4.55 * 35.2;
+if (selesour == 1) t=datasour * 35.2;
+if (selesour == 2) t=datasour * 568 * 0.0352;
+if (selesour == 4) t=datasour * 0.0352;
+}
+
+function caleml() {
+if (selesour == 0) t=datasour * 4.55 * 1000;
+if (selesour == 1) t=datasour * 1000;
+if (selesour == 2) t=datasour * 568;
+if (selesour == 3) t=datasour * 28.4;
+}
+
+		</script>
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<TABLE class=_table cellSpacing=0 borderColorDark=#ffffff 
+cellPadding=5 width=778 align=center borderColorLight=#666666 border=1>
+  <TBODY>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#f85127 height=16><FONT color=#990099>
+      <P align=center></FONT><FONT color=#ffffff>重量转换</FONT></P></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#7dcec8 height=51>
+      <FORM name=formw>
+      <DIV align=center>
+      <CENTER>
+      <P>(其他制式）<INPUT value=1 name=textf> <SELECT size=1 name=select1> <OPTION   
+        value=0>--英制--</OPTION> <OPTION value=0.4536 selected>磅</OPTION> <OPTION 
+        value=0.02835>盎司</OPTION> <OPTION value=1016.0470>英吨</OPTION> <OPTION 
+        value=907.1849>美吨</OPTION> <OPTION value=0.0017718>打兰</OPTION> <OPTION 
+        value=0.0000648>格令</OPTION> <OPTION value=0.0002>克拉</OPTION> <OPTION 
+        value=0>--市制--</OPTION> <OPTION value=50>市担</OPTION> <OPTION 
+        value=0.5>市斤</OPTION> <OPTION value=0.05>市两</OPTION> <OPTION 
+        value=0.005>市钱</OPTION> <OPTION value=0.0005>市厘</OPTION> <OPTION 
+        value=0.00005>市毫</OPTION> <OPTION value=0.000005>市丝</OPTION></SELECT> =   
+      <INPUT value=0 name=textfm>&nbsp; <SELECT size=1 name=select2> <OPTION   
+        value=1 selected>公斤(千克)</OPTION> <OPTION value=1000>克</OPTION> <OPTION 
+        value=0.001>吨</OPTION> <OPTION value=100>公担</OPTION> <OPTION 
+        value=10000>分克</OPTION> <OPTION value=100000>厘克</OPTION> <OPTION 
+        value=1000000>毫克</OPTION></SELECT><FONT color=#400040>（公制）</FONT><FONT 
+      color=#cccccc><BR></FONT><INPUT onclick="_otmw(&#13;&#10;&#9;&#9;&#9;document.formw.textf.value,&#13;&#10;&#9;&#9;&#9;document.formw.select1.value,&#13;&#10;&#9;&#9;&#9;document.formw.textfm.value,&#13;&#10;&#9;&#9;&#9;document.formw.select2.value);" type=button value="其他->公制" name=otm>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+<INPUT onclick="_mtow(document.formw.textf.value,    &#13;&#10;&#9;&#9;&#9;document.formw.select1.value,    &#13;&#10;&#9;&#9;&#9;document.formw.textfm.value,    &#13;&#10;&#9;&#9;&#9;document.formw.select2.value);" type=button value="其他<-公制" name=mto> 
+      </P></CENTER></DIV></FORM></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#f85127 height=16>
+      <P align=center><FONT color=#ffffff>长度转换</FONT></P></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#7dcec8 height=51>
+      <FORM name=forml>
+      <DIV align=center>
+      <CENTER>
+      <P>(其他制式）<INPUT value=1 name=textf> <SELECT size=1 name=select1> <OPTION   
+        value=0>--英制--</OPTION> <OPTION value=0.0254 selected>英寸</OPTION> 
+        <OPTION value=0.3048>英尺</OPTION> <OPTION value=0.9144>码</OPTION> <OPTION 
+        value=1609.3>英里</OPTION> <OPTION value=0>--市制--</OPTION> <OPTION 
+        value=500>市里</OPTION> <OPTION value=33.3333>市引</OPTION> <OPTION 
+        value=3.3333>市丈</OPTION> <OPTION value=0.3333>市尺</OPTION> <OPTION 
+        value=0.03333>市寸</OPTION> <OPTION value=0.003333>市分</OPTION> <OPTION 
+        value=0.0003333>市厘</OPTION> <OPTION value=0.00003333>市毫</OPTION></SELECT> 
+      = <INPUT value=0 name=textfm>&nbsp; <SELECT size=1 name=select2> <OPTION   
+        value=1 selected>米</OPTION> <OPTION value=0.001>公里(千米)</OPTION> <OPTION 
+        value=0.0005399568>海里</OPTION> <OPTION value=10>分米</OPTION> <OPTION 
+        value=100>厘米</OPTION> <OPTION value=1000>毫米</OPTION> <OPTION 
+        value=10000>丝米</OPTION> <OPTION value=100000>忽米</OPTION> <OPTION 
+        value=1000000>微米</OPTION></SELECT> <FONT color=#400040>（公制）</FONT><BR><INPUT onclick="_otml(document.forml.textf.value,    &#13;&#10;&#9;&#9;&#9;document.forml.select1.value,    &#13;&#10;&#9;&#9;&#9;document.forml.textfm.value,    &#13;&#10;&#9;&#9;&#9;document.forml.select2.value);" type=button value="其他->公制" name=otm>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+<INPUT onclick="_mtol(document.forml.textf.value,    &#13;&#10;&#9;&#9;&#9;document.forml.select1.value,    &#13;&#10;&#9;&#9;&#9;document.forml.textfm.value,    &#13;&#10;&#9;&#9;&#9;document.forml.select2.value);" type=button value="其他<-公制" name=mto> 
+      </P></CENTER></DIV></FORM></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#f85127 height=16><FONT color=#990099>
+      <P align=center></FONT><FONT color=#ffffff>面积转换 </FONT></P></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#7dcec8 height=50>
+      <FORM name=forms>
+      <DIV align=center>
+      <CENTER>
+      <P>(其他制式）<INPUT value=1 name=textf> <SELECT size=1 name=select1> <OPTION   
+        value=0>--市制--</OPTION> <OPTION value=66666.6667>市顷</OPTION> <OPTION 
+        value=666.6667 selected>市亩</OPTION> <OPTION value=66.6667>市分</OPTION> 
+        <OPTION value=0.1111>平方市尺</OPTION> <OPTION value=0>--英制--</OPTION> 
+        <OPTION value=0.00064516>平方英寸</OPTION> <OPTION 
+        value=0.0929>平方英尺</OPTION> <OPTION value=0.8361>平方码</OPTION> <OPTION 
+        value=4046.86>英亩</OPTION> <OPTION value=2590000>平方英里</OPTION></SELECT> =   
+      <INPUT value=0 name=textfm>&nbsp;<SELECT size=1 name=select2> <OPTION 
+        value=0.000001 selected>平方公里</OPTION> <OPTION value=0.0001>公顷</OPTION> 
+        <OPTION value=0.01>公亩</OPTION> <OPTION value=1>平方米</OPTION> <OPTION 
+        value=100>平方分米</OPTION> <OPTION value=10000>平方厘米</OPTION></SELECT> <FONT   
+      color=#400040>（公制）</FONT><BR><INPUT onclick="_otms(document.forms.textf.value,    &#13;&#10;&#9;&#9;&#9;document.forms.select1.value,    &#13;&#10;&#9;&#9;&#9;document.forms.textfm.value,    &#13;&#10;&#9;&#9;&#9;document.forms.select2.value);" type=button value="其他->公制" name=otm>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+<INPUT onclick="_mtos(document.forms.textf.value,    &#13;&#10;&#9;&#9;&#9;document.forms.select1.value,    &#13;&#10;&#9;&#9;&#9;document.forms.textfm.value,    &#13;&#10;&#9;&#9;&#9;document.forms.select2.value);" type=button value="其他<-公制" name=mto> 
+      </P></CENTER></DIV></FORM></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#f85127 height=16><FONT color=#990099>
+      <P align=center></FONT><FONT color=#ffffff>体积转换</FONT></P></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#7dcec8 height=58>
+      <FORM name=formv>
+      <DIV align=center>
+      <CENTER>
+      <P>(其他制式）<INPUT value=1 name=textf> <SELECT size=1 name=select1> <OPTION   
+        value=0>--英制--</OPTION> <OPTION value=0.0045461 selected>英国加仑</OPTION> 
+        <OPTION value=0.0037854>美国液体加仑</OPTION> <OPTION 
+        value=0.0044049>美国固体加仑</OPTION> <OPTION value=0.0000163871>立方英寸</OPTION> 
+        <OPTION value=0.0283>立方英尺</OPTION> <OPTION value=0.7646>立方码</OPTION> 
+        <OPTION value=0>--市制--</OPTION> <OPTION value=0.000037>立方市寸</OPTION> 
+        <OPTION value=0.037>立方市尺</OPTION> <OPTION value=37>立方市丈</OPTION></SELECT> 
+      = <INPUT value=0 name=textfm> <SELECT size=1 name=select2> <OPTION   
+        value=1 selected>立方米</OPTION> <OPTION value=1000>立方分米</OPTION> <OPTION 
+        value=1000000>立方厘米</OPTION> <OPTION value=1000>升</OPTION> <OPTION 
+        value=1000000>毫升</OPTION></SELECT><FONT color=#400040>（公制）</FONT><BR><INPUT onclick="_otmv(document.formv.textf.value,    &#13;&#10;&#9;&#9;&#9;document.formv.select1.value,    &#13;&#10;&#9;&#9;&#9;document.formv.textfm.value,    &#13;&#10;&#9;&#9;&#9;document.formv.select2.value);" type=button value="其他->公制" name=otm>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+<INPUT onclick="_mtov(document.formv.textf.value,    &#13;&#10;&#9;&#9;&#9;document.formv.select1.value,    &#13;&#10;&#9;&#9;&#9;document.formv.textfm.value,    &#13;&#10;&#9;&#9;&#9;document.formv.select2.value);" type=button value="其他<-公制" name=mto> 
+      </P></CENTER></DIV></FORM></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#f85127 height=7><FONT color=#990099>
+      <P align=center></FONT><FONT color=#ffffff>温度转换</FONT></P></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD bgColor=#7dcec8 height=50>
+      <FORM name=formt>
+      <DIV align=center>
+      <CENTER>
+      <P>(其他制式）<INPUT value=50 name=textf> <SELECT size=1 name=select1>   
+        <OPTION selected>华氏</OPTION></SELECT> = <INPUT value=10   
+      name=textfg>&nbsp;&nbsp;<SELECT size=1 name=select2> <OPTION 
+        selected>摄氏</OPTION></SELECT> <FONT color=#400040>（公制）</FONT><BR><INPUT onclick=document.formt.textfg.value=(document.formt.textf.value-32)*5/9 type=button value="华氏->摄氏" name=otm>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+<INPUT onclick=document.formt.textf.value=document.formt.textfg.value*9/5+32 type=button value="华氏<-摄氏" name=mto> 
+      </P></CENTER></DIV></FORM></TD></TR>
+</TBODY></TABLE>
+
+<table border="0" cellpadding="0" style="BORDER-COLLAPSE: collapse" width="776" align="center">    
+  <tr>     
+    <td valign="top" height="31" align="center"> <span class="title">其他单位换算</span></td>    
+  </tr>  
+  <tr>     
+    <td valign="top">     
+      <table border="1" cellspacing="0" cellpadding="8" width="600" align="center" style="BORDER-COLLAPSE: collapse"    
+						bgcolor="#fcfcfc" bordercolor="#98a7b8">    
+        <tr>     
+          <td>     
+            <form name="lenform">    
+              <table border="0">    
+                <tr>     
+                  <td colspan="2"><b>长度 Length</b></td>    
+                  <td></td>    
+                  <td align="right">    
+                    <p>    
+                      <input type="reset" value="重  填" name="reset">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input size="19" value="0" name="data">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input size="19" name="soult">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="source">    
+                      <option>英里 mile</option>
+                      <option selected>公里 kilometre</option>
+                      <option>浪 furlong</option>
+                      <option>米 metre</option>
+                      <option>码 yard</option>
+                      <option>英尺 foot</option>
+                      <option>英寸 inch</option>
+                      <option>厘米 centimetre</option>
+                      <option>毫米 millimetre</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="getvalue()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="targ">
+                      <option selected>英里 mile</option>
+                      <option>公里 kilometre</option>
+                      <option>浪 furlong</option>
+                      <option>米 metre</option>
+                      <option>码 yard</option>
+                      <option>英尺 foot</option>
+                      <option>英寸 inch</option>
+                      <option>厘米 centimetre</option>
+                      <option>毫米 millimetre</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <form name="degreeform">
+              <table border="0">
+                <tr> 
+                  <td colspan="2"><b>温度 Temperature</b></td>    
+                  <td></td>    
+                  <td align="right">     
+                    <p>    
+                      <input type="reset" value="重  填" name="reset2">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input name="data" value="0" size="28">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input name="soult" size="28">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="sourtemp">    
+                      <option selected>摄氏度 degree Celsius</option>
+                      <option>华氏度 degree Fahrenheit</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="gettempvalue()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="tartemp">
+                      <option>摄氏度 degree Celsius</option>
+                      <option selected>华氏度 degree Fahrenheit</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <form name="powerform">
+              <table border="0">
+                <tr> 
+                  <td colspan="2"><b>功率 Power</b></td>    
+                  <td></td>    
+                  <td align="right">    
+                    <p>    
+                      <input type="reset" value="重  填" name="reset2">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input size="19" value="0" name="data">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input size="19" name="soult">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="sourpower">    
+                      <option selected>千瓦 kilowatt</option>
+                      <option>马力 horsepower</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="getpowervalue()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="tarpower">
+                      <option>千瓦 kilowatt</option>
+                      <option selected>马力 horsepower</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <form name="velcityform">
+              <table border="0">
+                <tr> 
+                  <td colspan="2"><b>速度 Velcity</b></td>    
+                  <td></td>    
+                  <td align="right">    
+                    <p>    
+                      <input type="reset" value="重  填" name="reset2">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input size="31" value="0" name="data">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input size="31" name="soult">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="sourvelcity">    
+                      <option>节 knot</option>
+                      <option>英里/小时 mile perhour</option>
+                      <option selected>公里/小时 kilometre per hour</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="getvelcity()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="tarvelcity">
+                      <option>节 knot</option>
+                      <option selected>英里/小时 mile perhour</option>
+                      <option>公里/小时 kilometre per hour</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <form name="massform">
+              <table border="0">
+                <tr> 
+                  <td colspan="2"><b>重量 Mass</b></td>    
+                  <td></td>    
+                  <td align="right">    
+                    <p>    
+                      <input type="reset" value="重  填" name="reset2">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input size="17" value="0" name="data">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input size="17" name="soult">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="sourmass">    
+                      <option selected>吨 ton</option>
+                      <option>吨 tonner</option>
+                      <option>石 stone</option>
+                      <option>千克 kilogram</option>
+                      <option>磅 pound</option>
+                      <option>盎司 ounce</option>
+                      <option>克 gram</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="getmass()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="tarmass">
+                      <option>吨 ton</option>
+                      <option>吨 tonner</option>
+                      <option>石 stone</option>
+                      <option selected>千克 kilogram</option>
+                      <option>磅 pound</option>
+                      <option>盎司 ounce</option>
+                      <option>克 gram</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <form name="areaform">
+              <table border="0">
+                <tr> 
+                  <td colspan="2"><b>面积 Area</b></td>    
+                  <td></td>    
+                  <td align="right">    
+                    <p>    
+                      <input type="reset" value="重  填" name="reset2">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input size="30" value="0" name="data">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input size="28" name="soult">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="sourarea">    
+                      <option>平方英里 square mile</option>
+                      <option selected>平方公里 square kilometre</option>
+                      <option>公顷 hectare</option>
+                      <option>英亩 acre</option>
+                      <option>平方米 square metre</option>
+                      <option>平方码 square yard</option>
+                      <option>平方英尺 square foot</option>
+                      <option>平方英寸 square inch</option>
+                      <option>平方厘米 square centimetre</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="getarea()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="tararea">
+                      <option selected>平方英里 square mile</option>
+                      <option>平方公里 square kilometre</option>
+                      <option>公顷 hectare</option>
+                      <option>英亩 acre</option>
+                      <option>平方米 square metre</option>
+                      <option>平方码 square yard</option>
+                      <option>平方英尺 square foot</option>
+                      <option>平方英寸 square inch</option>
+                      <option>平方厘米 square centimetre</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr> 
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <form name="volumeform">
+              <table border="0">
+                <tr> 
+                  <td colspan="2"><b>体积 Volume</b></td>    
+                  <td></td>    
+                  <td align="right">    
+                    <p>    
+                      <input type="reset" value="重  填" name="reset2">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input size="28" value="0" name="data">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input size="28" name="soult">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="sourvolume">    
+                      <option selected>立方米 cubic metre</option>
+                      <option>立方码 cubic yard</option>
+                      <option>蒲式尔 bushel</option>
+                      <option>立方英尺 cubic foot</option>
+                      <option>立方英寸 cubic inch</option>
+                      <option>立方厘米 cubic centimetre</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="getvolume()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="tarvolume">
+                      <option>立方米 cubic metre</option>
+                      <option>立方码 cubic yard</option>
+                      <option>蒲式尔 bushel</option>
+                      <option>立方英尺 cubic foot</option>
+                      <option>立方英寸 cubic inch</option>
+                      <option selected>立方厘米 cubic centimetre</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr> 
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <form name="fluidsform">
+              <table border="0">
+                <tr> 
+                  <td colspan="2"><b>容积（液体） Volume(fluids)</b></td>    
+                  <td></td>    
+                  <td align="right">    
+                    <p>    
+                      <input type="reset" value="重  填" name="reset2">    
+                    </p>    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td>请输入</td>    
+                  <td>    
+                    <input name="data" value="0" size="23">    
+                  </td>    
+                  <td align="center">＝</td>    
+                  <td>    
+                    <input name="soult" size="23">    
+                  </td>    
+                </tr>    
+                <tr>     
+                  <td></td>    
+                  <td>    
+                    <select size="1" name="sourfluids">    
+                      <option selected>加仑 gallon</option>
+                      <option>升 litre</option>
+                      <option>品脱 pint</option>
+                      <option>液体盎司 fluid ounce</option>
+                      <option>毫升 millilitre</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input onClick="getfluids()" type="button" value="转换成" title="把按钮左边的单位 转换为 按钮右边的单位" name="button">
+                  </td>
+                  <td>
+                    <select size="1" name="tarfluids">
+                      <option>加仑 gallon</option>
+                      <option selected>升 litre</option>
+                      <option>品脱 pint</option>
+                      <option>液体盎司 fluid ounce</option>
+                      <option>毫升 millilitre</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<TABLE height=258 cellSpacing=0 cellPadding=0 width=762 align=center border=0>                     
+  <TBODY>                     
+  <TR>                     
+    <TD height=258 vAlign=middle></FORM>
+      <div align="center">                     
+</center>                      
+<TABLE cellSpacing=0 cellPadding=0 width=768 align=center border=0>                        
+  <TBODY>                        
+  <TR align=middle>                        
+    <TD align=middle>                        
+                   <DIV ID="Layer1" STYLE="position:absolute; left:-10000px; top:-10000px; width:510px; height:125px; z-index:1">                        
+                       
+</div</HTML>                        
+  </table>                     
+<div align="center">                    
+  <table border="0" cellpadding="0" cellspacing="0" width="760" height="119">                    
+    <tr>                    
+      <td width="100%" height="14">  
+        <div align="center">  
+          <table cellSpacing="0" cellPadding="0" width="540" border="0" height="62">  
+            <tbody>  
+              <tr>  
+                <td class="tdline2" colSpan="8" bgcolor="#EFEFEF" height="26">  
+                  <p align="left"><font color="#0000FF"><b>&nbsp;长 度</b></font></p>  
+                </td>  
+              </tr>  
+  <center>                    
+  <center>  
+  <tr class="tdline">  
+    <td width="44" height="25">名称</td>  
+    <td width="80" height="25">毫米</td>  
+    <td width="69" height="25">厘米</td>  
+    <td width="69" height="25">分米</td>  
+    <td width="69" height="25">米</td>  
+    <td width="70" height="25">十米</td>  
+    <td width="68" height="25">百米</td>  
+    <td width="71" height="25">千米</td>  
+  </tr>  
+  <tr class="tdline">  
+    <td width="44" height="25">等数</td>  
+    <td width="80" height="25">1000微米</td>  
+    <td width="69" height="25">10毫米</td>  
+    <td width="69" height="25">10厘米</td>  
+    <td width="69" height="25">10分米</td>  
+    <td width="70" height="25">10米</td>  
+    <td width="68" height="25">100米</td>  
+    <td width="71" height="25">1000米</td>  
+  </tr>  
+  </tbody>  
+              </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="4" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>面   
+                    积</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="60" height="25">名称</td>  
+                  <td width="159" height="25">平方厘米</td>  
+                  <td width="161" height="25">平方米</td>  
+                  <td width="160" height="25">平方公里</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="60" height="25">等数</td>  
+                  <td width="159" height="25">100平方毫米</td>  
+                  <td width="161" height="25">10000平方厘米</td>  
+                  <td width="160" height="25">1000000平方米</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="4" height="26" bgcolor="#EFEFEF">&nbsp;<font color="#0000FF"><b>体   
+                    积</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="60" height="25">名称</td>  
+                  <td width="158" height="25">立方厘米</td>  
+                  <td width="160" height="25">立方分米</td>  
+                  <td width="162" height="25">立方米</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="60" height="25">等数</td>  
+                  <td width="158" height="25">1000立方毫米</td>  
+                  <td width="160" height="25">1000立方厘米</td>  
+                  <td width="162" height="25">1000立方米</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="7" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>容   
+                    量</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="76" height="25">名称</td>  
+                  <td width="76" height="25">厘升</td>  
+                  <td width="76" height="25">分升</td>  
+                  <td width="76" height="25">升</td>  
+                  <td width="75" height="25">十升</td>  
+                  <td width="78" height="25">百升</td>  
+                  <td width="83" height="25">千升</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="76" height="25">等数</td>  
+                  <td width="76" height="25">10毫升</td>  
+                  <td width="76" height="25">10厘升</td>  
+                  <td width="76" height="25">10分升</td>  
+                  <td width="75" height="25">10升</td>  
+                  <td width="78" height="25">100升</td>  
+                  <td width="83" height="25">1000升</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="8" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>质   
+                    量</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="65" height="25">名称</td>  
+                  <td width="65" height="25">厘克</td>  
+                  <td width="65" height="25">分克</td>  
+                  <td width="65" height="25">克</td>  
+                  <td width="52" height="25">十克</td>  
+                  <td width="65" height="25">百克</td>  
+                  <td width="65" height="25">千克</td>  
+                  <td width="98" height="25">吨</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="65" height="25">等数</td>  
+                  <td width="65" height="25">10毫克</td>  
+                  <td width="65" height="25">10厘克</td>  
+                  <td width="65" height="25">10分克</td>  
+                  <td width="52" height="25">10克</td>  
+                  <td width="65" height="25">100克</td>  
+                  <td width="65" height="25">1000克</td>  
+                  <td class="tdline" width="98" height="25">1000千克</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="7" height="26" bgcolor="#EFEFEF">&nbsp;<font color="#0000FF"><b>长   
+                    度</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="76" height="25">名称</td>  
+                  <td width="76" height="25">厘</td>  
+                  <td width="76" height="25">分</td>  
+                  <td width="76" height="25">寸</td>  
+                  <td width="77" height="25">尺</td>  
+                  <td width="76" height="25">丈</td>  
+                  <td width="83" height="25">里</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="76" height="25">等数</td>  
+                  <td width="76" height="25">10毫</td>  
+                  <td width="76" height="25">10厘</td>  
+                  <td width="76" height="25">10分</td>  
+                  <td width="77" height="25">10寸</td>  
+                  <td width="76" height="25">10尺</td>  
+                  <td width="83" height="25">150丈</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="7" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>面   
+                    积</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="30" height="25">名称</td>  
+                  <td width="81" height="25">平方厘</td>  
+                  <td width="81" height="25">平方分</td>  
+                  <td width="76" height="25">平方寸</td>  
+                  <td width="86" height="25">平方尺</td>  
+                  <td width="81" height="25">平方丈</td>  
+                  <td width="105" height="25">平方里</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td height="25">等数</td>  
+                  <td height="25">100 平方毫</td>  
+                  <td height="25">100 平方厘</td>  
+                  <td height="25">100 平方分</td>  
+                  <td height="25">100 平方寸</td>  
+                  <td height="25">100 平方尺</td>  
+                  <td height="25">22500 平方丈</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr class="tdline">  
+                  <td class="tdline2" colSpan="5" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>地   
+                    积</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="107" height="25">名称</td>  
+                  <td width="108" height="25">厘</td>  
+                  <td width="103" height="25">分</td>  
+                  <td width="113" height="25">亩</td>  
+                  <td width="109" height="25">顷</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="107" height="25">等数</td>  
+                  <td width="108" height="25">10毫</td>  
+                  <td width="103" height="25">10厘</td>  
+                  <td width="113" height="25">10分</td>  
+                  <td width="109" height="25">100亩</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="8" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>质   
+                    量</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="56" height="25">名称</td>  
+                  <td width="66" height="25">毫</td>  
+                  <td width="66" height="25">厘</td>  
+                  <td width="67" height="25">分</td>  
+                  <td width="65" height="25">钱</td>  
+                  <td width="66" height="25">两</td>  
+                  <td width="66" height="25">斤</td>  
+                  <td width="88" height="25">担</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td height="25">等数</td>  
+                  <td height="25">10丝</td>  
+                  <td height="25">10毫</td>  
+                  <td height="25">10厘</td>  
+                  <td height="25">10分</td>  
+                  <td height="25">10钱</td>  
+                  <td height="25">10两</td>  
+                  <td height="25">100斤</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" colSpan="6" bgcolor="#EFEFEF">&nbsp;<font color="#0000FF"><b>容   
+                    量</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td width="79">名称</td>  
+                  <td width="92">勺</td>  
+                  <td width="89">合</td>  
+                  <td width="95">升</td>  
+                  <td width="92">斗</td>  
+                  <td width="93">石</td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td>等数</td>  
+                  <td>10撮</td>  
+                  <td>10勺</td>  
+                  <td>10合</td>  
+                  <td>10升</td>  
+                  <td>10斗</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <p style="FONT-WEIGHT: bold" align="center">计量单位比较表</p>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>长度比较表</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td align="left">1千米(公里)=2市里=0.621英里=0.540海里   
+                    1米=3市尺=3.281英尺<br>  
+                    1市里=0.5千米(公里)=0.311英里=0.270海里 1市尺=0.333米=1.094英尺<br>  
+                    1英里=1.609千米(公里)=3.218市里=0.869海里 1英尺=0.305米=0.914市尺<br>  
+                    1海里=1.852千米(公里)=3.704市里=1.150英里</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>地积比较表</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td align="left">1公顷=15市亩=2.471英亩<br>  
+                    1市亩=6.667公亩=0.165英亩<br>  
+                    1英亩=0.405公顷=6.070市亩</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>质量比较表</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td align="left">1千克(公斤)=2市斤=2.205英磅<br>  
+                    1市斤=0.5千克(公斤)=1.102英镑<br>  
+                    1英镑=0.454千克(公斤)=0.907市斤</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>  
+          <div align="center">  
+            <center>  
+            <table cellSpacing="0" cellPadding="0" width="540" border="0">  
+              <tbody>  
+                <tr>  
+                  <td class="tdline2" bgcolor="#EFEFEF" height="26">&nbsp;<font color="#0000FF"><b>容量比较表</b></font></td>  
+                </tr>  
+                <tr class="tdline">  
+                  <td align="left">1升(公制)=1市升=0.220加仑(英制)<br>  
+                    1加仑(英制)=4.546升=4.546市升</td>  
+                </tr>  
+              </tbody>  
+            </table>  
+            </center>  
+          </div>
+</body>  
+</html>

@@ -1,0 +1,390 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML><HEAD><TITLE>肥胖测试,身高体重测试</TITLE>
+<Meta Name="Keywords" Content="肥胖测试,">
+
+<STYLE type=text/css>BODY {
+	FONT-SIZE: 11pt; LINE-HEIGHT: 12pt; FONT-FAMILY: "宋体"
+}
+TD {
+	FONT-SIZE: 11pt; LINE-HEIGHT: 12pt; FONT-FAMILY: "宋体"
+}
+A {
+	COLOR: black; LINE-HEIGHT: 16pt; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #ff0000; LINE-HEIGHT: 16pt; TEXT-DECORATION: none
+}
+.unnamed8 {
+	FONT-SIZE: 14px; LINE-HEIGHT: 20pt; TEXT-DECORATION: underline
+}
+</STYLE>
+<SCRIPT language=JavaScript>
+<!--
+self.moveTo(0,0)
+self.resizeTo(screen.availWidth,screen.availHeight)
+//-->
+</SCRIPT>
+<SCRIPT language=JavaScript>
+
+<!--
+
+function CheckStatus()
+
+{
+
+ if(document.MyForm.NowPeople.value=="child")
+
+  document.all("MyAge").style.display="";
+
+ else
+
+  document.all("MyAge").style.display="none";
+
+  
+
+  document.all("TheResult").style.display="none";
+
+}
+
+
+
+function DiagnoseIt()
+
+{
+
+     var StdWeight;     //标准体重
+
+     var OverRate;      //体重超标率
+
+     var TheResult;     //诊断结论
+
+     var TheHeight=document.MyForm.MyHeight.value;   //身高
+
+     var TheWeight=document.MyForm.MyWeight.value;   //体重
+
+     var TheAge   =document.MyForm.TheAge.value;      //年龄--对于儿童有效
+
+     var gender=document.MyForm.MyGender.value;        //性别--男:male    女:female
+
+     var people=document.MyForm.NowPeople.value;        //人群--成人:adult 儿童:child
+
+     
+
+     if(!(TheHeight&&TheWeight))
+
+      {
+
+        alert("请完整填写您的身高和体重！");
+
+        document.MyForm.MyHeight.select();
+
+        return false;
+
+      }
+
+     TheHeight=parseFloat(TheHeight);
+
+     TheWeight=parseFloat(TheWeight);
+
+     if(!(TheHeight&&TheWeight))
+
+     {
+
+        alert("请填写正确的身高和体重！\n\n身高和体重只能为数字");
+
+        document.MyForm.MyHeight.select();
+
+        return false;
+
+      }
+
+     if((TheHeight>250.0)||(TheHeight<25.0)||(TheWeight>250.0)||(TheWeight<10.0))
+
+     {
+
+        alert("请严肃点不然二狼会揍您\n\n,请填写真实的身高和体重");
+
+        document.MyForm.MyHeight.select();
+
+        return false;
+
+      }
+
+     else if(document.MyForm.NowPeople.value=="child"&&TheAge=="")
+
+     {
+
+       alert("儿童诊断，请填写年龄！");
+
+       document.MyForm.TheAge.select();
+
+       return false;
+
+     }
+
+      else 
+
+      {
+
+         if(TheHeight>=130) people="adult";
+
+         if(people=="adult")                 //计算成人标准体重
+
+         {
+
+            if(gender=="male")   StdWeight=(TheHeight-100)*0.90;
+
+              else               StdWeight=(TheHeight-100)*0.85;
+
+          }
+
+         else                                //计算儿童标准体重
+
+         StdWeight=TheAge*2+8;
+
+         
+
+         StdWeight=Math.round(StdWeight*10)/10;
+
+         
+
+         OverRate=TheWeight/StdWeight-1.00;  //计算超过标准体重率
+
+         OverRate=Math.round(OverRate*1000)/10;
+
+         
+
+         if(OverRate<=0)     
+
+         { 
+
+           TheResult="你的体重过轻呀！";
+
+           TheSuggest="请注意加强营养或锻炼";
+
+         }
+
+         else if(OverRate>0&&OverRate<=10)   
+
+         {
+
+           TheResult="你的体重很标准呀！";
+
+           TheSuggest="请注意保持";
+
+         }
+
+         else if(OverRate>10&&OverRate<=20)      
+
+         {
+
+           TheResult="体重轻度超重，但是尚未构成肥胖病。";
+
+           TheSuggest="请注意身体锻炼";
+
+         }
+
+         else if(OverRate>20&&OverRate<=30)      
+
+         {
+
+           TheResult="体重已经超重，轻度肥胖！";
+
+           TheSuggest="你需要考虑减肥计划了";
+
+         }
+
+         else if(OverRate>30&&OverRate<=50)      
+
+         {
+
+           TheResult="体重已经超重，中度肥胖！";
+
+           TheSuggest="为了身体健康你需要减肥";
+
+         }
+
+         else if(OverRate>50&&OverRate<100)      
+
+         {
+
+           TheResult="体重已经超重，重度肥胖！";
+
+           TheSuggest="强烈建议立即参加减肥";
+
+         }
+
+         else if(OverRate>=100)  
+
+         {
+
+           TheResult="体重严重超重，极重度肥胖！";
+
+           TheSuggest="现在就去减肥，刻不容缓";
+
+         }
+
+         
+
+         //输出诊断结果
+
+         document.all("RtWeight").innerHTML = "&nbsp;" + StdWeight.toString() + " Kg";
+
+         document.all("RtOver").innerHTML = "&nbsp;" + OverRate.toString() + " %";
+
+         document.all("Result").innerHTML = "&nbsp;" + TheResult;
+
+         document.all("Suggest").innerHTML= "&nbsp;" + TheSuggest;
+
+         document.all("TheResult").style.display="";
+
+         return false;         
+
+      }
+
+}
+
+//-->
+
+</SCRIPT>
+
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<body topmargin="0" leftmargin="0" bgcolor="#FAFAFA">
+
+<DIV align=center><SCRIPT LANGUAGE="JavaScript">
+<!-- Hide
+
+function killErrors() {
+return true;
+}
+
+window.onerror = killErrors;
+
+// -->
+</SCRIPT>
+
+<SCRIPT type=text/javascript> var arrBaiduCproConfig=new Array(); arrBaiduCproConfig['uid'] =79499; arrBaiduCproConfig['n'] ='bangmang1978_cpr'; arrBaiduCproConfig['tm'] =20; arrBaiduCproConfig['cm'] =76; arrBaiduCproConfig['um'] =26; arrBaiduCproConfig['w'] =768; arrBaiduCproConfig['h'] =90; arrBaiduCproConfig['wn'] =4; arrBaiduCproConfig['hn'] =1; arrBaiduCproConfig['ta'] ='right'; arrBaiduCproConfig['tl'] ='bottom'; arrBaiduCproConfig['bu'] =0; arrBaiduCproConfig['bd'] ='#1239A3'; arrBaiduCproConfig['bg'] ='#E2EEFC'; arrBaiduCproConfig['tt'] ='#0000ff'; arrBaiduCproConfig['ct'] ='#000000'; arrBaiduCproConfig['url'] ='#666666'; arrBaiduCproConfig['bdl'] ='#ffffff'; arrBaiduCproConfig['rad'] =1; </SCRIPT>          
+          
+<SCRIPT type=text/javascript>           
+<!--           
+document.write(baiduCproIFrame());           
+-->           
+</SCRIPT>
+<TABLE height=258 cellSpacing=0 cellPadding=0 width=762 align=center border=0>          
+  <TBODY>          
+  <TR>          
+    <TD height=258 vAlign=top></FORM>                   
+      <div align="center">          
+        <center>          
+      <TABLE class=bkfc9417 height=190 cellSpacing=0 cellPadding=0 border=0 ? width="650" bgcolor="#ECF7F6">          
+          <TBODY>          
+          <TR>          
+            <TD width=1277 bgColor=#A6D9D3 height=32 style="border: 1 solid #000000" background="ind3_13.jpg">          
+              <p align="center"><font color="#003399">身高体重测试！（看看你是否肥胖！）</font></p>          
+            </TD></TR>          
+        </center>            
+</center>           
+          <TR>          
+            <TD>          
+              <TABLE height=378 cellSpacing=1 cellPadding=0 width="100%"           
+            bgColor=#999999 border=0>          
+                <TBODY>          
+                <TR class=bkfc9417>          
+                  <TD bgColor=#FAFAFA colSpan=3 style="border-left: 1 solid #000000; border-right: 1 solid #000000; border-bottom: 1 solid #000000" valign="top">          
+                    <p align="left"><br>        
+                    <br>        
+                    </center></p>        
+<CENTER>        
+        <center>          
+                    <TABLE cellSpacing=0 cellPadding=0 width=159 align=center           
+                  border=0>          
+                      <TBODY>          
+                      <TR>          
+                        <TD vAlign=top>          
+                          <TABLE cellSpacing=0 cellPadding=0 width="100%"           
+                        bgColor=#ecf7f6 border=0>          
+                            <TBODY>          
+                            <TR>          
+                              <TD align=middle width="100%">          
+                                <FORM name=MyForm onsubmit=return(DiagnoseIt())           
+                              action="" method=post>          
+                                <TABLE cellSpacing=0 borderColorDark=#ffffff           
+                              cellPadding=3 width="202"           
+                              borderColorLight=#cccccc border=1>          
+                                  <TBODY>          
+                                  <TR id=TheResult style="DISPLAY: none">          
+                                  <TD colSpan=2 width="192">          
+                                  <TABLE cellSpacing=0 borderColorDark=#ffffff           
+                                cellPadding=5 width="100%" align=center           
+                                borderColorLight=#cccccc border=1>          
+                                  <TBODY>          
+                                  <TR align=middle>          
+                                  <TD bgColor=#f5f5f5 colSpan=2><B><FONT           
+                                color=#003399>诊断结果</FONT></B>&nbsp;&nbsp;         
+                                    <INPUT onclick="document.all('TheResult').style.display='none';" type=reset value=返回 name=clearall>               
+                                  </TD></TR>              
+                                  <TR>              
+                                  <TD width="50%">标准体重</TD>              
+                                  <TD id=RtWeight width="50%">&nbsp;</TD></TR>              
+                                  <TR>              
+                                  <TD><FONT color=#ff0000>体重超标率</FONT></TD>              
+                                  <TD id=RtOver>&nbsp;</TD></TR>              
+                                  <TR>              
+                                  <TD><BR><FONT               
+                                color=#0000ff>诊断结论</FONT><BR><BR></TD>              
+                                  <TD id=Result>&nbsp;</TD></TR>              
+                                  <TR>              
+                                  <TD><BR><FONT               
+                                color=#009933><B>诊断建议</B></FONT><BR><BR></TD>              
+                                  <TD               
+                                id=Suggest>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>              
+                                  <TR>              
+                                  <TD align=middle width="29"               
+                                bgColor=#f5f5f5>身高</TD>              
+                                  <TD width="155"><INPUT class=inputs maxLength=6               
+                                size=8 name=MyHeight> 厘米</TD></TR>              
+                                  <TR>              
+                                  <TD align=middle bgColor=#f5f5f5 width="29">体重</TD>              
+                                  <TD width="155"><INPUT class=inputs maxLength=6 size=8               
+                                name=MyWeight> 公斤</TD></TR>              
+                                  <TR>              
+                                  <TD align=middle bgColor=#f5f5f5 width="29">人群</TD>              
+                                  <TD width="155"><INPUT               
+                                onclick="javascript:this.form.NowPeople.value='adult';document.all('MyAge').style.display='none'"               
+                                type=radio CHECKED value=adult name=people> 成人               
+                                  <INPUT               
+                                onclick="this.form.NowPeople.value='child';document.all('MyAge').style.display=''"               
+                                type=radio value=child name=people> 儿童 <INPUT               
+                                type=hidden value=adult name=NowPeople> <INPUT               
+                                type=hidden value=male name=MyGender> </TD></TR>              
+                                  <TR id=MyAge style="DISPLAY: none">              
+                                  <TD align=middle bgColor=#f5f5f5 width="29">年龄</TD>              
+                                  <TD width="155"><INPUT class=inputs maxLength=3 size=3               
+                                name=TheAge> 岁</TD></TR>              
+                                  <TR>              
+                                  <TD align=middle bgColor=#f5f5f5 width="29">性别</TD>              
+                                  <TD width="155"><INPUT               
+                                onclick="this.form.MyGender.value='male'"               
+                                type=radio CHECKED value=male name=gender> 男性               
+                                  <INPUT               
+                                onclick="this.form.MyGender.value='female'"               
+                                type=radio value=female name=gender>               
+  女性</TD></TR>              
+                                  <TR>              
+                                  <TD align=middle colSpan=2 width="192"><INPUT type=submit value=诊断 name=diagnose>               
+  <INPUT onclick="document.all('TheResult').style.display='none';" type=reset value=清空 name=clear>               
+                                </TD></TR></TBODY></TABLE></FORM></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></center></center></TD></TR></TBODY></TABLE></TD></TR></TBODY>              
+      </TABLE>                    
+      </div>            
+    </TR></TBODY></TABLE>              
+<TABLE cellSpacing=0 cellPadding=0 width=768 align=center border=0>              
+  <TBODY>              
+  <TR align=middle>              
+    <TD align=middle>              
+                   <DIV ID="Layer1" STYLE="position:absolute; left:-10000px; top:-10000px; width:510px; height:125px; z-index:1">              
+             
+</div</HTML>              
+  </table>           
+  </div>

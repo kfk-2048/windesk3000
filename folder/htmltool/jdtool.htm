@@ -1,0 +1,471 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>经典小工具集 - 数字转换与生成工具</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --light-color: #f9f9f9;
+            --dark-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+        }
+        
+        .tool-card {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .color-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .color-inputs input {
+            flex: 1;
+        }
+        
+        .color-preview {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 4px;
+            border-left: 4px solid var(--secondary-color);
+            font-weight: bold;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .zodiac-hint {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>数字转换工具集</h1>
+        </header>
+        
+        <div class="tool-grid">
+            <!-- 数字转英文 -->
+            <div class="tool-card">
+                <h3 class="tool-title">阿拉伯数字译成英文</h3>
+                <div class="input-group">
+                    <label for="numberInput">输入数字</label>
+                    <input type="text" id="numberInput" value="12345" placeholder="输入阿拉伯数字">
+                </div>
+                <button id="translateBtn">翻译成英文</button>
+                <div class="result" id="englishResult"></div>
+            </div>
+            
+
+            
+            <!-- 生肖计算 -->
+            <div class="tool-card">
+                <h3 class="tool-title">计算你的生肖</h3>
+                <div class="input-group">
+                    <label for="yearInput">请输入你的出生年份</label>
+                    <input type="number" id="yearInput" value="1986" placeholder="输入年份">
+                </div>
+                <button id="zodiacBtn">确定</button>
+                <div class="result" id="zodiacResult"></div>
+                <p class="zodiac-hint">生肖顺序：鼠牛虎兔龙蛇马羊猴鸡狗猪</p>
+            </div>
+            
+            <!-- 数字转中文大写 -->
+            <div class="tool-card">
+                <h3 class="tool-title">转换小写数字成中文大写</h3>
+                <div class="input-group">
+                    <label for="chineseNumInput">输入数字</label>
+                    <input type="text" id="chineseNumInput" value="12345" placeholder="输入数字">
+                </div>
+                <button id="chineseNumBtn">确定</button>
+                <div class="result" id="chineseNumResult"></div>
+            </div>
+            
+            <!-- 生成随机密码 -->
+            <div class="tool-card">
+                <h3 class="tool-title">生成随机密码</h3>
+                <div class="input-group">
+                    <label for="symbolsInput">所用符号</label>
+                    <input type="text" id="symbolsInput" value="0123456789abcdefghijklmnopqrstuvwxyz" placeholder="输入可用字符">
+                </div>
+                <div class="input-group">
+                    <label for="lengthInput">密码位数</label>
+                    <input type="number" id="lengthInput" value="8" min="1" max="100" placeholder="输入密码长度">
+                </div>
+                <button id="generatePasswordBtn">生成密码</button>
+                <div class="result" id="passwordResult"></div>
+            </div>
+            
+            <!-- 字符随机排列 -->
+            <div class="tool-card">
+                <h3 class="tool-title">字符随机排列工具</h3>
+                <div class="input-group">
+                    <label for="shuffleInput">输入字符</label>
+                    <input type="text" id="shuffleInput" value="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" placeholder="输入要随机排列的字符">
+                </div>
+                <button id="shuffleBtn">随机排列</button>
+                <div class="result" id="shuffleResult"></div>
+            </div>
+        </div>
+        
+        <footer>
+        </footer>
+    </div>
+
+    <script>
+        // 数字转英文
+        document.getElementById('translateBtn').addEventListener('click', function() {
+            const num = document.getElementById('numberInput').value;
+            if (!num || isNaN(num)) {
+                document.getElementById('englishResult').textContent = '请输入有效的数字';
+                return;
+            }
+            
+            const result = translateNumberToEnglish(num);
+            document.getElementById('englishResult').textContent = result;
+        });
+
+        
+        // 计算生肖
+        document.getElementById('zodiacBtn').addEventListener('click', function() {
+            const year = parseInt(document.getElementById('yearInput').value);
+            
+            if (isNaN(year) || year < 1900 || year > 2100) {
+                document.getElementById('zodiacResult').textContent = '请输入1900-2100之间的有效年份';
+                return;
+            }
+            
+            const zodiacs = ['猴', '鸡', '狗', '猪', '鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊'];
+            const index = year % 12;
+            document.getElementById('zodiacResult').textContent = `你的生肖是：${zodiacs[index]}`;
+        });
+        
+        // 数字转中文大写
+        document.getElementById('chineseNumBtn').addEventListener('click', function() {
+            const num = document.getElementById('chineseNumInput').value;
+            
+            if (!num || isNaN(num)) {
+                document.getElementById('chineseNumResult').textContent = '请输入有效的数字';
+                return;
+            }
+            
+            const result = numberToChinese(num);
+            document.getElementById('chineseNumResult').textContent = result;
+        });
+        
+        // 生成随机密码
+        document.getElementById('generatePasswordBtn').addEventListener('click', function() {
+            const length = parseInt(document.getElementById('lengthInput').value);
+            const symbols = document.getElementById('symbolsInput').value;
+            
+            if (isNaN(length) || length < 1 || length > 100) {
+                document.getElementById('passwordResult').textContent = '请输入1-100之间的有效长度';
+                return;
+            }
+            
+            if (!symbols) {
+                document.getElementById('passwordResult').textContent = '请输入可用字符';
+                return;
+            }
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * symbols.length);
+                password += symbols.charAt(randomIndex);
+            }
+            
+            document.getElementById('passwordResult').textContent = password;
+        });
+        
+        // 字符随机排列
+        document.getElementById('shuffleBtn').addEventListener('click', function() {
+            const input = document.getElementById('shuffleInput').value;
+            
+            if (!input) {
+                document.getElementById('shuffleResult').textContent = '请输入要随机排列的字符';
+                return;
+            }
+            
+            const shuffled = shuffleString(input);
+            document.getElementById('shuffleResult').textContent = shuffled;
+        });
+        
+        // 工具函数
+        function translateNumberToEnglish(num) {
+            const arr1 = ["", " thousand", " million", " billion"];
+            const arr2 = ["zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+            const arr3 = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+            const arr4 = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+            
+            function translate(num) {
+                const len = num.length;
+                let j = 0;
+                let strRet = "";
+                const cols = Math.ceil(len / 3);
+                const first = len - cols * 3;
+                
+                for (let i = first; i < len; i += 3) {
+                    ++j;
+                    let num3;
+                    if (i >= 0) {
+                        num3 = num.substring(i, i + 3);
+                    } else {
+                        num3 = num.substring(0, first + 3);
+                    }
+                    
+                    const strEng = english(num3);
+                    if (strEng !== "") {
+                        if (strRet !== "") strRet += ", ";
+                        strRet += strEng + arr1[cols - j];
+                    }
+                }
+                return strRet;
+            }
+            
+            function english(num) {
+                let strRet = "";
+                
+                if (num.length === 3 && num.substr(0, 3) !== "000") {
+                    if (num.substr(0, 1) !== "0") {
+                        strRet += arr3[num.substr(0, 1)] + " hundred";
+                        if (num.substr(1, 2) !== "00") strRet += " and ";
+                    }
+                    num = num.substring(1);
+                }
+                
+                if (num.length === 2) {
+                    if (num.substr(0, 1) === "0") {
+                        num = num.substring(1);
+                    } else if (num.substr(0, 1) === "1") {
+                        strRet += arr4[num.substr(1, 2)];
+                        num = "";
+                    } else {
+                        strRet += arr2[num.substr(0, 1)];
+                        if (num.substr(1, 1) !== "0") strRet += "-";
+                        num = num.substring(1);
+                    }
+                }
+                
+                if (num.length === 1 && num.substr(0, 1) !== "0") {
+                    strRet += arr3[num.substr(0, 1)];
+                }
+                
+                return strRet;
+            }
+            
+            return translate(num.toString());
+        }
+        
+        function numberToChinese(num) {
+            const whole = num.toString();
+            let numberPart, decimalPart;
+            
+            if (whole.indexOf(".") === -1) {
+                numberPart = whole;
+                decimalPart = "";
+            } else {
+                numberPart = whole.substr(0, whole.indexOf("."));
+                decimalPart = whole.substr(whole.indexOf(".") + 1);
+            }
+            
+            const chineseNumbers = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"];
+            const chineseUnits = ["", "拾", "佰", "仟"];
+            const chineseSections = ["", "万", "亿", "兆"];
+            
+            function convertSection(section) {
+                let result = "";
+                let zero = false;
+                
+                for (let i = 0; i < section.length; i++) {
+                    const digit = parseInt(section.charAt(i));
+                    const unit = section.length - i - 1;
+                    
+                    if (digit === 0) {
+                        zero = true;
+                    } else {
+                        if (zero) {
+                            result += "零";
+                            zero = false;
+                        }
+                        result += chineseNumbers[digit] + chineseUnits[unit];
+                    }
+                }
+                
+                return result;
+            }
+            
+            let result = "";
+            let sectionCount = Math.ceil(numberPart.length / 4);
+            
+            for (let i = 0; i < sectionCount; i++) {
+                const start = Math.max(0, numberPart.length - (i + 1) * 4);
+                const end = numberPart.length - i * 4;
+                const section = numberPart.substring(start, end);
+                
+                const converted = convertSection(section);
+                if (converted !== "") {
+                    result = converted + chineseSections[i] + result;
+                }
+            }
+            
+            if (result === "") result = "零";
+            
+            if (decimalPart !== "") {
+                result += "点";
+                for (let i = 0; i < decimalPart.length; i++) {
+                    const digit = parseInt(decimalPart.charAt(i));
+                    result += chineseNumbers[digit];
+                }
+            }
+            
+            return result;
+        }
+        
+        function shuffleString(str) {
+            const arr = str.split('');
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.join('');
+        }
+
+    </script>
+</body>
+</html>

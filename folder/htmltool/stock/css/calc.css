@@ -1,0 +1,176 @@
+.d {
+	width: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 10px;
+	padding-bottom: 10px;
+	/*border: 1px solid #2e2e2e;*/
+	margin-bottom: 10px;
+	display:none;
+}
+
+.d1 {
+	width: 400.6px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.d2 {
+	font-weight: 200;
+	float: left;
+	width: 95px;
+	height: 45px;
+	background: #3f3f3f;
+	color: #fff;
+	font-size: 23px;
+	line-height: 45px;
+	margin-left: 2px;
+	margin-top: 2px;
+}
+
+
+.d2.iq {
+	margin-left: 117.8px;
+}
+
+.d2:hover {
+	background: #7b7b7b;
+}
+
+.d2:active {
+	background: #fff;
+	color: #616161;
+}
+
+.d .dm {
+	margin-top: 10px;
+	margin-bottom: 0px;
+	background: #4d4d4d;
+}
+
+.d .dm .p1 {
+	padding-top: 10px;
+	padding-right: 20px;
+	text-align: right;
+	height: 20px;
+	line-height: 20px;
+	color: #ababab;
+}
+
+.d .dm .p2 {
+	padding-top: 5px;
+    padding-right: 20px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 55px;
+    color: #fff;
+    background-color: #3f3f3f;
+    
+}
+.content_body .elem {
+	padding: 5px 0 5px 0;
+	border-bottom: 1px solid #F3F3F3;
+}
+
+.content_body .elem .in {
+	border: 1px solid #cfcfcf;
+	width: 150px;
+	text-align: right;
+	color: #333;
+}
+
+.content_body .elem .imgs {
+	width: 12px;
+	height: auto;
+	border-radius: 50%;
+	background-color: rgb(242, 238, 238);
+	margin: 0 5px 0 2px;
+}
+
+.content_body .elem .part1 {
+	display: inline-block;
+	width: 15%;
+}
+
+.content_body .elem .part2 {
+	display: inline-block;
+	color: #e5e0e0;
+}
+
+.content_body .jtab {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.content_body .jtab li {
+	display: inline-block;
+	background: 0 0 rgba(47, 136, 154, .9);
+	width: 15%;
+	color: #F3F3F3;
+}
+
+.content_body .jbutton {
+	margin: 10px 0 10px 0;
+	text-align: center;
+}
+
+.content_body .jbutton a {
+	display: inline-block;
+	background: 0 0 rgba(47, 136, 154, .9);
+	width: 15%;
+	color: #F3F3F3;
+}
+
+.dw-in,
+.dw-out {
+	-webkit-animation-duration: 350ms;
+	-moz-animation-duration: 350ms;
+	animation-duration: 350ms;
+}
+
+.dw-in {
+	-webkit-animation-timing-function: ease-out;
+	-moz-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+}
+
+.dw-out {
+	-webkit-animation-timing-function: ease-in;
+	-moz-animation-timing-function: ease-in;
+	animation-timing-function: ease-in;
+}
+
+.content_body .jtab .active {
+	background: #fd6639;
+}
+
+.detailR,
+.tx {
+	display: none;
+}
+
+.detailR .mrj {
+	font-size: 18px;
+	color: #ec9bb6;
+}
+
+.detailR .cbj {
+	font-size: 18px;
+	color: #00ff00;
+}
+
+.detailR .cmain {
+	overflow: hidden;
+}
+
+.detailR .cmain .c_3 {
+	width: 33.333%;
+	float: left;
+}
+
+.detailR .cmain .c_3.h {
+	line-height: 48px;
+}
+#baseEprsPanel {
+	display: none;
+}

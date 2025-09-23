@@ -1,0 +1,156 @@
+﻿
+
+/* 用在各种链接上的样式表，如RSS， GEOURL， ATOM等 */
+
+.geourl{
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color: #093;
+	border-left:1px solid #3C6;
+	border-top:1px solid #3C6;
+	border-right:1px solid #063;
+	border-bottom:1px solid #063;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+	}
+.rss{
+font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bolder;
+	text-decoration:none;
+	color: white;
+	background-color: #F60;
+	border-left:1px solid #FC4;
+	border-top:1px solid #FC4;
+	border-right:1px solid #D30;
+	border-bottom:1px solid #D30;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+}
+.technorati{
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color: #9C0;
+	border-left:1px solid #9F0;
+	border-top:1px solid #9F0;
+	border-right:1px solid #030;
+	border-bottom:1px solid #030;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+}
+.atom{
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color: #09F;
+	border-left:1px solid #9FF;
+	border-top:1px solid #9FF;
+	border-right:1px solid #006;
+	border-bottom:1px solid #006;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+}
+.foaf{
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;	
+	background-color: #777;
+	border-left:1px solid #FFF;
+	border-top:1px solid #FFF;
+	border-right:1px solid #333;
+	border-bottom:1px solid #333;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+
+}
+.foaf_f1 {color: #FF6666}
+.foaf_o {color: #98CB98}
+.foaf_a {color: #FFFF9F}
+.foaf_f2 {color: #99CCFF}
+
+.w3c_check{
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: black;
+	background-color: #FC6;
+	border-left:1px solid #FFC;
+	border-top:1px solid #FFC;
+	border-right:1px solid #988;
+	border-bottom:1px solid #988;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+}
+.check {
+	color: #9C0000;
+	font-weight:bolder;
+}
+
+.cc{
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color:#446666;
+	border-left:1px solid #CFE;
+	border-top:1px solid #CFE;
+	border-right:1px solid #030;
+	border-bottom:1px solid #030;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+}
+
+.print{		
+	font-size: 10px;
+	font-weight:bold;
+	text-decoration:none;
+	color: black;
+	background-color:#d4d0c8;
+	border-left:1px solid #DDD;
+	border-top:1px solid #EEE;
+	border-right:1px solid #333;
+	border-bottom:1px solid #333;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+}
+.tech_link{
+	text-align:center;	
+}
+
+@font-face 
+{
+	font-family: "ee studio";
+	src: url(http://www.ee-studio.com/fonts/eestudio.eot);
+}
+@font-face 
+{
+	font-family: ee;  
+	src: url(http://www.ee-studio.com/fonts/ee.eot);
+}	
+
+.ee{
+	font-family: "ee studio";
+	/*汉字没有12象素简直就不能看！*/
+	font-size: 12px;
+	font-weight:bold;
+	text-decoration:none;
+	color: white;
+	background-color: #4169E1;
+	border-left:1px solid #9FF;
+	border-top:1px solid #9FF;
+	border-right:1px solid #006;
+	border-bottom:1px solid #006;
+	padding:0px 3px 0px 3px;
+	margin:0px;
+}
