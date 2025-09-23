@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ 10066601</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "宋体", sans-serif;
+        }
+        
+        body {
+            background-color: #d4d0c8;
+            overflow: hidden;
+			user-select:none;
+    -webkit-user-select:none;
+        }
+        
+        #sidebar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 140px;
+            height: 400px;
+            background-color: #7f80c0;
+            border: 4px ridge #d8d8d8;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .sidebar-button {
+            width: 100%;
+            height: 25px;
+            background-color:#f0f0f0;
+            border:1px ridge ;
+			border-color: #ffffff #6b6b6b #6b6b6b #ffffff ;
+            color: black;
+            font-size: 9pt;
+            cursor: pointer;
+            text-align: center;
+            padding: 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .sidebar-button:hover {
+            background-color: :#f0f0f0;
+			 border:1px ridge ;
+			border-color: #6b6b6b #ffffff  #ffffff #6b6b6b ;
+        }
+        
+        .folder-content {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .folder-items {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            gap: 25px;
+        }
+        
+        .folder-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            width: 65%;
+        }
+        
+        .folder-item-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 6px;
+        }
+        
+        .folder-item-label {
+            font-size: 9pt;
+            color: black;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 90%;
+        }
+        
+        .folder-item:hover .folder-item-label {
+            color: #fff;
+        }
+        
+        .scroll-arrows {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            left: 114px;
+            cursor: pointer;
+            z-index: 500;
+            visibility: hidden;
+        }
+        
+        #scroll-up {
+            bottom: 80px;
+        }
+        
+        #scroll-down {
+            top: 33px;
+        }
+    </style>
+<script>
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+}, false);
+</script>
+</head>
+<body>
+    <div id="sidebar">
+        <button class="sidebar-button" data-folder="1">我的好友</button>
+        <div class="folder-content" id="folder-1">
+            <div class="folder-items">
+                <div class="folder-item" data-action="alert" data-message="出售荷尔蒙疫苗。№3196374">
+                    <img src="images/pic1-1.gif" class="folder-item-icon">
+                    <div class="folder-item-label">卡哇依</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="你好，录音电话不在，我是电冰箱，听见嘟的一声后，请慢慢讲话，因为我写字写得比较慢。38261842">
+                    <img src="images/pic1-2.gif" class="folder-item-icon">
+                    <div class="folder-item-label">心祇有妳</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="嘻嘻复嘻嘻，靓女正上机；不闻拨号声，唯闻女叹息。问女何所思，问女何所忆；女亦无所思，女亦无所忆。昨夜网上行，所遇实心惊；妹儿十三封，皆邀网下逢。靓女本已嫁，已随他人姓；上网为自娱，兼可结新朋。东版赋闲情，西版写自传；南下诉心曲，北上为聊天。朝起网上来，暮亦网上连；不闻夫君唤妻声，唯闻虫虫呼叫不断间。但辞聊天室，又至戒聊版；不闻虫虫呼叫声，却见邀请帖子飞满天。下网见夫君，夫君泪成行；只顾上网瘾，欠债百千强。问女欲何去，靓女坦言拜爹娘，借款千里行，赴约诉衷肠。爷娘闻女来，四处急躲藏；阿秭闻妹来，速速锁门窗；小弟闻秭来，慌里慌张爬东墙。开我昔时门，挪你旧时床；撬我邻家窗，搜你密码箱。当窗点钞票，立马去机场；千里见网友，网友眼放光；同网一个月，不知靓女俏模样；恐龙亦羞涩，靓女亦张狂，都在网上聊，安能辨我是啥样？——（木兰也上网）27589525">
+                    <img src="images/pic1-3.gif" class="folder-item-icon">
+                    <div class="folder-item-label">茶叶</div>
+                </div>
+                <div class="folder-item" data-action="confirm" data-message="猪是一种很有用的动物，猪肉可以食用，猪鬃可以做刷子，猪皮可以做皮制品，名字还可以用来骂人——你是猪啊？7015673" data-url="http://katherineup2u.spaces.msn.com">
+                    <img src="images/pic1-4.gif" class="folder-item-icon">
+                    <div class="folder-item-label">白鼠Barling</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="天啊！我又捡到一分钱，赚死了啦！84524616">
+                    <img src="images/pic1-5.gif" class="folder-item-icon">
+                    <div class="folder-item-label">时光深处</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="给反应很快的阿嬷：那天您坐在公车上，252司机的紧急煞车，您重心不稳冲了出去，竟问司机：「找我有什么事情？」——觉得你乱可爱一把的学生留283360331">
+                    <img src="images/pic3-4.gif" class="folder-item-icon">
+                    <div class="folder-item-label">杜小菲</div>
+                </div>
+                 <div class="folder-item" data-action="confirm" data-message="前往他的个人竹叶？6073005" data-url="../xp/flash/index.html">
+                    <img src="images/pic3-3.gif" class="folder-item-icon">
+                    <div class="folder-item-label">我们爱科学</div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <button class="sidebar-button" data-folder="2">陌生人</button>
+        <div class="folder-content" id="folder-2" style="display: none;">
+            <div class="folder-items">
+                <div class="folder-item" data-action="alert" data-message="我家的金鱼今早淹死了。：~（404220173">
+                    <img src="images/pic2-1.gif" class="folder-item-icon">
+                    <div class="folder-item-label">孔雀翎</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="一个重度OICQ中毒患者，一天要说（打）100句我爱你，300句对不起，500个：），以及不计其数的你好，你有空吗？394451695">
+                    <img src="images/pic2-2.gif" class="folder-item-icon">
+                    <div class="folder-item-label">幽</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="东方不败生气的对田伯光说：哎！你怎么又用我的。你的呢？田伯光尴尬地一笑：都让岳掌门用了。岳不群咯咯娇笑：大宝，明天见！林平之跳出来，露出妩媚的笑容：大宝啊，天天见！271219537">
+                    <img src="images/pic2-3.gif" class="folder-item-icon">
+                    <div class="folder-item-label">蓝色幽灵</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="sidebar-button" data-folder="3">黑名单</button>
+        <div class="folder-content" id="folder-3" style="display: none;">
+            <div class="folder-items">
+                <div class="folder-item" data-action="alert" data-message="禽兽尚且有半点怜悯之心，而我一点也没有，所以我不是禽兽。再说俺是恶人，俺就害死你！恶人从不搞笑，恶人要抓紧时间做恶。45035814">
+                    <img src="images/pic3-1.gif" class="folder-item-icon">
+                    <div class="folder-item-label">ROY</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="（网络ＭＭ之歌） 我们都是大美女，每一次点击消灭一颗痴心；我们都是狐狸精，哪管它网恋真不真；在密秘的私聊里，到处都有姐妹们的身影；在拥挤的聊天室，有我们乱抛的网上情。没有吃，没有穿，自有那哥哥送上前；没有卡，没有猫，哥哥会给我们造。我们生长在这里，每一位哥哥都是我们俘虏兵；如果谁想逃出去，我们就和他逗到底——27235251">
+                    <img src="images/pic3-2.gif" class="folder-item-icon">
+                    <div class="folder-item-label">ゞ墨荷ゞ</div>
+                </div>
+                <div class="folder-item" data-action="alert" data-message="如果你有一个账号，你是值得信赖的；如果你有俩个账号，你是值得尊敬的；如果你有俩个以上且性别不同的账号，恭喜你，你可以自己和自己谈恋爱了。413823754">
+                    <img src="images/pic3-5.gif" class="folder-item-icon">
+                    <div class="folder-item-label">算你狠</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="sidebar-button" data-folder="4">菜单</button>
+        <div class="folder-content" id="folder-4" style="display: none;">
+            <div class="folder-items">
+                <div class="folder-item" data-action="alert" data-message="OICQ实质上是一种病毒，全称是 Oh，I stick you!（噢，我粘住你了！）治疗药物是CTW（Close the window）"那就这样吧(3834701)海娃(6345013)★┊懒mǎo(9910739)心凡(12169687)亮亮(12809753)Chocolate(14864458)木妖(27307293)独孤の血(64264769)阿 刚(81199308)变行记(99278564)快乐到达吧！(157555865)等待------(249205709)蓝色胭脂雪(279153445)Meilove(332422990)泣血≌天下(398898079)流光飞舞(172439611)右手握鼠标(307951239)"">
+                    <img src="images/readme.gif" class="folder-item-icon">
+                    <div class="folder-item-label">Read me</div>
+                </div>
+                <div class="folder-item" data-action="close">
+                    <img src="images/close.gif" class="folder-item-icon">
+                    <div class="folder-item-label">关闭本窗口</div>
+                </div>
+            </div>
+        </div>
+        
+        <img id="scroll-up" class="scroll-arrows" src="images/arrowdown.gif">
+        <img id="scroll-down" class="scroll-arrows" src="images/arrowup.gif">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.sidebar-button');
+            const folders = document.querySelectorAll('.folder-content');
+            const scrollUp = document.getElementById('scroll-up');
+            const scrollDown = document.getElementById('scroll-down');
+            const folderItems = document.querySelectorAll('.folder-items');
+            
+            let currentFolder = 1;
+            let scrollPositions = {};
+            
+            // 初始化滚动位置
+            folders.forEach((folder, index) => {
+                scrollPositions[index + 1] = 0;
+            });
+            
+            // 文件夹按钮点击事件
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const folderId = this.getAttribute('data-folder');
+                    
+                    if (folderId == currentFolder) return;
+                    
+                    // 隐藏当前文件夹
+                    document.getElementById(`folder-${currentFolder}`).style.display = 'none';
+                    
+                    // 显示新文件夹
+                    document.getElementById(`folder-${folderId}`).style.display = 'flex';
+                    currentFolder = folderId;
+                    
+                    // 更新滚动位置
+                    updateScrollButtons();
+                });
+            });
+            
+            // 文件夹项点击事件
+            document.querySelectorAll('.folder-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const action = this.getAttribute('data-action');
+                    const message = this.getAttribute('data-message');
+                    const url = this.getAttribute('data-url');
+                    
+                    switch(action) {
+                        case 'alert':
+                            alert(message);
+                            break;
+                        case 'confirm':
+                            if (confirm(message)) {
+                                if (url) {
+                                    window.open(url, '_blank');
+                                }
+                            }
+                            break;
+                        case 'close':
+                            window.close();
+                            break;
+                    }
+                });
+            });
+            
+            // 滚动按钮事件
+            scrollUp.addEventListener('click', function() {
+                scrollFolder(-100);
+            });
+            
+            scrollDown.addEventListener('click', function() {
+                scrollFolder(100);
+            });
+            
+            // 滚动文件夹内容
+            function scrollFolder(amount) {
+                const folder = document.getElementById(`folder-${currentFolder}`);
+                const items = folder.querySelector('.folder-items');
+                
+                scrollPositions[currentFolder] += amount;
+                
+                // 限制滚动范围
+                const maxScroll = items.scrollHeight - folder.clientHeight;
+                scrollPositions[currentFolder] = Math.max(0, Math.min(scrollPositions[currentFolder], maxScroll));
+                
+                items.style.transform = `translateY(-${scrollPositions[currentFolder]}px)`;
+                updateScrollButtons();
+            }
+            
+            // 更新滚动按钮可见性
+            function updateScrollButtons() {
+                const folder = document.getElementById(`folder-${currentFolder}`);
+                const items = folder.querySelector('.folder-items');
+                const maxScroll = items.scrollHeight - folder.clientHeight;
+                
+                if (maxScroll <= 0) {
+                    scrollUp.style.visibility = 'hidden';
+                    scrollDown.style.visibility = 'hidden';
+                } else {
+                    scrollUp.style.visibility = scrollPositions[currentFolder] > 0 ? 'visible' : 'hidden';
+                    scrollDown.style.visibility = scrollPositions[currentFolder] < maxScroll ? 'visible' : 'hidden';
+                }
+            }
+            
+            // 初始显示第一个文件夹
+            document.getElementById('folder-1').style.display = 'flex';
+            updateScrollButtons();
+            
+            // 鼠标滚轮滚动支持
+            document.querySelectorAll('.folder-content').forEach(folder => {
+                folder.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    scrollFolder(e.deltaY > 0 ? 50 : -50);
+                });
+            });
+        });
+    </script>
+<script>
+(() => {
+  const audio = new Audio('../media/shift.mp3');
+  audio.preload = 'auto';
+  document.querySelectorAll('.sidebar-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      audio.currentTime = 0;
+      audio.play().catch(()=>{});
+    });
+  });
+})();
+</script>
+</body>
+</html>

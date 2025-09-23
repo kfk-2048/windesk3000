@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>音乐播放器</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+	BODY {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 16px; background-color:#000; margin: 0;padding: 0; scroll="no";
+}
+        #lyricsSource {
+            display: none;
+        }
+        #mylrcplayck {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            width: 300px;
+        }
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background-color: #ddd;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0%;
+        }
+        #lyricsContainer {
+            height: 60px;
+            overflow-y: auto;
+            text-align: center;
+            margin: 10px 0;
+        }
+         .lyric-line {
+            color: #4caf50;
+            font-size: 1em;
+            margin: 5px 0;
+        }
+        .current-line {
+            font-weight: bold;
+            color: #00ff00;
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<textarea id="lyricsSource" name="S1" rows="10" cols="35">
+[ti:稻香] 
+[ar:周杰伦] 
+[al:摩杰座]
+[by:www.yyqq.com] 
+[00:00.00]稻香-周杰伦
+[00:30.63]对这个世界如果你有太多的抱怨
+[00:34.14]跌倒了就不敢继续往前走
+[00:37.10]为什麽人要这麽的脆弱堕落
+[00:41.34]请你打开电视看看
+[00:43.00]多少人为生命在努力勇敢的走下去
+[00:47.00]我们是不是该知足
+[00:49.41]珍惜一切就算没有拥有
+[00:54.00]还记得你说家是唯一的城堡
+[00:57.54]随着稻香河流继续奔跑
+[01:00.45]微微笑
+[01:01.74]小时候的梦我知道
+[01:05.54]不要哭让萤火虫带着你逃跑
+[01:09.16]乡间的歌谣永远的依靠
+[01:12.10]回家吧
+[01:13.36]回到最初的美好
+[01:16.52]
+[01:41.00]不要这麽容易就想放弃就像我说的 
+[01:44.59]追不到的梦想换个梦不就得了 
+[01:47.60]为自己的人生鲜艳上色
+[01:49.73]先把爱涂上喜欢的颜色 
+[01:52.77]笑一个吧^_^
+[01:53.77]功成名就不是目的 
+[01:55.59]让自己快乐快乐这才叫做意义 
+[01:58.51]童年的纸飞机
+[02:00.00]现在终於飞回我手里 
+[02:04.16]所谓的那快乐
+[02:05.68]赤脚在田里追蜻蜓追到累了 
+[02:08.57]偷摘水果被蜜蜂给叮到怕了
+[02:11.61]谁在偷笑呢 
+[02:13.24]我靠着稻草人吹着风唱着歌睡着了
+[02:16.61]哦哦午后吉它在虫鸣中更清脆
+[02:19.61]哦哦阳光洒在路上就不怕心碎
+[02:23.10]珍惜一切就算没有拥有
+[02:27.53]还记得你说家是唯一的城堡
+[02:31.13]随着稻香河流继续奔跑 
+[02:34.00]微微笑
+[02:35.40]小时候的梦我知道 
+[02:39.20]不要哭让萤火虫带着你逃跑
+[02:42.90]乡间的歌谣永远的依靠 
+[02:45.90]回家吧
+[02:47.00]回到最初的美好
+[02:51.00]还记得你说家是唯一的城堡
+[02:54.54]随着稻香河流继续奔跑 
+[02:57.41]微微笑
+[02:58.62]小时候的梦我知道 
+[03:02.71]不要哭让萤火虫带着你逃跑 
+[03:06.36]乡间的歌谣永远的依靠 
+[03:09.20]回家吧
+[03:10.46]回到最初的美好
+[03:13.78]
+</textarea>
+    <div id="mylrcplayck">
+        <div id="dplay"></div>
+    </div>
+    <script src="js/modern-player.js"></script>
+</body>
+</html>
