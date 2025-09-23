@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>启动Windesk 3000</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.sm9pt {  font-size: 9pt}
+.ft {  font-size: 18pt; font-style: italic; font-weight: bold; color: #000000; font-family: "Verdana", "Arial", "Helvetica", "sans-serif"}
+</style>
+</head>
+<script>
+var allimgSize = 29513;
+var downimgSize = 1;
+var mainpageSize = 15730;
+var allSize = allimgSize + mainpageSize;
+var t = 0;
+
+function checkdownimg(){
+    try {
+        var idown = 0;
+        var images = window.opener.document.getElementById("mainframe").contentWindow.document.images;
+        for (var i = 0; i < images.length; i++){
+            if (images[i].complete) idown += 1000; // Approximate size since we can't get fileSize
+        }
+        downimgSize = idown;
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+function showloading(){
+    try {
+        var pwin = window.opener;
+        if(pwin && pwin.document.getElementById("mainframe").contentWindow.loadingf) {
+            if(pwin.document.getElementById("mainframe").contentWindow.loadingf >= 23000) {
+                if(t >= 100) {
+                    document.getElementById("loadState").innerHTML = "页面载入完毕...";
+                    pwin.document.getElementById("framediv").style.visibility = "visible";
+                    setTimeout(startup, 1000);
+                    clearInterval(initflag);
+                    return true;
+                }
+            }
+            checkdownimg();
+            t = Math.round((pwin.document.getElementById("mainframe").contentWindow.loadingf + downimgSize) / allSize * 100);
+            document.getElementById("loadState").innerHTML = "正在加载" + pwin.document.getElementById("mainframe").contentWindow.sload + "......" + t + "%";
+            document.getElementById("loadbar").width = t + "%";
+        }
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+function startup(){
+    window.close();
+}
+
+var initflag = setInterval(showloading, 100);
+</script>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" scroll="no" onLoad="showloading()">
+<table width="400" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC" class="bdr" height="100%">
+  <tr> 
+    <td bgcolor="#FFFFFF" align="center"> 
+      <font color="#000000">
+        <fieldset align="center" style="width:60; height:60; font-size:9pt"> 
+          <legend>VN free.</legend> 
+          <img src="images/windesklg.gif" width="44" height="48"> 
+        </fieldset> 
+        <span class="ft">Windesk3000</span><q>@</q>
+      </font>
+    </td>
+  </tr>
+  <tr> 
+    <td height="14"> 
+      <div style="position:absolute">
+        <div id="loadState" align="center" style="position:absolute; font-size:12px; color:#000000; top: 1px; width: 400px; height: 12px; left: 35px"> 
+          正在启动 Windesk3000... 
+        </div>
+      </div>
+      <table id="loadbar" width="0%" border="0" bgcolor="#6699CC" height="100%">
+        <tr> 
+          <td></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>显示属性</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { overflow: hidden; overflow:hidden; user-select:none; -webkit-user-select:none; }
+.scb { height: 148px; width: 185px; padding-top: 14px; border: outset 2px; background: #c6c3c6; }
+.pagehead { font-size: 9pt; text-align: center; padding-top: 2px; border: outset; border-width: 1px 2px 0 1px; background: #D6D3CE; height: 15px; width: 48px; position: relative; z-index: 2; }
+.pageheadd { font-size: 9pt; text-align: center; background: #D6D3CE; height: 14px; width: 44px; margin: 1px 1px 0 0; border: outset; border-width: 1px 1px 1px 1px; position: relative; z-index: 1; }
+.scb2 { height: 112px; width: 152px; border: inset 1px; background: #3A6EA5; }
+.scwbd { border: outset; border-width: 1px 2px 2px 1px; }
+.selection { font-size: 9pt; }
+.spebt { padding: 0; overflow: hidden; }
+</style>
+<script>
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+}, false);
+</script>
+<script>
+var preBgColor = "#3A6EA5";
+var preBgImgUrl = "images/spacer.gif";
+var preBgImgRepeat = "";
+var preBgImgAttach = false;
+var preBgImgPos = "";
+
+function showpage(e){
+  var t = e.target;
+  if (t.id === "page1") {
+    t.className = "pagehead";
+    document.getElementById("page2").className = "pageheadd";
+    document.getElementById("bgwall").style.display = "";
+    document.getElementById("view").style.display = "none";
+  } else {
+    t.className = "pagehead";
+    document.getElementById("page1").className = "pageheadd";
+    document.getElementById("bgwall").style.display = "none";
+    document.getElementById("view").style.display = "";
+  }
+}
+
+function changebg(e){
+  var o = e.target, v = o.options[o.selectedIndex].value;
+  if (preBgImgAttach) {
+    document.getElementById("previewimg").src = v;
+    document.getElementById("previewDiv").style.backgroundImage = "url(" + v + ")";
+    document.getElementById("previewimg").style.display = "";
+  } else {
+    document.getElementById("previewDiv").style.backgroundImage = "url(" + v + ")";
+    document.getElementById("previewimg").style.display = "none";
+  }
+  preBgImgUrl = v;
+}
+
+function changebgStyle(e){
+  var o = e.target, v = o.options[o.selectedIndex].value;
+  if (v !== "attach") {
+    document.getElementById("previewDiv").style.backgroundRepeat = v;
+    document.getElementById("previewimg").style.display = "none";
+    preBgImgRepeat = v; preBgImgAttach = false;
+  } else {
+    document.getElementById("previewimg").src = preBgImgUrl;
+    document.getElementById("previewimg").style.display = "";
+    document.getElementById("previewDiv").style.backgroundRepeat = "";
+    preBgImgAttach = true; preBgImgRepeat = "";
+  }
+}
+
+function changebgStyle2(e){
+  var v = e.target.options[e.target.selectedIndex].value;
+  document.getElementById("previewDiv").style.backgroundPosition = v;
+  preBgImgPos = v;
+}
+
+function addbglist(){
+  var f = document.Form1.filebs;
+  if (f.value === "") return false;
+  var opt = document.createElement("option");
+  opt.text = opt.value = f.value;
+  document.getElementById("bglist").add(opt);
+}
+
+function applyit(){
+  var main = window.opener || window.parent;
+  if (!main) { alert("无法访问主窗口"); return; }
+  try {
+    var bg = main.document.getElementById("bglayer");
+    var im = main.document.getElementById("bgimg");
+    if (bg) {
+      bg.style.backgroundColor = preBgColor;
+      bg.style.backgroundPosition = preBgImgPos;
+      bg.style.backgroundRepeat = preBgImgRepeat;
+      bg.style.backgroundImage = "url(" + preBgImgUrl + ")";
+    }
+    if (im) {
+      im.style.display = preBgImgAttach ? "block" : "none";
+      if (preBgImgAttach) im.src = preBgImgUrl;
+    }
+  } catch (e) { alert("应用设置时出错: " + e.message); }
+}
+
+var sInitColor = null;
+function callColorDlg(n){
+  var c = prompt("请输入 6 位十六进制颜色（如 FF0000）：", sInitColor || "3A6EA5");
+  if (c) {
+    sInitColor = c;
+    document.Form1.TB_pt_color.value = "#" + c;
+    document.querySelector("input[name='colbtn']").style.backgroundColor = "#" + c;
+  }
+}
+</script>
+</head>
+
+<body bgcolor="#D6D3CE" text="#000000" leftmargin="0" topmargin="6" marginwidth="0" marginheight="0" scroll="no">
+<table border="0" width="380" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="18" style="position:relative;">
+      <div id="page1" class="pagehead" style="position:absolute;z-index:2;left:0px;top:5px;height:15px" onclick="showpage(event)">背景</div>
+      <div id="page2" class="pageheadd" style="position:absolute;z-index:1;left:45px;top:5px;" onclick="showpage(event)">设置</div>
+    </td>
+  </tr>
+</table>
+
+<table id="bgwall" width="380" border="0" cellpadding="0" cellspacing="0" align="center" class="scwbd" height="328">
+  <tr>
+    <td height="194" align="center" colspan="2" width="356">
+      <div class="scb" align="center">
+        <div class="scb2" id="previewDiv">
+          <img id="previewimg" src="images/spacer.gif" width="100%" height="100%">
+        </div>
+      </div>
+      <img src="images/tvb.gif" width="113" height="22">
+    </td>
+  </tr>
+  <tr>
+    <td height="61" style="font-size:9pt;padding:0 2px 12px 12px" width="212">
+      <div align="left">选择背景图片做为墙纸(S)</div>
+      <select size="6" id="bglist" style="width:240px" class="selection" onchange="changebg(event)">
+        <option selected>无</option>
+        <option value="images/win98.jpg">Win98</option>
+        <option value="images/winxp.jpg">WinXP</option>
+        <option value="images/win7.jpg">Win7</option>
+        <option value="images/win10.jpg">Win10</option>
+        <option value="images/mac.jpg">Mac</option>
+        <option value="images/linux.jpg">Linux</option>
+        <option value="images/ipad.jpg">Ipad</option>
+      </select>
+      <table width="247" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="28" style="font-size:9pt">本地</td>
+          <td width="180">
+            <input type="file" name="filebs" style="width:172px;height:18px;font-size:9px" onchange="alert('选择bmp,png,jpg,gif,wmf格式图片\n然后单击＋按钮添加到列表中。')" class="spebt">
+          </td>
+          <td>
+            <input type="button" value="＋" name="b4" style="width:20px;height:18px;font-size:9pt;text-align:center;" title="填加到列表" onclick="addbglist()">
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td height="61" style="font-size:9pt;padding:4px 12px 12px 0" width="94">
+      <fieldset style="width:100px;padding:5px">
+        显示图片(D)
+        <select size="1" name="D2" style="width:60px" class="selection" onchange="changebgStyle(event)">
+          <option value="repeat" selected>平铺</option>
+          <option value="no-repeat">不平铺</option>
+          <option value="repeat-x">横向平铺</option>
+          <option value="repeat-y">纵向平铺</option>
+          <option value="attach">拉伸</option>
+        </select>
+        <select size="1" name="D3" style="width:60px" class="selection" onchange="changebgStyle2(event)">
+          <option>默认</option>
+          <option value="center center">居中</option>
+          <option value="top left">左上</option>
+          <option value="center left">左中</option>
+          <option value="bottom left">左下</option>
+          <option value="top center">中上</option>
+          <option value="bottom center">中下</option>
+          <option value="top right">右上</option>
+          <option value="center right">右中</option>
+          <option value="bottom right">右下</option>
+        </select>
+        <br><br>背景颜色(C)
+        <form name="Form1" action="" method="post" enctype="multipart/form-data">
+          <input size="3" name="TB_pt_color">
+          <input type="button" name="colbtn" style="width:20px;height:20px;background:#396DA5;border:3px solid" onclick="callColorDlg('TB_pt_color')">
+        </form>
+      </fieldset>
+    </td>
+  </tr>
+</table>
+
+<table id="view" style="display:none;" width="380" border="0" cellspacing="0" cellpadding="0" height="328" align="center" class="scwbd">
+  <tr>
+    <td height="194" align="center" colspan="2" width="356">
+      <div class="scb" align="center">
+        <div class="scb2"><img src="images/spacer.gif" width="100%" height="100%"></div>
+      </div>
+      <img src="images/tvb.gif" width="113" height="22">
+    </td>
+  </tr>
+  <tr>
+    <td height="100" style="font-size:9pt;padding:0 2px 12px 12px" width="212">
+      CPU核心：<script>document.write(navigator.hardwareConcurrency||"Unknown")</script><br>
+      <fieldset style="width:150px;padding:1px 8px 39px 20px"><legend>颜色</legend><br>
+        <script>
+        var cs, c = screen.colorDepth;
+        if(c==4) cs="4 位 16 色";
+        if(c==8) cs="8 位 256 色";
+        if(c==16) cs="16 位增强色";
+        if(c>16) cs=c+" 位真彩色";
+        document.write(cs);
+        if(c<16) document.write("，不是最佳颜色，建议您将色彩度调整为16位增强色。");
+        </script>
+      </fieldset>
+    </td>
+    <td height="61" style="font-size:9pt;padding:4px 12px 12px 0" width="94">
+      <fieldset style="width:150px;padding:8px"><legend>屏幕区域</legend><br>
+        <script>document.write(screen.width+" x "+screen.height+" 像素");
+        if(screen.width!=1024) document.write("，不是最佳分辨率，建议您将屏幕调整为1024x768。");</script>
+      </fieldset>
+    </td>
+  </tr>
+</table>
+
+<table border="0" width="380" cellspacing="0" cellpadding="0" align="center" height="34">
+  <tr>
+    <td>
+      <div align="right">
+        <table border="0" cellspacing="2" cellpadding="0" height="32">
+          <tr>
+            <td width="33%"><input type="button" value="确 定" style="background:#BFBFBF;color:#000;font:9pt 宋体;border:1px outset #fff;width:60px;height:20px" onclick="applyit();window.close();"></td>
+            <td width="33%"><input type="button" value="取 消" style="background:#BFBFBF;color:#000;font:9pt 宋体;border:1px outset #fff;width:60px;height:20px" onclick="window.close();"></td>
+            <td width="34%"><input type="button" value="应 用" style="background:#BFBFBF;color:#000;font:9pt 宋体;border:1px outset #fff;width:60px;height:20px" onclick="applyit();"></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

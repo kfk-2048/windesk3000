@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>帮助</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+    background-color:#D6D3CE;
+    color:#000000;
+    font:10pt/1 Arial;
+    overflow:hidden;
+    user-select:none;
+    -webkit-user-select:none;
+}
+</style>
+<script>
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+}, false);
+</script>
+<script>
+todmsg=[];
+todmsg[0]="建议：使用IE浏览器，并需安装flash player<br><br><a href onmouseover=alert('否则部分页面无法浏览')><img src='images/help-yz.jpg'></a>";
+todmsg[1]="About：<br>ADD：East:104° 2,11.55 North:  30°38,10.82<br>Sex：<input id='check1' type=radio name=sex value='正确' onClick='alert(value)'><label for='check1'>女</label> <input id='check2' type=radio name=sex value='错误' onClick='alert(value)'><label for='check2'>男</label>";
+todmsg[2]="感谢：<br>仿桌面效果源自网络修改而来<br>感谢海娃51windows@gmail.com提供源码。";
+todmsg[3]="版权：<br>本站部分内容源自网络。<br>若\"侵权\"，请往<a href='http://www.flashinn.com/ch3 ' target='_blank'>留言薄</a>告知。";
+
+cnt=0;
+todmsg.sort(function(){return Math.random()-Math.random();});
+
+function dspltip(){
+  mtxt.innerHTML=todmsg[0];
+  cntr.innerHTML="1/"+todmsg.length;
+}
+
+function ntip(){
+  cnt= (cnt<todmsg.length-1) ? cnt+1 : 0;
+  mtxt.innerHTML=todmsg[cnt];
+  cntr.innerHTML=(cnt+1)+"/"+todmsg.length;
+}
+
+function endf(){
+  window.returnValue = dspl1.checked ? 0 : 1;
+  window.close();
+}
+</script>
+</head>
+
+<body onload="dspltip()">
+<div style="position:absolute;left:0;top:0;background:#808080;text-align:center;width:58px;height:200px">
+  <img src="images/totd.gif" width="23" height="31" border="0" style="position:relative;top:18px"><br>
+  <span id="cntr" style="position:relative;top:140px;font:bold 10pt Arial;color:#FFFFF0"></span>
+</div>
+
+<div style="position:absolute;left:58px;top:0;width:330px;height:200px;background:#fff;border:solid 1px #808080">
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <font face="Times New Roman" size="+1"><b>关于…</b></font>
+  <hr size="1" style="position:relative;top:10px">
+  <span id="mtxt" style="position:relative;top:5px;padding:15px 10px 10px 10px;display:block;height:138px;overflow:auto;font:10pt Arial;"></span>
+</div>
+
+<div style="position:absolute;left:10px;top:205px;width:370px">
+  <input id="dspl1" type="checkbox" checked onclick="this.checked=true">
+  <span>运行时显示</span>
+  <input type="button" value="下一条" style="width:70px;position:relative;left:125px;background:#BFBFBF;color:#000;font:9pt 宋体;border:1px outset #fff" onclick="ntip()">
+  <input type="button" value="关 闭" style="width:70px;position:relative;left:135px;background:#BFBFBF;color:#000;font:9pt 宋体;border:1px outset #fff" onclick="endf()">
+</div>
+</body>
+</html>

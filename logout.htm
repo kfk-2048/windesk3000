@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>关闭Windesk 3000</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.sm9pt {  font-size: 9pt}
+.td1 {  background-color: #82AEF2; font-size: 9pt; cursor: pointer}
+.td2 { background-color: #ADCBF7; font-size: 9pt; cursor: pointer}
+</style>
+</head>
+<script>
+var pwin = window.opener;
+if (pwin) {
+    var flayer = pwin.document.getElementById("flayer");
+    if (flayer) {
+        flayer.className = "flt";
+        flayer.style.display = "";
+        flayer.style.visibility = "visible";
+    }
+}
+
+function fadescr(){
+    if (pwin && pwin.document.getElementById("flayer").style.opacity < 0.8) {
+        var currentOpacity = parseFloat(pwin.document.getElementById("flayer").style.opacity) || 0;
+        pwin.document.getElementById("flayer").style.opacity = currentOpacity + 0.1;
+        tflag = setTimeout(fadescr, 200);
+    }
+}
+
+function doclose(){
+    clearTimeout(tflag);
+    if (pwin) {
+        pwin.document.getElementById("flayer").className = "";
+        pwin.document.getElementById("flayer").style.display = "none";
+    }
+    window.close();
+}
+
+function setReturnValue(val) {
+    if (window.opener) {
+        window.opener.returnValue = val;
+    }
+    window.close();
+}
+</script>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" scroll="no" onLoad="fadescr()" onUnload="doclose()">
+<table width="340" border="0" cellspacing="0" cellpadding="0" height="113">
+  <tr bgcolor="#ADCFF7"> 
+    <td bgcolor="#D2E4FB"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" height="64">
+        <tr bgcolor="#ADCFF7"> 
+          <td height="59" onMouseOver="this.className='td1'" onMouseOut="this.className='td2'" onClick="setReturnValue('logout')" class="td2"> 
+            <div align="center"><img src="images/menuicon_r3_c11.gif" width="32" height="32"></div>
+            <div align="center">注销</div>
+          </td>
+          <td height="59" onMouseOver="this.className='td1'" onMouseOut="this.className='td2'" onClick="setReturnValue('close')" class="td2"> 
+            <div align="center"><img src="images/menuicon_r2_c6.gif" width="32" height="32"></div>
+            <div align="center">关闭</div>
+          </td>
+          <td height="59" onMouseOver="this.className='td1'" onMouseOut="this.className='td2'" onClick="doclose();" class="td2"> 
+            <div align="center"><img src="images/menuicon_r1_c3.gif" width="32" height="32"></div>
+            <div align="center">取消</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr bgcolor="#213C84"> 
+    <td height="14" bgcolor="#6B8ABD"></td>
+  </tr>
+</table>
+</body>
+</html>

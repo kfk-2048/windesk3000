@@ -1,0 +1,195 @@
+<html>
+<head>
+<title>Windesk 3000</title>
+<script>var loadingf=2000;var sload="桌面样式";</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="js/deskthm1.css" type="text/css">
+<script>loadingf+=4000;sload="桌面脚本";</script>
+<script type="text/javascript" src="js/windesk.js"></script>
+<script>loadingf+=5000;sload="桌面图标";</script>
+</head>
+<body name="windesk_main" bgcolor="#3A6EA5" text="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" scroll="no" onLoad="showTime()" onselectstart="return false" onClick="bodyclick(event)" oncontextmenu="displayMenu(event);return false">
+<div id="bglayer" style="position:absolute; width:100%; height:100%; z-index:-100; left: 0; top: 0; background-color: #3A6EA5;"><img id="bgimg" src="images/spacer.gif" width="100%" height="100%"></div>
+<div id="flayer" style="position:absolute;width:100%;height:100%;z-index:1000;left:0;right:0;background-color:#666666;display:none; visibility: hidden; opacity: 0;"></div>
+
+<!-- Desktop icons -->
+<div id="floater0" style="position:absolute; left:25px; top:10px; width:54px; height:46px; z-index:0" onClick="iconClick(this, event)"> 
+  <table width="52" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="center"><img src="images/xpicon_r3_c1.gif" width="32" height="32" onDblClick="openmypc();"></td>
+    </tr>
+    <tr> 
+      <td align="center"><a href="file:///::{20D04FE0-3AEA-1069-A2D8-08002B30309D}" target="_blank" class="icontext">我的电脑</a></td>
+    </tr>
+  </table>
+</div>
+<div id="floater1" style="position:absolute; left:25px; top:70px; width:54px; height:46px; z-index:0" onClick="iconClick(this, event)"> 
+  <table width="52" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="center"><img src="images/xpicon_r1_c1.gif" width="32" height="32" onDblClick="openmydoc();"></td>
+    </tr>
+    <tr> 
+      <td align="center"><a href="file:///::{450D8FBA-AD25-11D0-98A8-0800361B1103}" target="_blank" class="icontext">我的文档</a></td>
+    </tr>
+  </table>
+</div>
+<div id="floater2" style="position:absolute; left:25px; top:130px; width:54px; height:46px; z-index:0" onClick="iconClick(this, event)"> 
+  <table width="52" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="center"><img src="images/xpicon_r5_c1.gif" width="32" height="32" border="0" onDblClick="opennet();"></td>
+    </tr>
+    <tr> 
+      <td align="center"><a href="file:///::{208D2C60-3AEA-1069-A2D7-08002B30309D}" target="_blank" class="icontext">网上邻居</a></td>
+    </tr>
+  </table>
+</div>
+<div id="floater3" style="position:absolute; left:25px; top:190px; width:54px; height:46px; z-index:0" onClick="iconClick(this, event)"> 
+  <table width="52" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="center"><img src="images/xpicon_r7_c2.gif" width="32" height="32" onDblClick="openrecycle();"></td>
+    </tr>
+    <tr> 
+      <td align="center"><a href="file:///::{645FF040-5081-101B-9F08-00AA002F954E}" target="_blank" class="icontext">回收站</a></td>
+    </tr>
+  </table>
+</div>
+<div id="floater4" style="position:absolute; left:25px; top:250px; width:54px; height:46px; z-index:0" onClick="iconClick(this, event)" onDblClick="openie()"> 
+  <table width="52" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="center"><img src="images/xpicon_r9_c3.gif" width="32" height="32"></td>
+    </tr>
+    <tr> 
+      <td align="center"><a href="###" onClick="return false;" class="icontext">Internet Explorer</a></td>
+    </tr>
+  </table>
+</div>
+
+<script>loadingf+=3000;sload="开始菜单";</script>
+<div id="maindesk" style="height:calc(100vh - 28px)"></div>
+
+<!-- Taskbar -->
+<div id="startmenu" style="position:fixed;width:100%;height:28px;bottom:0; z-index: 100"> 
+  <table border="0" cellspacing="2" cellpadding="0" height="28" bgcolor="#D4D0C8" class="toolbar" width="100%">
+    <tr> 
+      <td width="44" height="23" class="start" id="Istart"> 
+        <div id="menul" style="position:absolute; width:100px; height:250px; z-index:98; bottom: 28px; left: 0px; display:none; opacity:0;"> 
+          <table width="100" border="0" cellspacing="0" cellpadding="0" class="smenu" bgcolor="#D4D0C8">
+            <tr> 
+              <td rowspan="13" width="21"><img src="images/menutitle.gif" width="21" height="249"></td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'" onClick="openmypc();"><img src="images/menuicon_r9_c20.gif" width="26" height="26" align="absmiddle">　程序(P)</td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'" onClick="openmydoc();"><img src="images/menuicon_r7_c13.gif" width="26" height="26" align="absmiddle">　文档(D)</td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'" onClick="openInnerWin('condisplay.htm', 420, 445, 600, 200, '显示属性', 0,'display');"><img src="images/menuicon_r10_c18.gif" width="26" height="26" align="absmiddle">　设置(S)</td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'"><img src="images/menuicon_r10_c16.gif" width="26" height="26" align="absmiddle">　搜索(C)</td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'" onClick="totdinit();"><img src="images/menuicon_r8_c1.gif" width="26" height="26" align="absmiddle">　帮助(H)</td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'" onClick="document.getElementById('WebBrowser').ExecWB(1,1);"><img src="images/menuicon_r8_c4.gif" width="26" height="26" align="absmiddle">　运行(R)...</td>
+            </tr>
+            <tr> 
+              <td width="100" height="6"><img src="images/spline.gif" width="158" height="2"></td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'" onClick="startlogout();"><img src="images/menuicon_r7_c7.gif" width="26" height="26" align="absmiddle">　注销(L)...</td>
+            </tr>
+            <tr> 
+              <td width="100" height="30" class="smenuitem" onMouseOver="this.className='itemhover'" onMouseOut="this.className='smenuitem'" onClick="startlogout();"><img src="images/menuicon_r7_c9.gif" width="26" height="26" align="absmiddle">　关闭(U)...</td>
+            </tr>
+          </table>
+        </div>
+        <img src="images/start.gif" width="44" height="19" alt="单击从这里开始" onClick="startClick()">
+      </td>
+      <td width="3" height="23"><img src="images/spacer.gif" width="1" height="1"></td>
+      <td width="1" height="23" class="seperate"><img src="images/spacer.gif" width="1" height="1"></td>
+      <td width="75" height="23"> 
+        <table width="70" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td align="center"><img src="images/iesmall.gif" width="18" height="18" class="menuno" onMouseOver="this.className='menuhover'" onMouseOut="this.className='menuno'" alt="启动Internet Explorer 浏览器" onClick="openie()"></td>
+            <td align="center"><img src="images/refresh.gif" width="18" height="18" class="menuno" onMouseOver="this.className='menuhover'" onMouseOut="this.className='menuno'" alt="显示桌面" onClick="clickMenu()" id="reicon"></td>
+            <td align="center"><img src="images/outlookm.gif" width="18" height="18" class="menuno" onMouseOver="this.className='menuhover'" onMouseOut="this.className='menuno'" alt="电子邮件Outlook Express" border="0" onClick="email()"></td>
+          </tr>
+        </table>
+      </td>
+      <td width="1" height="23" class="seperate"><img src="images/spacer.gif" width="1" height="1"></td>
+      <td> 
+        <table border="0" cellspacing="0" cellpadding="0" width="350">
+          <tr> 
+            <td> 
+              <div class="taskbtn" width="150" onMouseDown="this.className='taskbtndown'" onMouseUp="this.className='taskbtn'" onClick="opennet(); "> 
+                <img src="images/smbit_r1_c13.gif" width="18" height="18" align="absmiddle">
+                网上邻居</div>
+            </td>
+            <td> 
+              <div class="taskbtn" width="150" onMouseDown="this.className='taskbtndown'" onMouseUp="this.className='taskbtn'" onClick="window.open('https://mp.weixin.qq.com/s/q_56_8jM_0otXNccXKd_1Q','_blank','width=800,height=612,left=300,top=100')"> 
+                <img src="images/menuicon_r2_c6.gif" width="18" height="18" align="absmiddle"> 记事本</div>
+            </td>
+            <td> 
+              <div class="taskbtn" width="150" onMouseDown="this.className='taskbtndown'" onMouseUp="this.className='taskbtn'" onClick="window.open('/3/index.html','_blank','width=800,height=612,left=320,top=120')"><img src="images/xpticons_r2_c5.gif" width="18" height="18" align="absmiddle"> FlashPlayer</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td width="1" height="23" class="seperate"><img src="images/spacer.gif" width="1" height="1"></td>
+      <td width="120" height="23" class="startdown"> 
+        <table width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr> 
+            <td><img src="images/shuru.gif" width="18" height="18" alt="中文" onClick="alert('繁中\n體文');"><img src="images/sysicon_r1_c1.gif" width="18" height="20" alt="本地连接" onClick="shake_xy(2)"><img src="http://wpa.qq.com/pa?p=4:10066601:4"width="23" height="16" onDblClick="openInnerWin('qq/menu.htm',142,420,1024,10,'QQ 10066601',0,'qq')"><img src="images/sysicon_r1_c4.gif" width="18" height="20" alt="音量" onDblClick="openInnerWin('qq/yy.htm',324,178,1000,500,'Music',0,'music')">
+              </td>
+            <td> 
+              <div id="timediv" class="systime" onDblClick="openInnerWin('time.htm',395,280,800,200,'日期和时间',0,'time')">
+                3:33</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<script>loadingf+=7000;sload="右键菜单";</script>
+<!-- Context menus -->
+<div id="cmenustart" onClick="clickMenu()" onMouseOver="switchMenu()" onMouseOut="switchMenu()" style="position:absolute;display:none;height:144px;width:132px; z-index: 100" class="contextmenu"> 
+  <div class="menuItem" id="mnuRed">工具栏(T)</div>
+  <div class="menuseprate"><img width="100%" height="2" src="images/spline.gif"></div>
+  <div class="menuItem" id="td">日期/时间(A)</div>
+  <div class="menuItem" id="mnuHelp">帮助(H)</div>
+  <div class="menuItem" id="condisplay">显示桌面(S)</div>
+  <div class="menuseprate"><img width="100%" height="2" src="images/spline.gif"></div>
+  <div class="menuItem" id="mnuAtr">任务管理器(K)</div>
+  <div class="menuseprate"><img width="100%" height="2" src="images/spline.gif"></div>
+  <div class="menuItem" id="mnuAtr">属性(R)</div>
+</div>
+<div id="cmenudesk" onClick="clickMenu()" onMouseOver="switchMenu()" onMouseOut="switchMenu()" style="position:absolute;display:none; height:142px; width:132px; z-index: 100" class="contextmenu"> 
+  <div class="menuItem" id="reicon">排列图标(I)</div>
+  <div class="menuItem" id="winrefresh">刷新(F)</div>
+  <div class="menuseprate"><img width="100%" height="2" src="images/spline.gif"></div>
+  <div class="menuItem" id="mnuPaste">粘贴(P)</div>
+  <div class="menuItem" id="mnuCopy">复制(C)</div>
+  <div class="menuseprate"><img width="100%" height="2" src="images/spline.gif"></div>
+  <div class="menuItem" id="mnuHelp">帮助(H)</div>
+  <div class="menuItem" id="condisplay">属性(R)</div>
+</div>
+<div id="cmenusys" onClick="clickMenu()" onMouseOver="switchMenu()" onMouseOut="switchMenu()" style="position:absolute;display:none; height:140px; width:132px; z-index: 100" class="contextmenu"> 
+  <div class="menuItem" id="mnuRed">还原(R)</div>
+  <div class="menuItem" id="mnuGreen">移动(M)</div>
+  <div class="menuItem" id="mnuPaste">大小(S)</div>
+  <div class="menuItem" id="mnuCopy">最大化(X)</div>
+  <div class="menuseprate"><img width="100%" height="2" src="images/spline.gif"></div>
+  <div class="menuItem" id="mnuHelp">帮助(H)</div>
+  <div class="menuItem" id="mnuAtr">关闭(C)</div>
+</div>
+
+<script>loadingf+=2000;sload="剩余图片";</script>
+
+<script src="js/innerwin.js"></script>
+</body>
+</html>
